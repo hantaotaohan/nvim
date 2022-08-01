@@ -6,6 +6,7 @@ end
 
 local M = {}
 
+------------------------------------General------------------------------------
 M.general = {
   i = {
 
@@ -31,18 +32,16 @@ M.general = {
     ["<C-k>"] = { "<C-w>k", " window up" },
 
     -- save
-    ["<C-s>"] = { "<cmd> w <CR>", "﬚  save file" },
+    ["<LocalLeader>w"] = { "<cmd> w <CR>", "﬚  save file" },
 
     -- Copy all
     ["<C-c>"] = { "<cmd> %y+ <CR>", "  copy whole file" },
 
     -- line numbers
-    ["<leader>n"] = { "<cmd> set nu! <CR>", "   toggle line number" },
-    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "   toggle relative number" },
+    ["<Leader>n"] = { "<cmd> set nu! <CR>", "   toggle line number" },
+    ["<Leader>rn"] = { "<cmd> set rnu! <CR>", "   toggle relative number" },
 
-    -- update nvchad
-    ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "  update nvchad" },
-
+    -- toggle themes
     ["<leader>tt"] = {
       function()
         require("base46").toggle_theme()
@@ -63,6 +62,11 @@ M.general = {
 
   t = {
     ["<C-x>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
+    -- switch between windows
+    ["<C-h>"] = { "<C-\\><C-N><C-w>h", " window left" },
+    ["<C-l>"] = { "<C-\\><C-N><C-w>l", " window right" },
+    ["<C-j>"] = { "<C-\\><C-N><C-w>j", " window down" },
+    ["<C-k>"] = { "<C-\\><C-N><C-w>k", " window up" },
   },
 
   v = {
@@ -76,22 +80,23 @@ M.general = {
   },
 }
 
+------------------------------------Tabufline------------------------------------
 M.tabufline = {
 
   n = {
     -- new buffer
-    ["<S-b>"] = { "<cmd> enew <CR>", "烙 new buffer" },
+    ["<Leader>bn"] = { "<cmd> enew <CR>", "烙 new buffer" },
 
     -- cycle through buffers
-    ["<TAB>"] = { "<cmd> Tbufnext <CR>", "  goto next buffer" },
-    ["<S-Tab>"] = { "<cmd> Tbufprev <CR> ", "  goto prev buffer" },
+    ["<LocalLeader><TAB>"] = { "<cmd> Tbufnext <CR>", "  goto next buffer" },
+    ["<LocalLeader><S-Tab>"] = { "<cmd> Tbufprev <CR> ", "  goto prev buffer" },
 
     -- cycle through tabs
-    ["<leader>tp"] = { "<cmd> tabprevious <CR>", "  goto next tab" },
-    ["<leader>tn"] = { "<cmd> tabnext <CR> ", "  goto prev tab" },
+    ["<Leader><TAB>"] = { "<cmd> tabprevious <CR>", "  goto next tab" },
+    ["<Leader><S-Tab>"] = { "<cmd> tabnext <CR> ", "  goto prev tab" },
 
     -- close buffer + hide terminal buffer
-    ["<leader>x"] = {
+    ["<LocalLeader>q"] = {
       function()
         require("core.utils").close_buffer()
       end,
@@ -100,11 +105,12 @@ M.tabufline = {
   },
 }
 
+------------------------------------Comment------------------------------------
 M.comment = {
 
   -- toggle comment in both modes
   n = {
-    ["<leader>/"] = {
+    ["gcc"] = {
       function()
         require("Comment.api").toggle_current_linewise()
       end,
@@ -114,149 +120,23 @@ M.comment = {
   },
 
   v = {
-    ["<leader>/"] = {
+    ["gc"] = {
       "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
       "蘒  toggle comment",
     },
   },
 }
 
-M.lspconfig = {
-  -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
-
-  n = {
-    ["gD"] = {
-      function()
-        vim.lsp.buf.declaration()
-      end,
-      "   lsp declaration",
-    },
-
-    ["gd"] = {
-      function()
-        vim.lsp.buf.definition()
-      end,
-      "   lsp definition",
-    },
-
-    ["K"] = {
-      function()
-        vim.lsp.buf.hover()
-      end,
-      "   lsp hover",
-    },
-
-    ["gi"] = {
-      function()
-        vim.lsp.buf.implementation()
-      end,
-      "   lsp implementation",
-    },
-
-    ["<leader>ls"] = {
-      function()
-        vim.lsp.buf.signature_help()
-      end,
-      "   lsp signature_help",
-    },
-
-    ["<leader>D"] = {
-      function()
-        vim.lsp.buf.type_definition()
-      end,
-      "   lsp definition type",
-    },
-
-    ["<leader>ra"] = {
-      function()
-        require("nvchad_ui.renamer").open()
-      end,
-      "   lsp rename",
-    },
-
-    ["<leader>ca"] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      "   lsp code_action",
-    },
-
-    ["gr"] = {
-      function()
-        vim.lsp.buf.references()
-      end,
-      "   lsp references",
-    },
-
-    ["<leader>f"] = {
-      function()
-        vim.diagnostic.open_float()
-      end,
-      "   floating diagnostic",
-    },
-
-    ["[d"] = {
-      function()
-        vim.diagnostic.goto_prev()
-      end,
-      "   goto prev",
-    },
-
-    ["d]"] = {
-      function()
-        vim.diagnostic.goto_next()
-      end,
-      "   goto_next",
-    },
-
-    ["<leader>q"] = {
-      function()
-        vim.diagnostic.setloclist()
-      end,
-      "   diagnostic setloclist",
-    },
-
-    ["<leader>fm"] = {
-      function()
-        vim.lsp.buf.formatting()
-      end,
-      "   lsp formatting",
-    },
-
-    ["<leader>wa"] = {
-      function()
-        vim.lsp.buf.add_workspace_folder()
-      end,
-      "   add workspace folder",
-    },
-
-    ["<leader>wr"] = {
-      function()
-        vim.lsp.buf.remove_workspace_folder()
-      end,
-      "   remove workspace folder",
-    },
-
-    ["<leader>wl"] = {
-      function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-      end,
-      "   list workspace folders",
-    },
-  },
-}
-
+------------------------------------Nvimtree------------------------------------
 M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
-
-    -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "   focus nvimtree" },
+    ["<LocalLeader>e"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
   },
 }
 
+------------------------------------Telescope------------------------------------
 M.telescope = {
   n = {
     -- find
@@ -280,24 +160,25 @@ M.telescope = {
   },
 }
 
+------------------------------------Nvterm------------------------------------
 M.nvterm = {
   t = {
     -- toggle in terminal mode
-    ["<A-i>"] = {
+    ["<LocalLeader>i"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
       "   toggle floating term",
     },
 
-    ["<A-h>"] = {
+    ["<LocalLeader>c"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "   toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<LocalLeader>v"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
@@ -307,21 +188,21 @@ M.nvterm = {
 
   n = {
     -- toggle in normal mode
-    ["<A-i>"] = {
+    ["<LocalLeader>i"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
       "   toggle floating term",
     },
 
-    ["<A-h>"] = {
+    ["<LocalLeader>c"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "   toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<LocalLeader>v"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
@@ -342,44 +223,6 @@ M.nvterm = {
         require("nvterm.terminal").new "vertical"
       end,
       "   new vertical term",
-    },
-  },
-}
-
-M.whichkey = {
-  n = {
-    ["<leader>wK"] = {
-      function()
-        vim.cmd "WhichKey"
-      end,
-      "   which-key all keymaps",
-    },
-    ["<leader>wk"] = {
-      function()
-        local input = vim.fn.input "WhichKey: "
-        vim.cmd("WhichKey " .. input)
-      end,
-      "   which-key query lookup",
-    },
-  },
-}
-
-M.blankline = {
-  n = {
-    ["<leader>bc"] = {
-      function()
-        local ok, start = require("indent_blankline.utils").get_current_context(
-          vim.g.indent_blankline_context_patterns,
-          vim.g.indent_blankline_use_treesitter_scope
-        )
-
-        if ok then
-          vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
-          vim.cmd [[normal! _]]
-        end
-      end,
-
-      "  Jump to current_context",
     },
   },
 }

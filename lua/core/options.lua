@@ -1,14 +1,8 @@
 local opt                          = vim.opt                                -- 设置功能,等同于vim里的set
 local g                            = vim.g                                  -- 设置全局变量
-local config                       = require("core.utils").load_config()    -- 读取core文件夹内的utils.lua
 
 g.mapleader                        = "\\"
 g.maplocalleader                   = ";"
-
-g.nvchad_theme                     = config.ui.theme
-g.transparency                     = config.ui.transparency
-g.toggle_theme_icon                = "   "                                 -- 切换主题图标
-g.theme_switcher_loaded            = false
 
 opt.laststatus                     = 2                                      -- 启用Status状态栏
 opt.showmode                       = false                                  -- 不显示内置的状态指示器
