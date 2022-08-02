@@ -1,94 +1,109 @@
-local opt                          = vim.opt                                -- 设置功能,等同于vim里的set
-local g                            = vim.g                                  -- 设置全局变量
+local opt = vim.opt
+local g = vim.g
+local config = require("core.utils").load_config()
 
-g.mapleader                        = "\\"
-g.maplocalleader                   = ";"
+g.vim_version = vim.version().minor
+g.nvchad_theme = config.ui.theme
+g.toggle_theme_icon = "   "
+g.transparency = config.ui.transparency
+g.theme_switcher_loaded = false
 
-opt.laststatus                     = 2                                      -- 启用Status状态栏
-opt.showmode                       = false                                  -- 不显示内置的状态指示器
+-- use filetype.lua instead of filetype.vim. it's enabled by default in neovim 0.8 (nightly)
+if g.vim_version < 8 then
+  g.did_load_filetypes = 0
+  g.do_filetype_lua = 1
+end
 
-opt.title                          = true                                   -- 启用标题
-opt.cursorline                     = true                                   -- 高亮光标所在行
-opt.clipboard                      = "unnamedplus"                          -- 增强剪贴板
+opt.laststatus = 3 -- global statusline
+opt.showmode = false
+
+opt.title = true
+opt.clipboard = "unnamedplus"
+opt.cul = true -- cursor line
 
 -- Indenting
-opt.shiftwidth                     = 4                                      -- 换行时自动缩进宽度
-opt.tabstop                        = 4                                      -- 设置Tab键的宽度
-opt.softtabstop                    = 2                                      -- 自动与shiftwidth保持同步
-opt.expandtab                      = true                                   -- 将制表符替换为空格
-opt.smartindent                    = true                                   -- 启用智能对齐
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.smartindent = true
+opt.tabstop = 2
+opt.softtabstop = 2
 
-opt.hidden                         = true
-opt.fileformats                    = "unix,mac,dos"
-opt.fillchars                      = { eob = " " }
-opt.ignorecase                     = true                                   -- 搜索模式里忽略大小写
-opt.smartcase                      = true                                   -- 如果搜索模式包含大写字符，不使用忽略大小写选项
-opt.mouse                          = "a"                                    -- 开启鼠标功能
+opt.fillchars = { eob = " " }
+opt.ignorecase = true
+opt.smartcase = true
+opt.mouse = "a"
 
 -- Numbers
-opt.number                         = true                                   -- 开启数字边栏           
-opt.numberwidth                    = 2                                      -- 数字边栏宽度
-opt.ruler                          = true                                   -- 屏幕右下角显示当前光标所处位置
+opt.number = true
+opt.numberwidth = 2
+opt.ruler = false
 
-opt.shortmess                      = "aoOTIcF"                              -- 启动nvim时不显示无用消息
+-- disable nvim intro
+opt.shortmess:append "sI"
 
-opt.signcolumn                     = "yes"                                  -- 显示标志列,如Git_Status和BookMark标志等
-opt.splitbelow                     = true
-opt.splitright                     = true
-opt.termguicolors                  = true                                   -- 使终端支持256色
+opt.signcolumn = "yes"
+opt.splitbelow = true
+opt.splitright = true
+opt.termguicolors = true
+opt.timeoutlen = 400
+opt.undofile = true
 
-opt.timeout                        = true
-opt.ttimeout                       = true
-opt.timeoutlen                     = 400                                    -- 映射超时
-opt.ttimeoutlen                    = 10                                     -- 按键密码超时
-opt.redrawtime                     = 2000                                   -- 停止显示重绘的时间（以毫秒为单位）
-opt.updatetime                     = 200
+-- interval for writing swap file to disk, also used by gitsigns
+opt.updatetime = 250
 
-opt.undofile                       = true
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+opt.whichwrap:append "<>[]hl"
+
+g.mapleader = " "
 
 -- disable some builtin vim plugins
-local disable_distribution_plugins = function()
-	g.load_filetypes           = 1
-	g.load_fzf                 = 1
-	g.load_gtags               = 1
-	g.load_gzip                = 1
-	g.load_tar                 = 1
-	g.load_tarPlugin           = 1
-	g.load_zip                 = 1
-	g.load_zipPlugin           = 1
-	g.load_getscript           = 1
-	g.load_getscriptPlugin     = 1
-	g.load_vimball             = 1
-	g.load_vimballPlugin       = 1
-	g.load_matchit             = 1
-	g.load_matchparen          = 1
-	g.load_2html_plugin        = 1
-	g.load_logiPat             = 1
-	g.load_rrhelper            = 1
-	g.load_netrw               = 1
-	g.load_netrwPlugin         = 1
-	g.load_netrwSettings       = 1
-	g.load_netrwFileHandlers   = 1
-    g.load_tutor               = 1
-    g.load_rplugin             = 1
-    g.load_syntax              = 1
-    g.load_synmenu             = 1
-    g.load_optwin              = 1
-    g.load_compiler            = 1
-    g.load_bugreport           = 1
-    g.load_ftplugin            = 1
+local default_plugins = {
+  "2html_plugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "matchit",
+  "tar",
+  "tarPlugin",
+  "rrhelper",
+  "spellfile_plugin",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
+  "tutor",
+  "rplugin",
+  "syntax",
+  "synmenu",
+  "optwin",
+  "compiler",
+  "bugreport",
+  "ftplugin",
+}
+
+for _, plugin in pairs(default_plugins) do
+  g["loaded_" .. plugin] = 1
 end
 
-local disable_default_providers = function()
-    g.loaded_node_provider = 0
-    g.loaded_perl_provider = 0
-    g.loaded_python3_provider = 0
-    g.loaded_ruby_provider = 0
+local default_providers = {
+  "node",
+  "perl",
+  "python3",
+  "ruby",
+}
+
+for _, provider in ipairs(default_providers) do
+  vim.g["loaded_" .. provider .. "_provider"] = 0
 end
 
-local load_core = function()
-	disable_distribution_plugins()
-    disable_default_providers()
-end
-
-load_core()
+-- set shada path
+vim.schedule(function()
+  vim.opt.shadafile = vim.fn.stdpath(g.vim_version > 7 and "state" or "data") .. "/shada/main.shada"
+  vim.cmd [[ silent! rsh ]]
+end)

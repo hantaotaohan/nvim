@@ -1,5 +1,12 @@
-require "core.options"                       -- 加载 /lua/core/options.lua 模块
+require "core"
+require "core.options"
 
-require "plugins"                            -- 加载 /lua/plugins/ 内的所有模块
-require "plugins.packer"                            -- 加载 /lua/plugins/ 内的所有模块
+vim.defer_fn(function()
+  require("core.utils").load_mappings()
+end, 0)
 
+-- setup packer + plugins
+require("core.packer").bootstrap()
+require "plugins"
+
+pcall(require, "custom")
