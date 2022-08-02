@@ -8,7 +8,7 @@ M.bootstrap = function()
 
   if fn.empty(fn.glob(install_path)) > 0 then
     print "Cloning packer .."
-    fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
+    fn.system { "git", "clone", "--depth", "1", "https://hub.fastgit.xyz/wbthomason/packer.nvim", install_path }
 
     -- install plugins + compile their configs
     vim.cmd "packadd packer.nvim"
@@ -20,7 +20,10 @@ end
 M.options = {
   auto_clean = true,
   compile_on_sync = true,
-  git = { clone_timeout = 6000 },
+  git = { 
+      clone_timeout = 6000,
+      default_url_format = 'https://hub.fastgit.xyz/%s'
+  },
   display = {
     working_sym = "ﲊ",
     error_sym = "✗ ",
