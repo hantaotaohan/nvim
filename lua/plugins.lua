@@ -1,20 +1,11 @@
 local fn = vim.fn
-
--- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e222a" })
 
 if fn.empty(fn.glob(install_path)) > 0 then
     print "Cloning packer .."
-    PACKER_BOOTSTRAP = fn.system {
-        "git",
-        "clone",
-        "--depth",
-        "1",
-        "https://hub.fastgit.xyz/wbthomason/packer.nvim",
-        install_path,
-    }
+    PACKER_BOOTSTRAP = fn.system { "git", "clone", "--depth", "1", "https://hub.fastgit.xyz/wbthomason/packer.nvim", install_path }
     vim.cmd [[packadd packer.nvim]]
 end
 
@@ -37,12 +28,20 @@ end
 
 -- Have packer use a popup window
 packer.init {
+    auto_clean = true,
+    compile_on_sync = true,
     git = {
+        clone_timeout = 60,
         default_url_format = 'https://hub.fastgit.xyz/%s'
     },
     display = {
+        working_sym = "ﲊ",
+        error_sym = "✗ ",
+        done_sym = " ",
+        removed_sym = " ",
+        moved_sym = "",
         open_fn = function()
-            return require("packer.util").float { border = "rounded" }
+            return require("packer.util").float { border = "single" }
         end,
     },
 }
@@ -93,7 +92,7 @@ return packer.startup(function(use)
     use 'nvim-lualine/lualine.nvim'
 
     --Dashboard
-    use { "goolord/alpha-nvim", after = "base46", disable = true }
+    use { "goolord/alpha-nvim", after = "colorscheme", disable = false }
 
     --------------------------------------
     -- File Navigation and Fuzzy Search --
