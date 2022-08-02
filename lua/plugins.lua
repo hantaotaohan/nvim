@@ -2,7 +2,11 @@ local fn = vim.fn
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e222a" })
+
 if fn.empty(fn.glob(install_path)) > 0 then
+    print "Cloning packer .."
     PACKER_BOOTSTRAP = fn.system {
         "git",
         "clone",
@@ -11,17 +15,16 @@ if fn.empty(fn.glob(install_path)) > 0 then
         "https://hub.fastgit.xyz/wbthomason/packer.nvim",
         install_path,
     }
-    print "Installing packer close and reopen Neovim..."
     vim.cmd [[packadd packer.nvim]]
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-augroup packer_user_config
-autocmd!
-autocmd BufWritePost plugins.lua source <afile> | PackerSync
-augroup end
-]]
+vim.cmd ([[
+    augroup packer_user_config
+        autocmd!
+        autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    augroup end
+]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -29,9 +32,8 @@ if not status_ok then
     return
 end
 
--- Performance
-pcall(require, "impatient") -- Call impatient plugin before all others to improve performance. Keep this line here.
-
+-- -- Performance
+-- pcall(require, "impatient") -- Call impatient plugin before all others to improve performance. Keep this line here.
 
 -- Have packer use a popup window
 packer.init {
@@ -51,186 +53,120 @@ return packer.startup(function(use)
     ---------------------
     -- Package Manager --
     ---------------------
+
     use "wbthomason/packer.nvim"                       -- Packer manage itself
 
     ----------------------
     -- Dependencies --
     ----------------------
-    -- Improve startup time (source: https://alpha2phi.medium.com/neovim-for-beginners-performance-95687714c236)
-    use "lewis6991/impatient.nvim"
-    use "nathom/filetype.nvim"
-    use "nvim-lua/plenary.nvim"
-    use 'kyazdani42/nvim-web-devicons'
-    use "nvim-lua/popup.nvim"
 
+    use { "nvim-lua/plenary.nvim", module = "plenary" }
+    use { 'kyazdani42/nvim-web-devicons', module = "nvim-web-devicons" }
 
     ----------------------
     -- General --
     ----------------------
 
-    -- Key Navigator
-    use "folke/which-key.nvim"
-
-    -- Measure nvim startup time
-    use "dstein64/vim-startuptime"
+    use { "folke/which-key.nvim", module = "which-key" }
 
     -----------------------------------------------
     -- Themes, Icons, Tree, Statusbar, Bufferbar --
     -----------------------------------------------
 
     -- Colorschemes
-    use "RRethy/nvim-base16"
-    use "NTBBloodbath/doom-one.nvim"
-    use "LunarVim/Colorschemes"
+    use { "navarasu/onedark.nvim" ,
+        config = function()
+            local ok, onedark = pcall(require, "onedark")
+
+            if ok then
+                -- onedark.load_theme()
+                require('onedark').load()
+            end
+        end,
+    }
+
 
     -- Buffer (Tab) line
-    use "akinsho/bufferline.nvim"--
-    use "moll/vim-bbye"
+    use "akinsho/bufferline.nvim"
 
     -- Status Line
     use 'nvim-lualine/lualine.nvim'
 
     --Dashboard
-    use "goolord/alpha-nvim"
+    use { "goolord/alpha-nvim", after = "base46", disable = true }
 
     --------------------------------------
     -- File Navigation and Fuzzy Search --
     --------------------------------------
 
     -- Nvim Tree
-    use "kyazdani42/nvim-tree.lua"
+    use { "kyazdani42/nvim-tree.lua", ft = "alpha", cmd = { "NvimTreeToggle", "NvimTreeFocus" } }
 
     -- Telescope
-    use "nvim-telescope/telescope.nvim"
-
-    -- Find projects
-    use "ahmedkhalf/project.nvim"
+    use { "nvim-telescope/telescope.nvim", cmd = "Telescope" }
 
     --------------------------------------
     -- Autocompletion --
     --------------------------------------
-    use "hrsh7th/nvim-cmp"                              -- Completion (cmp) plugin
-    use "hrsh7th/cmp-buffer"                            -- Cmp source for buffer words
-    use "hrsh7th/cmp-path"                              -- Cmp source for path
-    use "hrsh7th/cmp-nvim-lsp"                          -- Cmp source for LSP client
-    use "hrsh7th/cmp-nvim-lua"                          -- Cmp source for nvim lua
-    use "saadparwaiz1/cmp_luasnip"                      -- Luasnip completion source
 
-    -- Snippets
-    use "L3MON4D3/LuaSnip"                              -- Snippet engine
-    use "rafamadriz/friendly-snippets"                  -- a bunch of snippets to use
+    use { "rafamadriz/friendly-snippets", event = "InsertEnter" }
+    use { "hrsh7th/nvim-cmp",  after = "friendly-snippets" }                                             -- Completion (cmp) plugin
+    use { "hrsh7th/cmp-buffer", after = "cmp-nvim-lsp" }                                                 -- Cmp source for buffer words
+    use { "hrsh7th/cmp-path", after = "cmp-buffer" }                                                     -- Cmp source for path
+    use { "hrsh7th/cmp-nvim-lsp", after = "cmp-nvim-lua" }                                               -- Cmp source for LSP client
+    use { "hrsh7th/cmp-nvim-lua", after = "cmp_luasnip" }                                                -- Cmp source for nvim lua
+    use { "saadparwaiz1/cmp_luasnip", after = "LuaSnip" }                                                -- Luasnip completion source
+    use { "L3MON4D3/LuaSnip", wants = "friendly-snippets",  after = "nvim-cmp" }
 
     --------------------------------------
     -- LSP --
     --------------------------------------
-    --  Copilot
-    use "zbirenbaum/copilot.lua"                        -- Github Copilot in lua
 
-    -- LSP
-    use "neovim/nvim-lspconfig"                         -- Enable native LSP
-    use "williamboman/nvim-lsp-installer"               -- Language server installer
-    use "antoinemadec/FixCursorHold.nvim"               -- Fix lsp doc highlight
-    use "tamago324/nlsp-settings.nvim"                  -- Configure LSP settings with json
-
-    -- Java
-    use {"mfussenegger/nvim-jdtls"}
-
-    --  Formatters
-    use "jose-elias-alvarez/null-ls.nvim"               -- Inject LSP diagnostics, code actions, formatters ...
-
-
-    --LSP diagnostics    
-    use {
-        "folke/trouble.nvim",
-        cmd = "TroubleToggle",
-    }
-
+    use { "neovim/nvim-lspconfig", opt = true }                         -- Enable native LSP
 
     --------------------------------------
     -- Features --
     --------------------------------------
 
     --Terminal
-    use "akinsho/toggleterm.nvim" -- Cannot lazyload for some reason.
+    use {"NvChad/nvterm", module = "nvterm" }
 
     --Show colors
-    use {"norcalli/nvim-colorizer.lua", event = "BufRead"}
+    use {"norcalli/nvim-colorizer.lua", opt = true, event = "BufRead"}
 
-    --Replace with sed cmd
-    use {"windwp/nvim-spectre", event="BufRead"}
+    --------------------------------------
+    -- Editing --
+    --------------------------------------
 
-    --Zen Mode
-    use {"folke/zen-mode.nvim", cmd="ZenMode"}
+    --Commenting
+    use {'numToStr/Comment.nvim', module = "Comment", keys = { "gc", "gb" },
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
-    --Class outline
-    use {"simrat39/symbols-outline.nvim", cmd = "SymbolsOutline"}
+    --------------------------------------
+    -- Git --
+    --------------------------------------
+    use {
+        'lewis6991/gitsigns.nvim', ft = "gitcommit", event = "BufRead",
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
 
-    --Testing
-    use { "vim-test/vim-test",
-    cmd = { "TestFile", "TestNearest", "TestSuite", "TestVisit" },
-}
+    -----------------------------------
+    -- Treesitter --
+    -----------------------------------
 
-
---------------------------------------
--- Editing --
---------------------------------------
-
---Commenting
-use {'numToStr/Comment.nvim',
-config = function()
-    require('Comment').setup()
-end
-      }
-
-      --------------------------------------
-      -- File type specific --
-      --------------------------------------
-
-      --Markdown
-      use {'godlygeek/tabular', ft="markdown"}
-      use {'preservim/vim-markdown', ft="markdown"}
-      -- Automatic ordered lists. For reordering messed list, use :RenumberSelection cmd
-      use {'dkarter/bullets.vim', ft="markdown"}
-
-      --Csv
-      use {"mechatroner/rainbow_csv", ft = "csv"}
-
-      --------------------------------------
-      -- Git --
-      --------------------------------------
-      use {
-          'lewis6991/gitsigns.nvim',
-          event = "BufRead",
-          config = function()
-              require('gitsigns').setup()
-          end
-      }
-      use {"f-person/git-blame.nvim", cmd="GitBlameToggle"}
-      use {"https://github.com/rhysd/conflict-marker.vim", event="BufRead"}
+    -- Treesitter 
+    use {"nvim-treesitter/nvim-treesitter", module = "nvim-treesitter", run = ":TSUpdate"}      -- Syntax highlighting
+    use {"windwp/nvim-autopairs", after = "nvim-cmp"}                                           -- Autoclose quotes, parentheses etc.
 
 
-      --------------------------------------
-      -- DAP --
-      --------------------------------------
-      use {"mfussenegger/nvim-dap", event="BufRead"}
-      -- use "theHamsta/nvim-dap-virtual-text"
-      -- use "rcarriga/nvim-dap-ui"
-      use {"Pocco81/DAPInstall.nvim", event = "BufRead"}
-
-
-      -----------------------------------
-      -- Treesitter --
-      -----------------------------------
-
-      -- Treesitter 
-      use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}      -- Syntax highlighting
-      use {"windwp/nvim-ts-autotag"}                                  -- Auto close tags
-      use {"windwp/nvim-autopairs"}                                   -- Autoclose quotes, parentheses etc.
-
-
-      -- Automatically set up your configuration after cloning packer.nvim
-      -- Put this at the end after all plugins
-      if PACKER_BOOTSTRAP then
-          require("packer").sync()
-      end
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if PACKER_BOOTSTRAP then
+        require("packer").sync()
+    end
   end)
