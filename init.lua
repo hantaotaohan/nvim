@@ -6,7 +6,7 @@ require "settings.options"
 require "settings.keymaps"
 
 --Plugins
-require "packer"
+require "plugins.packer"
 
 --Plugin settings
 require "plugins.lsp"

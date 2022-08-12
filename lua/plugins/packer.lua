@@ -5,7 +5,7 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e222a" })
 
 if fn.empty(fn.glob(install_path)) > 0 then
     print "Cloning packer .."
-    PACKER_BOOTSTRAP = fn.system { "git", "clone", "--depth", "1", "https://hub.fastgit.xyz/wbthomason/packer.nvim", install_path }
+    PACKER_BOOTSTRAP = fn.system ({ "git", "clone", "--depth", "1", "https://hub.fastgit.xyz/wbthomason/packer.nvim", install_path })
     vim.cmd [[packadd packer.nvim]]
 end
 
