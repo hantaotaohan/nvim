@@ -6,16 +6,25 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = ";"
 
 -- Better window navigation
-keymap("n", "<leader>w<Left>", "<C-w>h", opts)
-keymap("n", "<leader>w<Up>", "<C-w>j", opts)
-keymap("n", "<leader>w<Down>", "<C-w>k", opts)
-keymap("n", "<leader>w<Right>", "<C-w>l", opts)
-keymap("n", "<leader>ww", "<C-w>w", opts)
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+
+keymap("i", "<C-h>", "<Esc><C-w>h", opts)
+keymap("i", "<C-j>", "<Esc><C-w>j", opts)
+keymap("i", "<C-k>", "<Esc><C-w>k", opts)
+keymap("i", "<C-l>", "<Esc><C-w>l", opts)
+
+keymap("v", "<C-h>", "<Esc><C-w>h", opts)
+keymap("v", "<C-j>", "<Esc><C-w>j", opts)
+keymap("v", "<C-k>", "<Esc><C-w>k", opts)
+keymap("v", "<C-l>", "<Esc><C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -24,27 +33,42 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<TAB>", ":bnext<CR>", opts)
+keymap("n", "<LocalLeader><Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
+keymap("n", "<LocalLeader><S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+keymap("n", "<LocalLeader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", opts)
+keymap("n", "<LocalLeader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", opts)
+keymap("n", "<LocalLeader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", opts)
+keymap("n", "<LocalLeader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", opts)
+keymap("n", "<LocalLeader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", opts)
+keymap("n", "<LocalLeader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", opts)
+keymap("n", "<LocalLeader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", opts)
+keymap("n", "<LocalLeader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", opts)
+keymap("n", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", opts)
 
--- Visual --
+keymap("i", "<LocalLeader><Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
+keymap("i", "<LocalLeader><S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+keymap("i", "<LocalLeader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", opts)
+keymap("i", "<LocalLeader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", opts)
+keymap("i", "<LocalLeader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", opts)
+keymap("i", "<LocalLeader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", opts)
+keymap("i", "<LocalLeader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", opts)
+keymap("i", "<LocalLeader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", opts)
+keymap("i", "<LocalLeader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", opts)
+keymap("i", "<LocalLeader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", opts)
+keymap("i", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", opts)
+
+keymap("v", "<LocalLeader><Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
+keymap("v", "<LocalLeader><S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+keymap("v", "<LocalLeader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", opts)
+keymap("v", "<LocalLeader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", opts)
+keymap("v", "<LocalLeader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", opts)
+keymap("v", "<LocalLeader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", opts)
+keymap("v", "<LocalLeader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", opts)
+keymap("v", "<LocalLeader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", opts)
+keymap("v", "<LocalLeader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", opts)
+keymap("v", "<LocalLeader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", opts)
+keymap("v", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", opts)
+
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-
--- Custom
--- keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
-keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
-
---Search for visually selected word
-keymap("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], opts)
-
---ZenMode
-keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
-
--- Open file under cursor with system app
-keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cWORD>'), 1)<CR>]], opts)
