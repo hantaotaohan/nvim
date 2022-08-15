@@ -90,3 +90,8 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR>", opts)
 keymap("i", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
 keymap("v", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
+
+
+
+keymap('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+keymap('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>',opts)

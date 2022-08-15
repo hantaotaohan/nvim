@@ -59,9 +59,9 @@ return packer.startup(function(use)
     -- Dependencies --
     ----------------------
 
-    -- use { "nvim-lua/plenary.nvim", module = "plenary" }
+    use { "nvim-lua/plenary.nvim", module = "plenary" }
     -- use { 'kyazdani42/nvim-web-devicons', module = "nvim-web-devicons" }
-    -- use { 'lewis6991/impatient.nvim' }
+    use { 'lewis6991/impatient.nvim' }
 
     ----------------------
     -- General --
@@ -123,7 +123,7 @@ return packer.startup(function(use)
     --------------------------------------
 
     --Terminal
-    -- use {"NvChad/nvterm", module = "nvterm" }
+    use {"numToStr/FTerm.nvim"}
 
     --Show colors
     -- use {"norcalli/nvim-colorizer.lua", opt = true, event = "BufRead"}
@@ -132,29 +132,29 @@ return packer.startup(function(use)
     -- Editing --
     --------------------------------------
 
-    --Commenting
-    -- use {'numToStr/Comment.nvim', module = "Comment", keys = { "gc", "gb" },
-    --     config = function()
-    --         require('Comment').setup()
-    --     end
-    -- }
+    -- Commenting
+    use {'numToStr/Comment.nvim', module = "Comment", keys = { "gc", "gb" },
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
     --------------------------------------
     -- Git --
     --------------------------------------
-    -- use {
-    --     'lewis6991/gitsigns.nvim', ft = "gitcommit", event = "BufRead",
-    --     config = function()
-    --         require('gitsigns').setup()
-    --     end
-    -- }
+    use {
+        'lewis6991/gitsigns.nvim', ft = "gitcommit", event = "BufRead",
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
 
     -----------------------------------
     -- Treesitter --
     -----------------------------------
 
     -- Treesitter 
-    -- use {"nvim-treesitter/nvim-treesitter", module = "nvim-treesitter", run = ":TSUpdate"}      -- Syntax highlighting
+    use {"nvim-treesitter/nvim-treesitter", module = "nvim-treesitter", run = ":TSUpdate"}      -- Syntax highlighting
     -- use {"windwp/nvim-autopairs", after = "nvim-cmp"}                                           -- Autoclose quotes, parentheses etc.
 
 
