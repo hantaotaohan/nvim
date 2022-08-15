@@ -1,14 +1,18 @@
---Startup performance
+-- Startup performance
+vim.defer_fn(function()
+  pcall(require, "impatient")
+end, 0)
+
 -- require "plugins.impatient"
 
---Nvim Settings
-require "settings.options"
-require "settings.keymaps"
+-- Nvim Settings
+require "core.options"
+require "core.keymaps"
 
---Plugins
+-- Plugins
 require "plugins.packer"
 
---Plugin settings
+-- Plugin settings
 -- require "plugins.lsp"
 -- require "plugins.cmp"
 require "plugins.colorscheme"
@@ -19,7 +23,7 @@ require "plugins.treesitter"
 require "plugins.nvim-tree"
 require "plugins.bufferline"
 require "plugins.lualine"
-require "plugins.FTerm"
+require "plugins.fterm"
 -- require "plugins.project"
 -- require "plugins.dashboard"
 -- require "plugins.whichkey"
