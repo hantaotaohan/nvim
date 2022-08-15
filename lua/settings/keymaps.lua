@@ -10,6 +10,18 @@ local keymap = vim.api.nvim_set_keymap
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ";"
 
+keymap("n", "<LocalLeader>w", "<cmd>w<CR>", opts)
+keymap("i", "<LocalLeader>w", "<cmd>w<CR>", opts)
+keymap("v", "<LocalLeader>w", "<cmd>w<CR>", opts)
+
+-- keymap("n", "<LocalLeader>q", "<cmd>Bdelete! %d<CR>", opts)
+-- keymap("i", "<LocalLeader>q", "<cmd>Bdelete! %d<CR>", opts)
+-- keymap("v", "<LocalLeader>q", "<cmd>Bdelete! %d<CR>", opts)
+
+keymap("n", "<LocalLeader>q", "<cmd>q<CR>", opts)
+keymap("i", "<LocalLeader>q", "<cmd>q<CR>", opts)
+keymap("v", "<LocalLeader>q", "<cmd>q<CR>", opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -72,3 +84,9 @@ keymap("v", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, tr
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+
+-- Nvim-Tree
+keymap("n", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR>", opts)
+keymap("i", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
+keymap("v", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)

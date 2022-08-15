@@ -98,3 +98,4 @@ end
 
 ----Enable fenced code blocks syntax highlighting in markdown files for these languages
 --vim.g.vim_markdown_fenced_languages = 'c++=cpp', 'python', 'viml=vim', 'bash=sh', 'javascript=js', 'java', 'html', 'xml', 'markdown'
+

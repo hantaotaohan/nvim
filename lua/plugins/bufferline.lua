@@ -18,8 +18,8 @@ bufferline.setup {
         modified_icon = "●",
         close_icon = "",
         -- close_icon = '',
-        left_trunc_marker = "",
-        right_trunc_marker = "",
+        -- left_trunc_marker = "",
+        -- right_trunc_marker = "",
         --- name_formatter can be used to change the buffer's label in the bufferline.
         --- Please note some names can/will break the
         --- bufferline so use this at your discretion knowing that it has
@@ -62,8 +62,8 @@ bufferline.setup {
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
         -- can also be a table containing 2 custom separators
         -- [focused and unfocused]. eg: { '|', '|' }
-        separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
-        enforce_regular_tabs = true,
+        separator_style = "thick", -- | "thick" | "thin" | { 'any', 'any' },
+        enforce_regular_tabs = false,
         always_show_bufferline = true,
         -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
         --   -- add custom logic
@@ -71,8 +71,8 @@ bufferline.setup {
         -- end
     },
     highlights = {
-            -- fill =            { fg = '#1E2227', bg = '#16181C' },
-            -- background =      { fg = '#5C6370', bg = '#1E2227' },
+            -- fill =            { fg = '#1E2227', bg = '#1E2227' },
+            -- background =      { fg = '#1E2227', bg = '#1E2227' },
 
             -- tab = { fg = '<color-value-here>', bg = '<color-value-here>' },
             -- tab_selected = { fg = tabline_sel_bg, bg = '<color-value-here>' },
@@ -82,8 +82,13 @@ bufferline.setup {
             -- close_button_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
             -- close_button_selected = { fg = '<color-value-here>', bg = '<color-value-here>' },
 
-            buffer_visible =  { fg = { attribute = "fg", highlight = "TabLineFill" }, bg = { attribute = "bg", highlight = "TabLine"}, bold = true, italic = false,},
+            buffer_visible =  { fg = { attribute = "fg", highlight = "TabLineFill" }, bg = { attribute = "bg", highlight = "TabLine"}, },
             buffer_selected = { fg = { attribute = "fg", highlight = "TabLine" }, bg = { attribute = "bg", highlight = "Normal"}, bold = true, italic = false,},
+
+            numbers_visible =  { fg = { attribute = "fg", highlight = "TabLineFill" }, bg = { attribute = "bg", highlight = "TabLine"}, },
+            numbers_selected = { fg = { attribute = "fg", highlight = "TabLine" }, bg = { attribute = "bg", highlight = "Normal"}, bold = true, italic = false,},
+
+
             -- diagnostic = { fg = '<color-value-here>', bg = '<color-value-here>', },
             -- diagnostic_visible = { fg = '<color-value-here>', bg = '<color-value-here>', },
             -- diagnostic_selected = { fg = '<color-value-here>', bg = '<color-value-here>', bold = true, italic = true, },
@@ -116,9 +121,9 @@ bufferline.setup {
             -- error_diagnostic_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
             -- error_diagnostic_selected = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' bold = true, italic = true, },
 
-            modified = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
-            modified_visible = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
-            modified_selected = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
+            -- modified = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
+            -- modified_visible = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
+            -- modified_selected = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
 
             -- duplicate_selected = { fg = '<color-value-here>', bg = '<color-value-here>' italic = true, },
             -- duplicate_visible = { fg = '<color-value-here>', bg = '<color-value-here>' italic = true },

@@ -83,6 +83,9 @@ return packer.startup(function(use)
     -- Status Line
     use { 'nvim-lualine/lualine.nvim' }
 
+    use { 'famiu/bufdelete.nvim', config = function() require('bufdelete').bufdelete(0, true) end , }
+
+    
     --Dashboard
     -- use { "goolord/alpha-nvim", after = "colorscheme", disable = false }
 
@@ -91,10 +94,10 @@ return packer.startup(function(use)
     --------------------------------------
 
     -- Nvim Tree
-    -- use { "kyazdani42/nvim-tree.lua", ft = "alpha", cmd = { "NvimTreeToggle", "NvimTreeFocus" } }
+    use { "kyazdani42/nvim-tree.lua", tag = 'nightly' }
 
     -- Telescope
-    -- use { "nvim-telescope/telescope.nvim", cmd = "Telescope" }
+    use { "nvim-telescope/telescope.nvim", cmd = "Telescope" }
 
     --------------------------------------
     -- Autocompletion --
@@ -161,3 +164,4 @@ return packer.startup(function(use)
         require("packer").sync()
     end
   end)
+  
