@@ -71,8 +71,8 @@ bufferline.setup {
         -- end
     },
     highlights = {
-            fill =            { fg = '#1E2227', bg = '#16181C' },
-            background =      { fg = '#5C6370', bg = '#1E2227' },
+            -- fill =            { fg = '#1E2227', bg = '#16181C' },
+            -- background =      { fg = '#5C6370', bg = '#1E2227' },
 
             -- tab = { fg = '<color-value-here>', bg = '<color-value-here>' },
             -- tab_selected = { fg = tabline_sel_bg, bg = '<color-value-here>' },
@@ -82,9 +82,8 @@ bufferline.setup {
             -- close_button_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
             -- close_button_selected = { fg = '<color-value-here>', bg = '<color-value-here>' },
 
-            buffer_visible =  { fg = '#5C6370', bg = '#1E2227' },
-            buffer_selected = { fg = '#DCDCDC', bg = '#282C34' },
-
+            buffer_visible =  { fg = { attribute = "fg", highlight = "TabLineFill" }, bg = { attribute = "bg", highlight = "TabLine"}, bold = true, italic = false,},
+            buffer_selected = { fg = { attribute = "fg", highlight = "TabLine" }, bg = { attribute = "bg", highlight = "Normal"}, bold = true, italic = false,},
             -- diagnostic = { fg = '<color-value-here>', bg = '<color-value-here>', },
             -- diagnostic_visible = { fg = '<color-value-here>', bg = '<color-value-here>', },
             -- diagnostic_selected = { fg = '<color-value-here>', bg = '<color-value-here>', bold = true, italic = true, },
@@ -117,9 +116,9 @@ bufferline.setup {
             -- error_diagnostic_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
             -- error_diagnostic_selected = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' bold = true, italic = true, },
 
-            modified = { fg = '#E5C07B' },
-            modified_visible = { fg = '#E5C07B', bg = '#1E2227' },
-            modified_selected = { fg = '#E5C07B', bg = '#282C34' },
+            modified = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
+            modified_visible = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
+            modified_selected = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
 
             -- duplicate_selected = { fg = '<color-value-here>', bg = '<color-value-here>' italic = true, },
             -- duplicate_visible = { fg = '<color-value-here>', bg = '<color-value-here>' italic = true },
@@ -127,9 +126,9 @@ bufferline.setup {
 
             -- separator_selected = { fg = '<color-value-here>', bg = '<color-value-here>' },
             -- separator_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            separator = { fg = '#16181C', bg = '#16181C' },
+            -- separator = { fg = '#16181C', bg = '#16181C' },
 
-            indicator_selected = { fg = '#61AFEF', bg = '#282C34' },
+            indicator_selected = { fg = { attribute = "fg", highlight = "Directory" }, bg = { attribute = "bg", highlight = "TabLine"}, },
 
             -- pick_selected = { fg = '<color-value-here>', bg = '<color-value-here>', bold = true, italic = true, },
             -- pick_visible = { fg = '<color-value-here>', bg = '<color-value-here>', bold = true, italic = true, },
