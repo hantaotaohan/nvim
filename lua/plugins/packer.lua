@@ -1,9 +1,8 @@
 local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e222a" })
-
 if fn.empty(fn.glob(install_path)) > 0 then
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#282C34" })
     print "Cloning packer .."
     PACKER_BOOTSTRAP = fn.system ({ "git", "clone", "--depth", "1", "https://hub.fastgit.xyz/wbthomason/packer.nvim", install_path })
     vim.cmd [[packadd packer.nvim]]
@@ -53,15 +52,15 @@ return packer.startup(function(use)
     -- Package Manager --
     ---------------------
 
-    use "wbthomason/packer.nvim"                       -- Packer manage itself
+    use "wbthomason/packer.nvim"
 
     ----------------------
     -- Dependencies --
     ----------------------
 
     use { "nvim-lua/plenary.nvim", module = "plenary" }
-    -- use { 'kyazdani42/nvim-web-devicons', module = "nvim-web-devicons" }
     use { 'lewis6991/impatient.nvim' }
+    -- use { 'kyazdani42/nvim-web-devicons', module = "nvim-web-devicons" }
 
     ----------------------
     -- General --
@@ -73,9 +72,14 @@ return packer.startup(function(use)
     -- Themes, Icons, Tree, Statusbar, Bufferbar --
     -----------------------------------------------
 
-    -- Colorschemes
-    use { "navarasu/onedark.nvim"  }
-
+    -- Colorschemes - onedark
+    use { "navarasu/onedark.nvim",
+        config = function()
+            local status_ok, onedark = pcall(require, "onedark")
+            if status_ok then
+                require('onedark').load()
+            end
+        end, }
 
     -- Buffer (Tab) line
     use { "akinsho/bufferline.nvim", tag = "v2.*" }
@@ -83,6 +87,7 @@ return packer.startup(function(use)
     -- Status Line
     use { 'nvim-lualine/lualine.nvim' }
 
+    -- BUffer Delete
     use { 'famiu/bufdelete.nvim', config = function() require('bufdelete').bufdelete(0, true) end , }
 
     

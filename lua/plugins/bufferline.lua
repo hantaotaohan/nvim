@@ -5,7 +5,7 @@ end
 
 bufferline.setup {
     options = {
-        numbers = "id", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+        numbers = "ordinal", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
         close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
         right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
         left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
@@ -30,8 +30,8 @@ bufferline.setup {
         --     return vim.fn.fnamemodify(buf.name, ':t:r')
         --   end
         -- end,
-        max_name_length = 30,
-        max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
+        max_name_length = 25,
+        max_prefix_length = 25, -- prefix used when a buffer is de-duplicated
         tab_size = 21,
         diagnostics = false, -- | "nvim_lsp" | "coc",
         diagnostics_update_in_insert = false,
@@ -54,7 +54,7 @@ bufferline.setup {
         --     return true
         --   end
         -- end,
-        offsets = { { filetype = "NvimTree", text = "", padding = 0 } },
+        offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
         show_buffer_icons = false,
         show_buffer_close_icons = true,
         show_close_icon = false,
@@ -62,8 +62,8 @@ bufferline.setup {
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
         -- can also be a table containing 2 custom separators
         -- [focused and unfocused]. eg: { '|', '|' }
-        separator_style = "thick", -- | "thick" | "thin" | { 'any', 'any' },
-        enforce_regular_tabs = false,
+        separator_style = { '', '' }, -- slant | "thick" | "thin" | { 'any', 'any' },
+        enforce_regular_tabs = true,
         always_show_bufferline = true,
         -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
         --   -- add custom logic
@@ -71,72 +71,35 @@ bufferline.setup {
         -- end
     },
     highlights = {
-            -- fill =            { fg = '#1E2227', bg = '#1E2227' },
-            -- background =      { fg = '#1E2227', bg = '#1E2227' },
 
-            -- tab = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- tab_selected = { fg = tabline_sel_bg, bg = '<color-value-here>' },
-            -- tab_close = { fg = '<color-value-here>', bg = '<color-value-here>' },
+            fill                  = { fg = '#606B70', bg = '#1E2227' },
+            background            = { fg = '#606B70', bg = None },
 
-            -- close_button = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- close_button_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- close_button_selected = { fg = '<color-value-here>', bg = '<color-value-here>' },
+            -- fill                  = { fg = '#606B70', bg = '#1E2227' },
+            -- background            = { fg = '#606B70', bg = '#23272E' },
 
-            buffer_visible =  { fg = { attribute = "fg", highlight = "TabLineFill" }, bg = { attribute = "bg", highlight = "TabLine"}, },
-            buffer_selected = { fg = { attribute = "fg", highlight = "TabLine" }, bg = { attribute = "bg", highlight = "Normal"}, bold = true, italic = false,},
+            close_button          = { fg = '#606B70', bg = '#1E2227' },
+            close_button_visible  = { fg = '#606B70', bg = '#1E2227' },
+            close_button_selected = { fg = '#DCDCDC', bg = '#23272E' },
 
-            numbers_visible =  { fg = { attribute = "fg", highlight = "TabLineFill" }, bg = { attribute = "bg", highlight = "TabLine"}, },
-            numbers_selected = { fg = { attribute = "fg", highlight = "TabLine" }, bg = { attribute = "bg", highlight = "Normal"}, bold = true, italic = false,},
+            buffer_visible        = { fg = '#606B70', bg = '#1E2227' },
+            buffer_selected       = { fg = '#DCDCDC', bg = '#23272E' },
 
+            numbers_visible       = { fg = '#606B70', bg = '#1E2227' },
+            numbers_selected      = { fg = '#DCDCDC', bg = '#23272E' },
+ 
 
-            -- diagnostic = { fg = '<color-value-here>', bg = '<color-value-here>', },
-            -- diagnostic_visible = { fg = '<color-value-here>', bg = '<color-value-here>', },
-            -- diagnostic_selected = { fg = '<color-value-here>', bg = '<color-value-here>', bold = true, italic = true, },
+            modified              = { fg = '#E2B86B'},
+            modified_visible      = { fg = '#E2B86B', bg = '#1E2227' },
+            modified_selected     = { fg = '#E2B86B', bg = '#23272E' },
 
-            -- hint = { fg = '<color-value-here>', sp = '<color-value-here>', bg = '<color-value-here>' },
-            -- hint_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- hint_selected = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' bold = true, italic = true, },
-            -- hint_diagnostic = { fg = '<color-value-here>', sp = '<color-value-here>', bg = '<color-value-here>' },
-            -- hint_diagnostic_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- hint_diagnostic_selected = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' bold = true, italic = true, },
+            separator             = { bg = '#23272E' },
+            separator_visible     = { fg = '#606B70', bg = '#1E2227' },
+            separator_selected    = { fg = '#DCDCDC', bg = '#23272E' },
 
-            -- info = { fg = '<color-value-here>', sp = '<color-value-here>', bg = '<color-value-here>' },
-            -- info_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- info_selected = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' bold = true, italic = true, },
-            -- info_diagnostic = { fg = '<color-value-here>', sp = '<color-value-here>', bg = '<color-value-here>' },
-            -- info_diagnostic_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- info_diagnostic_selected = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' bold = true, italic = true, },
+            -- indicator_visible     = { fg = '#61AFEF', bg = '#1E2227' },
+            indicator_selected    = { fg = '#61AFEF', bg = '#23272E' },
 
-            -- warning = { fg = '<color-value-here>', sp = '<color-value-here>', bg = '<color-value-here>' },
-            -- warning_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- warning_selected = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' bold = true, italic = true, },
-            -- warning_diagnostic = { fg = '<color-value-here>', sp = '<color-value-here>', bg = '<color-value-here>' },
-            -- warning_diagnostic_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- warning_diagnostic_selected = { fg = '<color-value-here>', bg = '<color-value-here>', sp = warning_diagnostic_fg bold = true, italic = true, },
-
-            -- error = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' },
-            -- error_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- error_selected = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' bold = true, italic = true, },
-            -- error_diagnostic = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' },
-            -- error_diagnostic_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- error_diagnostic_selected = { fg = '<color-value-here>', bg = '<color-value-here>', sp = '<color-value-here>' bold = true, italic = true, },
-
-            -- modified = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
-            -- modified_visible = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
-            -- modified_selected = { fg = { attribute = "fg", highlight = "WarningMsg" }, bg = { attribute = "bg", highlight = "WarningMsg"}, },
-
-            -- duplicate_selected = { fg = '<color-value-here>', bg = '<color-value-here>' italic = true, },
-            -- duplicate_visible = { fg = '<color-value-here>', bg = '<color-value-here>' italic = true },
-            -- duplicate = { fg = '<color-value-here>', bg = '<color-value-here>' italic = true },
-
-            -- separator_selected = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- separator_visible = { fg = '<color-value-here>', bg = '<color-value-here>' },
-            -- separator = { fg = '#16181C', bg = '#16181C' },
-
-            indicator_selected = { fg = { attribute = "fg", highlight = "Directory" }, bg = { attribute = "bg", highlight = "TabLine"}, },
-
-            -- pick_selected = { fg = '<color-value-here>', bg = '<color-value-here>', bold = true, italic = true, },
-            -- pick_visible = { fg = '<color-value-here>', bg = '<color-value-here>', bold = true, italic = true, },
-            -- pick = { fg = '<color-value-here>', bg = '<color-value-here>', bold = true, italic = true, }
     },
 }
+

@@ -1,4 +1,4 @@
-local status_ok, toggleterm = pcall(require, "FTerm")
+local status_ok, toggleterm = pcall(require, "fterm")
 if not status_ok then
 	return
 end
