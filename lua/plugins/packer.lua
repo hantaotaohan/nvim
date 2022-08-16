@@ -73,7 +73,7 @@ return packer.startup(function(use)
     -----------------------------------------------
 
     -- Colorschemes - onedark
-    use { "navarasu/onedark.nvim",
+    use { "hantaotaohan/onedark.nvim",
         config = function()
             local status_ok, onedark = pcall(require, "onedark")
             if status_ok then

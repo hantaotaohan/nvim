@@ -54,9 +54,9 @@ bufferline.setup {
         --     return true
         --   end
         -- end,
-        offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+        offsets = { { filetype = "NvimTree", text = "NvimTree", padding = 1 } },
         show_buffer_icons = false,
-        show_buffer_close_icons = true,
+        show_buffer_close_icons = false,
         show_close_icon = false,
         show_tab_indicators = true,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
@@ -72,30 +72,30 @@ bufferline.setup {
     },
     highlights = {
 
-            fill                  = { fg = '#606B70', bg = '#1E2227' },
-            background            = { fg = '#606B70', bg = None },
-
             -- fill                  = { fg = '#606B70', bg = '#1E2227' },
-            -- background            = { fg = '#606B70', bg = '#23272E' },
+            -- background            = { fg = '#606B70', bg = None },
 
-            close_button          = { fg = '#606B70', bg = '#1E2227' },
-            close_button_visible  = { fg = '#606B70', bg = '#1E2227' },
-            close_button_selected = { fg = '#DCDCDC', bg = '#23272E' },
+            fill                  = {  bg = '#1E2227' },
+            background            = {  bg = none },
+
+            -- close_button          = { fg = '#606B70', bg = '#1E2227' },
+            -- close_button_visible  = { fg = '#606B70', bg = '#1E2227' },
+            -- close_button_selected = { fg = '#DCDCDC', bg = '#23272E' },
 
             buffer_visible        = { fg = '#606B70', bg = '#1E2227' },
             buffer_selected       = { fg = '#DCDCDC', bg = '#23272E' },
 
             numbers_visible       = { fg = '#606B70', bg = '#1E2227' },
             numbers_selected      = { fg = '#DCDCDC', bg = '#23272E' },
- 
-
+ -- 
+ --
             modified              = { fg = '#E2B86B'},
             modified_visible      = { fg = '#E2B86B', bg = '#1E2227' },
             modified_selected     = { fg = '#E2B86B', bg = '#23272E' },
-
-            separator             = { bg = '#23272E' },
-            separator_visible     = { fg = '#606B70', bg = '#1E2227' },
-            separator_selected    = { fg = '#DCDCDC', bg = '#23272E' },
+ --
+ --            separator             = { bg = '#23272E' },
+ --            separator_visible     = { fg = '#606B70', bg = '#1E2227' },
+ --            separator_selected    = { fg = '#DCDCDC', bg = '#23272E' },
 
             -- indicator_visible     = { fg = '#61AFEF', bg = '#1E2227' },
             indicator_selected    = { fg = '#61AFEF', bg = '#23272E' },
