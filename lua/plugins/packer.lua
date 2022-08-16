@@ -88,7 +88,7 @@ return packer.startup(function(use)
     use { 'nvim-lualine/lualine.nvim' }
 
     -- BUffer Delete
-    use { 'famiu/bufdelete.nvim', config = function() require('bufdelete').bufdelete(0, true) end , }
+    -- use { 'famiu/bufdelete.nvim', config = function() require('bufdelete').bufdelete(0, true) end , }
 
     
     --Dashboard
