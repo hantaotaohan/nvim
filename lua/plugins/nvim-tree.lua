@@ -100,7 +100,7 @@ nvim_tree.setup {
     highlight_opened_files = "all",
     root_folder_modifier = ":~",
     indent_markers = {
-      enable = false,
+      enable = true,
       inline_arrows = true,
       icons = {
         corner = "└",
@@ -112,7 +112,7 @@ nvim_tree.setup {
     icons = {
       webdev_colors = true,
       git_placement = "after",
-      padding = "  ",
+      padding = "",
       symlink_arrow = " ➛ ",
       show = {
         file = true,
@@ -121,18 +121,18 @@ nvim_tree.setup {
         git = true,
       },
       glyphs = {
-        default = "",
-        symlink = "",
-        bookmark = "",
+        default = "",
+        symlink = "",
+        bookmark = "",
         folder = {
-          arrow_closed = "",
-          arrow_open = "",
-          default = "",
-          open = "",
-          empty = "",
-          empty_open = "",
-          symlink = "",
-          symlink_open = "",
+          arrow_closed = "+",
+          arrow_open = "-",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+          symlink_open = "",
         },
         git = {
           unstaged = "м",
@@ -209,7 +209,7 @@ nvim_tree.setup {
       },
     },
     open_file = {
-      quit_on_open = false,
+      quit_on_open = true,
       resize_window = true,
       window_picker = {
         enable = true,
