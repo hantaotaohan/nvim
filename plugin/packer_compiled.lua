@@ -183,14 +183,14 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: onedark.nvim
-time([[Config for onedark.nvim]], true)
-try_loadstring("\27LJ\2\nR\0\0\5\0\4\0\f6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\5€6\2\1\0'\4\2\0B\2\2\0029\2\3\2B\2\1\1K\0\1\0\tload\fonedark\frequire\npcall\0", "config", "onedark.nvim")
-time([[Config for onedark.nvim]], false)
 -- Config for: bufdelete.nvim
 time([[Config for bufdelete.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\4\0\2\0\b6\0\0\0'\2\1\0B\0\2\0029\0\1\0)\2\0\0+\3\2\0B\0\3\1K\0\1\0\14bufdelete\frequire\0", "config", "bufdelete.nvim")
 time([[Config for bufdelete.nvim]], false)
+-- Config for: onedark.nvim
+time([[Config for onedark.nvim]], true)
+try_loadstring("\27LJ\2\nR\0\0\5\0\4\0\f6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\5€6\2\1\0'\4\2\0B\2\2\0029\2\3\2B\2\1\1K\0\1\0\tload\fonedark\frequire\npcall\0", "config", "onedark.nvim")
+time([[Config for onedark.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
