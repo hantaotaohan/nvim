@@ -54,7 +54,7 @@ bufferline.setup {
         --     return true
         --   end
         -- end,
-        offsets = { { filetype = "NvimTree", text = "NvimTree", padding = 1 } },
+        offsets = { { filetype = "NvimTree", text = "NvimTree", padding = 1, highlight = "BufferLineFill", text_align = "center"  } },
         show_buffer_icons = false,
         show_buffer_close_icons = false,
         show_close_icon = false,
@@ -75,15 +75,17 @@ bufferline.setup {
             -- fill                  = { fg = '#606B70', bg = '#1E2227' },
             -- background            = { fg = '#606B70', bg = None },
 
-            fill                  = {  bg = '#1E2227' },
+            fill                  = {  bg = '#1E2227', bold = true },
             background            = {  bg = none },
 
             -- close_button          = { fg = '#606B70', bg = '#1E2227' },
             -- close_button_visible  = { fg = '#606B70', bg = '#1E2227' },
             -- close_button_selected = { fg = '#DCDCDC', bg = '#23272E' },
 
+            
+                
             buffer_visible        = { fg = '#606B70', bg = '#1E2227' },
-            buffer_selected       = { fg = '#DCDCDC', bg = '#23272E' },
+            buffer_selected       = { fg = '#DCDCDC', bg = '#23272E', bold = true, italic = false },
 
             numbers_visible       = { fg = '#606B70', bg = '#1E2227' },
             numbers_selected      = { fg = '#DCDCDC', bg = '#23272E' },
