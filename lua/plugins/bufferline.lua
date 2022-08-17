@@ -75,7 +75,7 @@ bufferline.setup {
             -- fill                  = { fg = '#606B70', bg = '#1E2227' },
             -- background            = { fg = '#606B70', bg = None },
 
-            fill                  = {  bg = '#1E2227', bold = true },
+            fill                  = {  bg = '#1E2227' },
             background            = {  bg = none },
 
             -- close_button          = { fg = '#606B70', bg = '#1E2227' },
@@ -88,7 +88,7 @@ bufferline.setup {
             buffer_selected       = { fg = '#DCDCDC', bg = '#23272E', bold = true, italic = false },
 
             numbers_visible       = { fg = '#606B70', bg = '#1E2227' },
-            numbers_selected      = { fg = '#DCDCDC', bg = '#23272E' },
+            numbers_selected      = { fg = '#DCDCDC', bg = '#23272E', bold = true, italic = false },
  -- 
  --
             modified              = { fg = '#E2B86B'},

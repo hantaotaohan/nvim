@@ -4,7 +4,9 @@ if not status_ok then
 end
 
 local colors = {
-    white = '#282C34',
+    black = '#282C34',
+    black_1 = '#30363f',
+    red = '#E06c75',
 }
 
 local empty = require('lualine.component'):extend()
@@ -21,7 +23,7 @@ local function process_sections(sections)
     for name, section in pairs(sections) do
         local left = name:sub(9, 10) < 'x'
         for pos = 1, name ~= 'lualine_z' and #section or #section - 1 do
-            table.insert(section, pos * 2, { empty, color = { fg = colors.white, bg = colors.white } })
+            table.insert(section, pos * 2, { empty, color = { fg = colors.black, bg = colors.black } })
         end
         for id, comp in ipairs(section) do
             if type(comp) ~= 'table' then
@@ -50,6 +52,7 @@ lualine.setup {
             winbar = {},
         },
 
+
         buffers_color = {
             -- Same values as the general color option can be used here.
             active = 'lualine_{section}_normal',     -- Color for active buffer.
@@ -67,7 +70,7 @@ lualine.setup {
     sections = process_sections {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
-        -- lualine_c = {'filename'},
+        lualine_c = {'filename', '%r'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'},
@@ -82,14 +85,18 @@ lualine.setup {
                 -- It must return a table as such:
                 --   { added = add_count, modified = modified_count, removed = removed_count }
                 -- or nil on failure. count <= 0 won't be displayed.
+                color = { fg = colors.black_1, bg = colors.black_1 }
             },
-            -- {
-            --     '%r',
-            --     cond = function()
-            --         return vim.bo.readonly
-            --     end,
-            -- },
+            {
+                '%R',
+                cond = function()
+                return vim.o.readonly
+                end,
+                color = { fg = colors.red, bg = colors.black_1 }
+            },
+
             "diagnostics"
+
         },
         lualine_c = {
             {
@@ -107,12 +114,14 @@ lualine.setup {
                     modified = '  [+]',      -- Text to show when the buffer is modified
                     alternate_file = '#', -- Text to show to identify the alternate file
                     directory =  'DIRECTORY',     -- Text to show when the buffer is a directory
-                    readonly = '[RO]',      -- Text to show when the file is non-modifiable or readonly.
+                    readonly = 'ReadOnly',      -- Text to show when the file is non-modifiable or readonly.
                     unnamed = '[No Name]', -- Text to show for unnamed buffers.
-                    newfile = '[New]',     -- Text to show for new created file before first writting
-
+                    newfile = '[New]'     -- Text to show for new created file before first writting
                 },
-            }
+            },
+
+
+
         }
     },
 

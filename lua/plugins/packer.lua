@@ -1,11 +1,18 @@
 local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+local PACKER_BOOTSTRAP
 
 if fn.empty(fn.glob(install_path)) > 0 then
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#282C34" })
-    print "Cloning packer .."
+    vim.notify("Cloning packer ...")
     PACKER_BOOTSTRAP = fn.system ({ "git", "clone", "--depth", "1", "https://hub.fastgit.xyz/wbthomason/packer.nvim", install_path })
     vim.cmd [[packadd packer.nvim]]
+
+    local rtp_addition = vim.fn.stdpath("data") .. "/site/pack/*/start/*"
+    if not string.find(vim.o.runtimepath, rtp_addition) then
+      vim.o.runtimepath = rtp_addition .. "," .. vim.o.runtimepath
+    end
+    vim.notify("Pakcer.nvim 安装完毕")
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file

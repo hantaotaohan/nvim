@@ -1,22 +1,31 @@
--- Startup performance
+-------------------------
+-- Startup performance --
+-------------------------
 vim.defer_fn(function()
   pcall(require, "impatient")
 end, 0)
 
--- require "plugins.impatient"
-
--- Nvim Settings
+-- 全局设置
 require "core.options"
+
+-- 快捷键设置
 require "core.keymaps"
 
--- Plugins
+-- 插件管理器
 require "plugins.packer"
 
--- Plugin settings
+-- 主题设置
+require "plugins.colorscheme"
+
+-- 自动命令设置
+require "plugins.autocommands"
+
+-------------------------
+--  Plugins settings   --
+-------------------------
+
 -- require "plugins.lsp"
 -- require "plugins.cmp"
-require "plugins.colorscheme"
-require "plugins.autocommands"
 require "plugins.telescope"
 require "plugins.treesitter"
 -- require "plugins.autopairs"
@@ -31,4 +40,6 @@ require "plugins.fterm"
 -- require "plugins.spectre"
 -- require "plugins.zen-mode"
 -- require "plugins.symbol-outline"
--- require "plugins.functions"
+
+-- 自定义函数设置
+require "plugins.functions"
