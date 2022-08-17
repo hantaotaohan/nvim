@@ -123,16 +123,16 @@ nvim_tree.setup {
       glyphs = {
         default = "",
         symlink = "",
-        bookmark = "",
+        bookmark = "▐",
         folder = {
           arrow_closed = "+",
           arrow_open = "-",
           default = "▰ " ,
           open = "▱ " ,
-          empty = " ",
-          empty_open = " ",
-          symlink = " ",
-          symlink_open = " ",
+          empty = "▰⚋",
+          empty_open = "▱ ",
+          symlink = "",
+          symlink_open = "",
         },
         git = {
           unstaged = " м",
@@ -230,7 +230,7 @@ nvim_tree.setup {
   },
   live_filter = {
     prefix = "[Search]: ",
-    always_show_folders = true,
+    always_show_folders = false,
   },
   log = {
     enable = false,
@@ -276,9 +276,9 @@ function NvimTreeHighlight()
 highlight("NvimTreeSymlink"                    , nil        ,nil  ,nil  ,nil)
 highlight("NvimTreeFolderName"                 , nil        ,nil  ,nil  ,nil)
 highlight("NvimTreeRootFolder"                 , nil        ,nil  ,nil  ,nil)
-highlight("NvimTreeFolderIcon"                 , "#61afef"  ,nil  ,nil  ,nil)
-highlight("NvimTreeFileIcon"                   , "#abb2bf"  ,nil  ,nil  ,nil)
-highlight("NvimTreeEmptyFolderName"            , nil        ,nil  ,nil  ,nil)   -- Directory
+highlight("NvimTreeFolderIcon"                 , "#61AFEF"  ,nil  ,nil  ,nil)
+highlight("NvimTreeFileIcon"                   , "#ABB2BF"  ,nil  ,nil  ,nil)
+highlight("NvimTreeEmptyFolderName"            , "#535965"  ,nil  ,nil  ,nil)   -- Directory
 highlight("NvimTreeOpenedFolderName"           , nil        ,nil  ,nil  ,nil)   -- Directory
 highlight("NvimTreeExecFile"                   , nil        ,nil  ,nil  ,nil)
 highlight("NvimTreeOpenedFile"                 , nil        ,nil  ,nil  ,nil)
@@ -291,13 +291,13 @@ highlight("NvimTreeLspDiagnosticsWarning"      , nil        ,nil  ,nil  ,nil)   
 highlight("NvimTreeLspDiagnosticsInformation"  , nil        ,nil  ,nil  ,nil)   -- DiagnosticInfo
 highlight("NvimTreeLspDiagnosticsHint"         , nil        ,nil  ,nil  ,nil)   -- DiagnosticHint
 
-highlight("NvimTreeGitDirty"                   , "#e5c07b"  ,nil  ,nil  ,nil)
-highlight("NvimTreeGitStaged"                  , nil        ,nil  ,nil  ,nil)
-highlight("NvimTreeGitMerge"                   , nil        ,nil  ,nil  ,nil)
-highlight("NvimTreeGitRenamed"                 , nil        ,nil  ,nil  ,nil)
-highlight("NvimTreeGitNew"                     , nil        ,nil  ,nil  ,nil)
-highlight("NvimTreeGitDeleted"                 , nil        ,nil  ,nil  ,nil)
-highlight("NvimTreeGitIgnored"                 , nil        ,nil  ,nil  ,nil)   -- Comment
+highlight("NvimTreeGitDirty"                   , "#E5C07B"  ,nil  ,nil  ,nil)
+highlight("NvimTreeGitStaged"                  , "#C678DD"  ,nil  ,nil  ,nil)
+highlight("NvimTreeGitMerge"                   , "#56B6C2"  ,nil  ,nil  ,nil)
+highlight("NvimTreeGitRenamed"                 , "#61AFEF"  ,nil  ,nil  ,nil)
+highlight("NvimTreeGitNew"                     , "#98C379"  ,nil  ,nil  ,nil)
+highlight("NvimTreeGitDeleted"                 , "#E06C75"  ,nil  ,nil  ,nil)
+highlight("NvimTreeGitIgnored"                 , "#535965"  ,nil  ,nil  ,nil)   -- Comment
 
 -- There are also links to normal bindings to style the tree itself.
 
@@ -320,12 +320,12 @@ highlight("NvimTreeGitIgnored"                 , nil        ,nil  ,nil  ,nil)   
 
 -- There are 2 highlight groups for the live filter feature
 
-highlight("NvimTreeLiveFilterPrefix"           , nil        ,nil  ,nil  ,nil) 
-highlight("NvimTreeLiveFilterValue"            , nil        ,nil  ,nil  ,nil) 
+highlight("NvimTreeLiveFilterPrefix"           , "#C678DD"  ,nil  ,nil  ,nil) 
+highlight("NvimTreeLiveFilterValue"            , "#E06C75"  ,nil  ,nil  ,nil) 
 
 -- Color of the bookmark icon
 
-highlight("NvimTreeBookmark"                   , nil        ,nil  ,nil  ,nil) 
+highlight("NvimTreeBookmark"                   , "#C678DD"  ,nil  ,nil  ,nil) 
 
 end
 
