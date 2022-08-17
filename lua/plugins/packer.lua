@@ -55,11 +55,16 @@ return packer.startup(function(use)
     use "wbthomason/packer.nvim"
 
     ----------------------
+    -- Impatient --
+    ----------------------
+
+    use { 'lewis6991/impatient.nvim' }
+
+    ----------------------
     -- Dependencies --
     ----------------------
 
     use { "nvim-lua/plenary.nvim", module = "plenary" }
-    use { 'lewis6991/impatient.nvim' }
     -- use { 'kyazdani42/nvim-web-devicons', module = "nvim-web-devicons" }
 
     ----------------------
@@ -74,12 +79,13 @@ return packer.startup(function(use)
 
     -- Colorschemes - onedark
     use { "hantaotaohan/onedark.nvim",
-        config = function()
-            local status_ok, onedark = pcall(require, "onedark")
-            if status_ok then
-                require('onedark').load()
-            end
-        end, }
+          config = function()
+              local status_ok, onedark = pcall(require, "onedark")
+              if status_ok then
+                  require('onedark').load()
+              end
+          end, 
+        }
 
     -- Buffer (Tab) line
     use { "akinsho/bufferline.nvim", tag = "v2.*" }
@@ -87,8 +93,8 @@ return packer.startup(function(use)
     -- Status Line
     use { 'nvim-lualine/lualine.nvim' }
 
-    -- BUffer Delete
-    -- use { 'famiu/bufdelete.nvim', config = function() require('bufdelete').bufdelete(0, true) end , }
+    -- BUffer Delete Sayonara
+    use { 'mhinz/vim-sayonara' }
 
     
     --Dashboard

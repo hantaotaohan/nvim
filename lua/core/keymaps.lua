@@ -38,6 +38,11 @@ keymap("v", "<C-j>", "<Esc><C-w>j", opts)
 keymap("v", "<C-k>", "<Esc><C-w>k", opts)
 keymap("v", "<C-l>", "<Esc><C-w>l", opts)
 
+keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", opts)
+keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", opts)
+keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", opts)
+keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", opts)
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -81,17 +86,34 @@ keymap("v", "<LocalLeader>7", "<cmd>lua require('bufferline').go_to_buffer(7, tr
 keymap("v", "<LocalLeader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", opts)
 keymap("v", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", opts)
 
+keymap("t", "<LocalLeader><Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
+keymap("t", "<LocalLeader><S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+keymap("t", "<LocalLeader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", opts)
+keymap("t", "<LocalLeader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", opts)
+keymap("t", "<LocalLeader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", opts)
+keymap("t", "<LocalLeader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", opts)
+keymap("t", "<LocalLeader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", opts)
+keymap("t", "<LocalLeader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", opts)
+keymap("t", "<LocalLeader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", opts)
+keymap("t", "<LocalLeader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", opts)
+keymap("t", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", opts)
+
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-
 
 -- Nvim-Tree
 keymap("n", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR>", opts)
 keymap("i", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
 keymap("v", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
 
+-- FTree
+keymap('n', '<LocalLeader>c', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+keymap('i', '<LocalLeader>c', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+keymap('v', '<LocalLeader>c', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+keymap('t', '<LocalLeader>c', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>',opts)
 
-
-keymap('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-keymap('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>',opts)
+-- Sayonara
+keymap('n', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
+keymap('i', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
+keymap('v', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
