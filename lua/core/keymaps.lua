@@ -115,3 +115,14 @@ keymap('t', '<LocalLeader>c', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>
 keymap('n', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
 keymap('i', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
 keymap('v', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
+
+
+-- Telescope
+keymap('n', '<LocalLeader>ff', '<CMD>Telescope find_files <CR>', opts)
+keymap('n', '<LocalLeader>fa', '<CMD>Telescope find_files follow=true no_ignore=true hidden=true<CR>', opts)
+keymap('n', '<LocalLeader>fw', '<CMD>Telescope live_grep<CR>', opts)
+keymap('n', '<LocalLeader>fo', '<CMD>Telescope oldfiles<CR>', opts)
+keymap('n', '<LocalLeader>fh', '<CMD>Telescope keymaps <CR><CR>', opts)
+keymap('n', '<LocalLeader>cm', '<CMD>Telescope git_commits<CR>', opts)
+keymap('n', '<LocalLeader>gt', '<CMD>Telescope git_status<CR>', opts)
+keymap('n', '<LocalLeader>tt', '<CMD>Telescope colorscheme<CR>', opts)

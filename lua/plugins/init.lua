@@ -7,6 +7,15 @@ local plugins = {
         "lewis6991/impatient.nvim"
     },
 
+    -- 模糊搜索插件
+    { 
+        "nvim-telescope/telescope.nvim", 
+        cmd = "Telescope",
+        config = function()
+        require "plugins.configs.telescope"
+        end,
+    },
+
     -- 模糊搜索插件依赖项
     { 
         "nvim-lua/plenary.nvim", 
