@@ -2,12 +2,18 @@ vim.cmd "packadd packer.nvim"
 
 local plugins = {
 
+    -- 加速插件
+    {
+        "lewis6991/impatient.nvim"
+    },
+
+    -- 模糊搜索插件依赖项
     { 
         "nvim-lua/plenary.nvim", 
         module = "plenary" 
     },
 
-
+    -- 插件管理器
     {
         "wbthomason/packer.nvim", 
         cmd = require("core.lazyload").packer_cmds,
@@ -16,6 +22,7 @@ local plugins = {
         end,
     },
 
+    -- 颜色主题
     {
         "hantaotaohan/onedark.nvim", 
         config = function()
@@ -23,6 +30,7 @@ local plugins = {
         end,
     },
 
+    -- 标签页插件
     {
         "akinsho/bufferline.nvim", 
         tag = "v2.*",
@@ -31,6 +39,7 @@ local plugins = {
         end,
     },
 
+    -- 状态栏插件
     {
         "nvim-lualine/lualine.nvim", 
         config = function()
@@ -38,6 +47,7 @@ local plugins = {
         end,
     },
 
+    -- 文件浏览器
     {
         "kyazdani42/nvim-tree.lua",
         ft = "alpha",
@@ -47,6 +57,7 @@ local plugins = {
         end,
     },
 
+    -- 终端插件
     {
         "numToStr/FTerm.nvim",
         config = function()
@@ -55,6 +66,7 @@ local plugins = {
 
     },
 
+    -- 缩进提示插件
     {
         "lukas-reineke/indent-blankline.nvim",
         opt = true,
@@ -67,6 +79,20 @@ local plugins = {
 
     },
 
+    -- 关闭标签页插件
+    {
+        'mhinz/vim-sayonara'
+    },
+
+    -- 差异显示插件
+    {
+        'lewis6991/gitsigns.nvim', 
+        ft = "gitcommit", 
+        event = "BufRead",
+        config = function()
+            require('gitsigns').setup()
+        end,
+    },
 }
 
 require("core.packer").run(plugins)

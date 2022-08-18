@@ -1,6 +1,6 @@
-local status_ok, bufferline = pcall(require, "bufferline")
+local present, bufferline = pcall(require, "bufferline")
 
-if not status_ok then
+if not present then
     return
 end
 
@@ -73,35 +73,35 @@ local options = {
     },
     highlights = {
 
-            -- fill                  = { fg = '#606B70', bg = '#1E2227' },
-            -- background            = { fg = '#606B70', bg = None },
+        -- fill                  = { fg = '#606B70', bg = '#1E2227' },
+        -- background            = { fg = '#606B70', bg = None },
 
-            fill                  = {  bg = '#1E2227' },
-            background            = {  bg = none },
+        fill                  = {  bg = '#1E2227' },
+        background            = {  bg = none },
 
-            -- close_button          = { fg = '#606B70', bg = '#1E2227' },
-            -- close_button_visible  = { fg = '#606B70', bg = '#1E2227' },
-            -- close_button_selected = { fg = '#DCDCDC', bg = '#23272E' },
+        -- close_button          = { fg = '#606B70', bg = '#1E2227' },
+        -- close_button_visible  = { fg = '#606B70', bg = '#1E2227' },
+        -- close_button_selected = { fg = '#DCDCDC', bg = '#23272E' },
 
-            
-                
-            buffer_visible        = { fg = '#606B70', bg = '#1E2227' },
-            buffer_selected       = { fg = '#DCDCDC', bg = '#23272E', bold = true, italic = false },
 
-            numbers_visible       = { fg = '#606B70', bg = '#1E2227' },
-            numbers_selected      = { fg = '#DCDCDC', bg = '#23272E', bold = true, italic = false },
- -- 
- --
-            modified              = { fg = '#E2B86B'},
-            modified_visible      = { fg = '#E2B86B', bg = '#1E2227' },
-            modified_selected     = { fg = '#E2B86B', bg = '#23272E' },
- --
- --            separator             = { bg = '#23272E' },
- --            separator_visible     = { fg = '#606B70', bg = '#1E2227' },
- --            separator_selected    = { fg = '#DCDCDC', bg = '#23272E' },
 
-            -- indicator_visible     = { fg = '#61AFEF', bg = '#1E2227' },
-            indicator_selected    = { fg = '#61AFEF', bg = '#23272E' },
+        buffer_visible        = { fg = '#606B70', bg = '#1E2227' },
+        buffer_selected       = { fg = '#DCDCDC', bg = '#23272E', bold = true, italic = false },
+
+        numbers_visible       = { fg = '#606B70', bg = '#1E2227' },
+        numbers_selected      = { fg = '#DCDCDC', bg = '#23272E', bold = true, italic = false },
+        -- 
+        --
+        modified              = { fg = '#E2B86B'},
+        modified_visible      = { fg = '#E2B86B', bg = '#1E2227' },
+        modified_selected     = { fg = '#E2B86B', bg = '#23272E' },
+        --
+        --            separator             = { bg = '#23272E' },
+        --            separator_visible     = { fg = '#606B70', bg = '#1E2227' },
+        --            separator_selected    = { fg = '#DCDCDC', bg = '#23272E' },
+
+        -- indicator_visible     = { fg = '#61AFEF', bg = '#1E2227' },
+        indicator_selected    = { fg = '#61AFEF', bg = '#23272E' },
 
     },
 }

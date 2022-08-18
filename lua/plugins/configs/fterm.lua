@@ -1,7 +1,7 @@
 local present, fterm = pcall(require, "fterm")
 
 if not present then
-  return
+    return
 end
 
 local options = {

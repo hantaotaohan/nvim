@@ -1,6 +1,6 @@
-local status_ok, lualine = pcall(require, "lualine")
+local present, lualine = pcall(require, "lualine")
 
-if not status_ok then
+if not present then
     return
 end
 
@@ -91,7 +91,7 @@ local options = {
             {
                 '%R',
                 cond = function()
-                return vim.o.readonly
+                    return vim.o.readonly
                 end,
                 color = { fg = colors.red, bg = colors.black_1 }
             },
