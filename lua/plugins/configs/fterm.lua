@@ -1,9 +1,10 @@
-local status_ok, toggleterm = pcall(require, "fterm")
-if not status_ok then
-	return
+local present, fterm = pcall(require, "fterm")
+
+if not present then
+  return
 end
 
-require'FTerm'.setup({
+local options = {
     ---@type string
     ft = 'FTerm',
 
@@ -52,4 +53,6 @@ require'FTerm'.setup({
     ---See `:h jobstart-options`
     ---@type fun()|nil
     on_stderr = nil,
-})
+}
+
+require "FTerm".setup(options)

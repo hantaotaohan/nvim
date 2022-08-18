@@ -1,11 +1,10 @@
-local colorscheme = "onedark"
+local present, onedark = pcall(require, "onedark")
 
-local status_ok, onedark = pcall(require, "onedark")
-if not status_ok then
+if not present then
     return
 end
 
-require('onedark').setup {
+local options = {
     -- Main options --
     style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     transparent = false,  -- Show/hide background
@@ -47,4 +46,5 @@ require('onedark').setup {
     },
 }
 
-require('onedark').load()
+require "onedark".setup(options)
+require "onedark".load()

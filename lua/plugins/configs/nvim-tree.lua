@@ -3,14 +3,7 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
-
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
-nvim_tree.setup {
+local options = {
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = true,
@@ -248,6 +241,8 @@ nvim_tree.setup {
   },
 }
 
+require "nvim-tree".setup(options)
+
 
 -- 关闭最后一个buffer时 自动退出nvim-tree
 -- vim.o.confirm = true
@@ -333,3 +328,4 @@ vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
   command = "lua NvimTreeHighlight()",
 })
+

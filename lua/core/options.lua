@@ -1,6 +1,13 @@
 local o = vim.opt
 local g = vim.g
 
+-- use filetype.lua instead of filetype.vim. it's enabled by default in neovim 0.8 (nightly)
+g.vim_version = vim.version().minor
+if g.vim_version < 8 then
+    g.did_load_filetypes = 0
+    g.do_filetype_lua = 1
+end
+
 -- utf8
 g.encoding = "UTF-8"
 o.fileencoding = "utf-8"
@@ -100,57 +107,45 @@ o.undofile = true
 -- when cursor reaches end/beginning of line
 
 local disabled_built_ins = {
-"2html_plugin",
-  "getscript",
-  "getscriptPlugin",
-  "gzip",
-  "logipat",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "matchit",
-  "tar",
-  "tarPlugin",
-  "rrhelper",
-  "spellfile_plugin",
-  "vimball",
-  "vimballPlugin",
-  "zip",
-  "zipPlugin",
-  "tutor",
-  "rplugin",
-  "syntax",
-  "synmenu",
-  "optwin",
-  "compiler",
-  "bugreport",
-  "ftplugin",
+    "2html_plugin",
+    "getscript",
+    "getscriptPlugin",
+    "gzip",
+    "logipat",
+    "netrw",
+    "netrwPlugin",
+    "netrwSettings",
+    "netrwFileHandlers",
+    "matchit",
+    "tar",
+    "tarPlugin",
+    "rrhelper",
+    "spellfile_plugin",
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
+    "tutor",
+    "rplugin",
+    "syntax",
+    "synmenu",
+    "optwin",
+    "compiler",
+    "bugreport",
+    "ftplugin",
 }
 
 for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
-
 local default_providers = {
-  "node",
-  "perl",
-  "python3",
-  "ruby",
+    "node",
+    "perl",
+    "ruby",
+    "python3",
 }
 
 for _, provider in ipairs(default_providers) do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
+    vim.g["loaded_" .. provider .. "_provider"] = 0
 end
-
---vim.cmd "set whichwrap+=<,>,[,],h,l"
---vim.opt.fillchars:append { eob = " " } -- hide tildes at the end of buffers
---vim.opt.fillchars:append { vert = " "} -- hide borders of split vertical windows (nvim tree)
-
---vim.cmd "highlight EndOfBuffer ctermfg=NONE ctermbg=NONE guibg=NONE"
---vim.cmd "highlight VertSplit ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE"
-
-----Enable fenced code blocks syntax highlighting in markdown files for these languages
---vim.g.vim_markdown_fenced_languages = 'c++=cpp', 'python', 'viml=vim', 'bash=sh', 'javascript=js', 'java', 'html', 'xml', 'markdown'
-

@@ -1,4 +1,5 @@
 local status_ok, lualine = pcall(require, "lualine")
+
 if not status_ok then
     return
 end
@@ -36,7 +37,7 @@ local function process_sections(sections)
     return sections
 end
 
-lualine.setup {
+local options = {
     options = {
         icons_enabled = false,
         theme = 'auto',
@@ -156,3 +157,5 @@ lualine.setup {
 
     extensions = {'quickfix','nvim-tree'}
 }
+
+require "lualine".setup(options)
