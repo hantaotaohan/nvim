@@ -125,36 +125,33 @@ local plugins = {
 	{
 		"nvim-treesitter/nvim-treesitter", 
 		module = "nvim-treesitter", 
-		run = ":TSUpdate",
+		-- run = ":TSUpdate",
 		config = function()
 			require "plugins.configs.treesitter"
 		end,
 	},     -- Syntax highlighting
 
 
-
-
 	-- LSP
 
-	{
-		"williamboman/mason.nvim",
-		cmd = require("core.lazyload").mason_cmds,
-		config = function()
-			require "plugins.configs.mason"
-		end,
-	},
+	-- {
+	-- 	"williamboman/mason.nvim",
+	-- 	cmd = require("core.lazyload").mason_cmds,
+	-- 	config = function()
+	-- 		require "plugins.configs.mason"
+	-- 	end,
+	-- },
 
-	{
-		"neovim/nvim-lspconfig",
-		opt = true,
-		setup = function()
-			require("core.lazyload").on_file_open "nvim-lspconfig"
-		end,
-		config = function()
-			require "plugins.configs.lspconfig"
-		end,
-	},
-
+	-- {
+	-- 	"neovim/nvim-lspconfig",
+	-- 	opt = true,
+	-- 	setup = function()
+	-- 		require("core.lazyload").on_file_open "nvim-lspconfig"
+	-- 	end,
+	-- 	config = function()
+	-- 		require "plugins.configs.lspconfig"
+	-- 	end,
+	-- },
 
 	-- load luasnips + cmp related in insert mode only
 
@@ -226,7 +223,13 @@ local plugins = {
 		end,
 	},
 
-
+	{
+		"goolord/alpha-nvim",
+		after = "onedark.nvim",
+		config = function()
+			require "plugins.configs.alpha"
+		end,
+	},
 
 }
 

@@ -9,15 +9,15 @@ for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) 
 end
 
 local options = {
-	ensure_installed = {"java", "lua", "html", "python", "bash", "css", "javascript", "vim", "json"},
+	ensure_installed = { "lua", "python" },
 	sync_install = false,
 	-- NOTE: need to ignore installation of phpdoc parser because it is not ready for Mac m1 arm64 architecture
-	ignore_install = { "phpdoc", "tree-sitter-phpdoc" }, -- List of parsers to ignore installing
+	ignore_install = { "c", "phpdoc", "tree-sitter-phpdoc" }, -- List of parsers to ignore installing
 	autopairs = { enable = true },
 	autotag = {enable = true},
 	-- 启用代码高亮模块
 	highlight = {
-		enable = true,
+		enable = false,
 		additional_vim_regex_highlighting = false,
 	},
 
@@ -62,5 +62,5 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
 vim.opt.foldlevel = 99
 
-
+require("nvim-treesitter.install").prefer_git = true
 require "nvim-treesitter.configs".setup(options)
