@@ -2,106 +2,232 @@ vim.cmd "packadd packer.nvim"
 
 local plugins = {
 
-    -- 加速插件
-    {
-        "lewis6991/impatient.nvim"
-    },
+	-- 加速插件
+	{
+		"lewis6991/impatient.nvim"
+	},
 
-    -- 模糊搜索插件
-    { 
-        "nvim-telescope/telescope.nvim", 
-        cmd = "Telescope",
-        config = function()
-        require "plugins.configs.telescope"
-        end,
-    },
+	-- 模糊搜索插件
+	{ 
+		"nvim-telescope/telescope.nvim", 
+		cmd = "Telescope",
+		config = function()
+			require "plugins.configs.telescope"
+		end,
+	},
 
-    -- 模糊搜索插件依赖项
-    { 
-        "nvim-lua/plenary.nvim", 
-        module = "plenary" 
-    },
+	-- 模糊搜索插件依赖项
+	{ 
+		"nvim-lua/plenary.nvim", 
+		module = "plenary" 
+	},
 
-    -- 插件管理器
-    {
-        "wbthomason/packer.nvim", 
-        cmd = require("core.lazyload").packer_cmds,
-        config = function()
-            require "plugins"
-        end,
-    },
+	-- 插件管理器
+	{
+		"wbthomason/packer.nvim", 
+		cmd = require("core.lazyload").packer_cmds,
+		config = function()
+			require "plugins"
+		end,
+	},
 
-    -- 颜色主题
-    {
-        "hantaotaohan/onedark.nvim", 
-        config = function()
-            require "plugins.configs.onedark"
-        end,
-    },
+	-- 颜色主题
+	{
+		"hantaotaohan/onedark.nvim", 
+		config = function()
+			require "plugins.configs.onedark"
+		end,
+	},
 
-    -- 标签页插件
-    {
-        "akinsho/bufferline.nvim", 
-        tag = "v2.*",
-        config = function()
-            require "plugins.configs.bufferline"
-        end,
-    },
+	-- 标签页插件
+	{
+		"akinsho/bufferline.nvim", 
+		tag = "v2.*",
+		config = function()
+			require "plugins.configs.bufferline"
+		end,
+	},
 
-    -- 状态栏插件
-    {
-        "nvim-lualine/lualine.nvim", 
-        config = function()
-            require "plugins.configs.lualine"
-        end,
-    },
+	-- 状态栏插件
+	{
+		"nvim-lualine/lualine.nvim", 
+		config = function()
+			require "plugins.configs.lualine"
+		end,
+	},
 
-    -- 文件浏览器
-    {
-        "kyazdani42/nvim-tree.lua",
-        ft = "alpha",
-        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-        config = function()
-            require "plugins.configs.nvim-tree"
-        end,
-    },
+	-- 文件浏览器
+	{
+		"kyazdani42/nvim-tree.lua",
+		ft = "alpha",
+		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+		config = function()
+			require "plugins.configs.nvim-tree"
+		end,
+	},
 
-    -- 终端插件
-    {
-        "numToStr/FTerm.nvim",
-        config = function()
-            require "plugins.configs.fterm"
-        end,
+	-- 终端插件
+	{
+		"numToStr/FTerm.nvim",
+		config = function()
+			require "plugins.configs.fterm"
+		end,
 
-    },
+	},
 
-    -- 缩进提示插件
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        opt = true,
-        setup = function()
-            require("core.lazyload").on_file_open "indent-blankline.nvim"
-        end,
-        config = function()
-            require "plugins.configs.blankline"
-        end,
+	-- 缩进提示插件
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		opt = true,
+		setup = function()
+			require("core.lazyload").on_file_open "indent-blankline.nvim"
+		end,
+		config = function()
+			require "plugins.configs.blankline"
+		end,
 
-    },
+	},
+	-----------------------------------------------------------------------------------------------
+	--                                  关闭标签页插件 --
+	-----------------------------------------------------------------------------------------------
+	{
+		'mhinz/vim-sayonara'
+	},
 
-    -- 关闭标签页插件
-    {
-        'mhinz/vim-sayonara'
-    },
+	-- 差异显示插件
+	{
+		'lewis6991/gitsigns.nvim', 
+		ft = "gitcommit", 
+		event = "BufRead",
+		config = function()
+			require('gitsigns').setup()
+		end,
+	},
 
-    -- 差异显示插件
-    {
-        'lewis6991/gitsigns.nvim', 
-        ft = "gitcommit", 
-        event = "BufRead",
-        config = function()
-            require('gitsigns').setup()
-        end,
-    },
+	-- 注释插件
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require "plugins.configs.comment"
+		end,
+
+	},
+
+	{ 
+		"folke/which-key.nvim", 
+		module = "which-key",
+		keys = "<localleader>",
+		config = function()
+			require "plugins.configs.whichkey"
+		end,
+	},
+
+	{
+		"nvim-treesitter/nvim-treesitter", 
+		module = "nvim-treesitter", 
+		run = ":TSUpdate",
+		config = function()
+			require "plugins.configs.treesitter"
+		end,
+	},     -- Syntax highlighting
+
+
+
+
+	-- LSP
+
+	{
+		"williamboman/mason.nvim",
+		cmd = require("core.lazyload").mason_cmds,
+		config = function()
+			require "plugins.configs.mason"
+		end,
+	},
+
+	{
+		"neovim/nvim-lspconfig",
+		opt = true,
+		setup = function()
+			require("core.lazyload").on_file_open "nvim-lspconfig"
+		end,
+		config = function()
+			require "plugins.configs.lspconfig"
+		end,
+	},
+
+
+	-- load luasnips + cmp related in insert mode only
+
+	{
+		"rafamadriz/friendly-snippets",
+		module = { "cmp", "cmp_nvim_lsp" },
+		event = "InsertEnter",
+	},
+
+
+	{
+		"hrsh7th/nvim-cmp",
+		after = "friendly-snippets",
+		config = function()
+			require "plugins.configs.cmp"
+		end,
+	},
+
+
+	{
+		"L3MON4D3/LuaSnip",
+		wants = "friendly-snippets",
+		after = "nvim-cmp",
+		config = function()
+			require("plugins.configs.luasnip")
+		end,
+	},
+
+
+	{
+		"saadparwaiz1/cmp_luasnip",
+		after = "LuaSnip",
+	},
+
+
+	{ 
+		"hrsh7th/cmp-nvim-lua",
+		after = "cmp_luasnip",
+	},
+
+
+
+	{
+		"hrsh7th/cmp-nvim-lsp",
+		after = "cmp-nvim-lua",
+	},
+
+
+
+	{
+		"hrsh7th/cmp-buffer",
+		after = "cmp-nvim-lsp",
+	},
+
+
+
+	{
+		"hrsh7th/cmp-path",
+		after = "cmp-buffer",
+	},
+
+	-- misc plugins
+
+	{
+		"windwp/nvim-autopairs",
+		after = "nvim-cmp",
+		config = function()
+			require("plugins.configs.autopairs")
+		end,
+	},
+
+
+
 }
 
 require("core.packer").run(plugins)

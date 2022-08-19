@@ -1,3 +1,12 @@
+-- Modes
+
+-- Normal_Mode          =      "n"
+-- Insert_Mode          =      "i"
+-- Visual_Mode          =      "v"
+-- Visual_Block_Mode    =      "x"
+-- Term_mode            =      "t"
+-- Command_mode         =      "c"
+
 -- Shorten function name
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }

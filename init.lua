@@ -6,8 +6,8 @@ vim.defer_fn(function()
 end, 0)
 
 -- 全局设置
-require "core"
 require "core.options"
+require "core.autocmd"
 
 -- setup packer + plugins
 local fn = vim.fn
@@ -31,3 +31,4 @@ require "core.keymaps"
 
 -- 自定义函数设置
 -- require "plugins.functions"
+
