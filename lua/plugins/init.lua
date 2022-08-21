@@ -66,12 +66,32 @@ local plugins = {
         end,
     },
 
+    -- 标签浏览器
+    {
+        'stevearc/aerial.nvim',
+        opt = true,
+        after = "nvim-lspconfig",
+        config = function()
+            require "plugins.configs.aerial"
+        end,
+    },
+
     -- 终端插件
     {
-        "numToStr/FTerm.nvim",
+        "akinsho/toggleterm.nvim", tag = 'v2.*',
         config = function()
-            require "plugins.configs.fterm"
+            require "plugins.configs.toggleterm"
         end,
+
+    },
+
+    -- 代码运行插件
+    {
+        'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim',
+        config = function()
+            require "plugins.configs.coderunner"
+        end,
+
 
     },
 
@@ -135,18 +155,18 @@ local plugins = {
     -- LSP
 
     {
-    	"williamboman/mason.nvim",
-    	config = function()
-    		require "plugins.configs.mason"
-    	end,
+        "williamboman/mason.nvim",
+        config = function()
+            require "plugins.configs.mason"
+        end,
     },
 
     {
-    	"neovim/nvim-lspconfig",
-    	opt = true,
-    	config = function()
-    		require "plugins.configs.lspconfig"
-    	end,
+        "neovim/nvim-lspconfig",
+        opt = true,
+        config = function()
+            require "plugins.configs.lspconfig"
+        end,
     },
 
     -- load luasnips + cmp related in insert mode only

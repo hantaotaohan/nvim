@@ -114,11 +114,26 @@ keymap("n", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR>", opts)
 keymap("i", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
 keymap("v", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
 
--- FTree
-keymap('n', '<LocalLeader>c', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-keymap('i', '<LocalLeader>c', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-keymap('v', '<LocalLeader>c', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-keymap('t', '<LocalLeader>c', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>',opts)
+-- ToggleTerm
+keymap('n', '<LocalLeader>cc', '<CMD>ToggleTerm size=10 direction=horizontal<CR>', opts)
+keymap('i', '<LocalLeader>cc', '<CMD>ToggleTerm size=10 direction=horizontal<CR>', opts)
+keymap('v', '<LocalLeader>cc', '<CMD>ToggleTerm size=10 direction=horizontal<CR>', opts)
+keymap('t', '<LocalLeader>cc', '<C-\\><C-n><CMD>ToggleTerm size=10 direction=horizontal<CR>',opts)
+
+keymap('n', '<LocalLeader>cv', '<CMD>ToggleTerm size=80 direction=vertical<CR>', opts)
+keymap('i', '<LocalLeader>cv', '<CMD>ToggleTerm size=80 direction=vertical<CR>', opts)
+keymap('v', '<LocalLeader>cv', '<CMD>ToggleTerm size=80 direction=vertical<CR>', opts)
+keymap('t', '<LocalLeader>cv', '<C-\\><C-n><CMD>ToggleTerm size=80 direction=vertical<CR>',opts)
+
+keymap('n', '<LocalLeader>ct', '<CMD>ToggleTerm direction=tab<CR>', opts)
+keymap('i', '<LocalLeader>ct', '<CMD>ToggleTerm direction=tab<CR>', opts)
+keymap('v', '<LocalLeader>ct', '<CMD>ToggleTerm direction=tab<CR>', opts)
+keymap('t', '<LocalLeader>ct', '<C-\\><C-n><CMD>ToggleTerm direction=tab<CR>',opts)
+
+keymap('n', '<LocalLeader>cf', '<CMD>ToggleTerm direction=float<CR>', opts)
+keymap('i', '<LocalLeader>cf', '<CMD>ToggleTerm direction=float<CR>', opts)
+keymap('v', '<LocalLeader>cf', '<CMD>ToggleTerm direction=float<CR>', opts)
+keymap('t', '<LocalLeader>cf', '<C-\\><C-n><CMD>ToggleTerm direction=float<CR>',opts)
 
 -- Sayonara
 keymap('n', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
@@ -135,3 +150,10 @@ keymap('n', '<LocalLeader>fh', '<CMD>Telescope keymaps <CR><CR>', opts)
 keymap('n', '<LocalLeader>cm', '<CMD>Telescope git_commits<CR>', opts)
 keymap('n', '<LocalLeader>gt', '<CMD>Telescope git_status<CR>', opts)
 keymap('n', '<LocalLeader>tt', '<CMD>Telescope colorscheme<CR>', opts)
+
+-- RunCode
+keymap('n', '<LocalLeader>rr', '<CMD>RunFile<CR>', opts)
+keymap('n', '<LocalLeader>rc', '<CMD>RunCode<CR>', opts)
+keymap('n', '<LocalLeader>rt', '<CMD>RunFile tab<CR>', opts)
+keymap('n', '<LocalLeader>rp', '<CMD>RunProject<CR>', opts)
+keymap('n', '<LocalLeader>rc', '<CMD>RunClose<CR>', opts)

@@ -6,6 +6,21 @@ end
 
 local M = {}
 
+require("lspconfig").lua-language-server.setup{
+  on_attach = require("aerial").on_attach,
+},
+require("lspconfig").bash-language-server.setup{
+  on_attach = require("aerial").on_attach,
+},
+require("lspconfig").pyright.setup{
+  on_attach = require("aerial").on_attach,
+},
+require("lspconfig").rome.setup{
+  on_attach = require("aerial").on_attach,
+},
+require("lspconfig").djlint.setup{
+  on_attach = require("aerial").on_attach,
+},
 -- export on_attach & capabilities for custom lspconfigs
 
 M.on_attach = function(client, bufnr)
