@@ -135,42 +135,19 @@ local plugins = {
     -- LSP
 
     {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
+    	"williamboman/mason.nvim",
+    	config = function()
+    		require "plugins.configs.mason"
+    	end,
     },
-
 
     {
-        "williamboman/mason-lspconfig.nvim",
+    	"neovim/nvim-lspconfig",
+    	opt = true,
+    	config = function()
+    		require "plugins.configs.lspconfig"
+    	end,
     },
-
-
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require("mason-lspconfig").setup()
-        end,
-    },
-    -- {
-    -- 	"williamboman/mason.nvim",
-    -- 	cmd = require("core.lazyload").mason_cmds,
-    -- 	config = function()
-    -- 		require "plugins.configs.mason"
-    -- 	end,
-    -- },
-
-    -- {
-    -- 	"neovim/nvim-lspconfig",
-    -- 	opt = true,
-    -- 	setup = function()
-    -- 		require("core.lazyload").on_file_open "nvim-lspconfig"
-    -- 	end,
-    -- 	config = function()
-    -- 		require "plugins.configs.lspconfig"
-    -- 	end,
-    -- },
 
     -- load luasnips + cmp related in insert mode only
 
@@ -188,7 +165,6 @@ local plugins = {
             require "plugins.configs.cmp"
         end,
     },
-
 
     {
         "L3MON4D3/LuaSnip",

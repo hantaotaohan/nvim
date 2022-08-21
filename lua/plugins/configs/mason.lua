@@ -6,7 +6,7 @@ end
 
 local options = {
 
-	-- ensure_installed = { "bash-language-server", "bash-language-server",  }, -- not an option from mason.nvim
+	ensure_installed = { "lua-language-server", "bash-language-server", "pyright", "rome", "djlint" }, -- not an option from mason.nvim
 
 	ui = {
 
@@ -40,8 +40,8 @@ local options = {
 	},
 }
 
--- vim.api.nvim_create_user_command("MasonInstallAll", function()
--- 	vim.cmd("MasonInstall " .. table.concat(options.ensure_installed, " "))
--- end, {})
+vim.api.nvim_create_user_command("MasonInstallAll", function()
+	vim.cmd("MasonInstall " .. table.concat(options.ensure_installed, " "))
+end, {})
 
 require "mason".setup(options)
