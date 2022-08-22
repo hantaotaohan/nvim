@@ -96,12 +96,11 @@ local plugins = {
     -- 标签浏览器
     ---------------------------------------------------------------------------
     {
-        'stevearc/aerial.nvim',
+        'simrat39/symbols-outline.nvim',
         disable = false,
-        opt = true,
         after = "nvim-lspconfig",
         config = function()
-            require "plugins.configs.aerial"
+            require "plugins.configs.symbols-outline"
         end,
     },
 
@@ -213,22 +212,11 @@ local plugins = {
     -- LSP
     ---------------------------------------------------------------------------
 
-    {
-        "williamboman/mason.nvim",
-        disable = false,
-        config = function()
-            require "plugins.configs.mason"
-        end,
-    },
+    { "williamboman/mason.nvim" },
 
-    {
-        "neovim/nvim-lspconfig",
-        disable = false,
-        opt = true,
-        config = function()
-            require "plugins.configs.lspconfig"
-        end,
-    },
+    { 'williamboman/mason-lspconfig.nvim' },
+
+    { "neovim/nvim-lspconfig" },
 
     ---------------------------------------------------------------------------
     -- Load Luasnips + CMP Related In Insert Mode Only

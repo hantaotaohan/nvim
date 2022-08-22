@@ -62,3 +62,4 @@ require "core.autocmd"
 
 -- require "plugins.functions"
 
+require "plugins.configs.lsp.install"
