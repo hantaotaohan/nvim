@@ -1,18 +1,23 @@
 local M = {}
 
 M.options = {
+    package_root   = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack'),
+    compile_path = util.join_paths(vim.fn.stdpath('data'), 'plugin', 'packer_compiled.lua'),
+    max_jobs = nil,
     auto_clean = true,
     compile_on_sync = true,
     git = { 
+        depth = 1,
         clone_timeout = 60,
         default_url_format = 'https://hub.fastgit.xyz/%s'
     },
     display = {
-        working_sym = "ﲊ",
-        error_sym = "✗ ",
-        done_sym = " ",
-        removed_sym = " ",
-        moved_sym = "",
+        working_sym = "✚ ",
+        error_sym = "✖ ",
+        done_sym = "✔ ",
+        removed_sym = "⚫",
+        moved_sym = "✱ ",
+        header_sym = '━',
         open_fn = function()
             return require("packer.util").float { border = "single" }
         end,
