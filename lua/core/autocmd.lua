@@ -1,8 +1,12 @@
--- autocmds
+-------------------------------------------------------------------------------
+                            -- Create Autocmd API --
+-------------------------------------------------------------------------------
+
 local autocmd = vim.api.nvim_create_autocmd
 local api = vim.api
 
--- dont list quickfix buffers
+-------------------------- Dont List Quickfix Buffers -------------------------
+
 autocmd("FileType", {
     pattern = "qf",
     callback = function()
@@ -10,11 +14,14 @@ autocmd("FileType", {
     end,
 })
 
--- Disable statusline in dashboard
+------------- Disable Statusline or Tabline or Cmdline In Dashboard -----------
+
 autocmd("FileType", {
     pattern = "alpha",
     callback = function()
         vim.opt.laststatus = 0
+        vim.opt.cmdheight  = 0
+        vim.opt.showtabline = 0
     end,
 })
 
@@ -22,11 +29,15 @@ autocmd("BufUnload", {
     buffer = 0,
     callback = function()
         vim.opt.laststatus = 3
+        vim.opt.cmdheight  = 1
+        vim.opt.showtabline = 2
     end,
 })
 
--- Don't auto commenting new lines
+----------------------- Don't Auto Commenting New Lines -----------------------
+
 autocmd("BufEnter", {
     pattern = "*",
     command = "set fo-=c fo-=r fo-=o",
 })
+

@@ -253,6 +253,12 @@ local plugins = {
         end,
     },
 
+    {
+        "vladdoster/remember.nvim",
+        config = function()
+            require "plugins.configs.remember"
+        end,
+    },
 }
 
 require("core.packer").run(plugins)

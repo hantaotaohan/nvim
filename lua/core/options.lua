@@ -24,7 +24,6 @@ o.colorcolumn = "80"
 
 -- 缩进4个空格等于一个Tab
 o.tabstop = 4
-o.tabstop = 4
 o.shiftwidth = 4
 o.softtabstop = 4
 o.expandtab = true

@@ -1,34 +1,48 @@
--------------------------
--- Startup performance --
--------------------------
+-------------------------------------------------------------------------------
+                           -- Startup Performance --
+-------------------------------------------------------------------------------
+
 vim.defer_fn(function()
     pcall(require, "impatient")
 end, 0)
 
--- 全局设置
+-------------------------------------------------------------------------------
+                            -- Gloabl Performance --
+-------------------------------------------------------------------------------
+
 require "core.options"
 require "core.autocmd"
 
--- setup packer + plugins
+-------------------------------------------------------------------------------
+                       -- Setup Packer Install Plugins --
+-------------------------------------------------------------------------------
+
 local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e222a" })
-    print "Cloning packer .."
+    print "Cloning Packer ..."
     fn.system { "git", "clone", "--depth", "1", "https://hub.fastgit.xyz/wbthomason/packer.nvim", install_path }
-
-    -- install plugins + compile their configs
     vim.cmd "packadd packer.nvim"
     require "plugins"
     vim.cmd "PackerSync"
 end
 
--- 快捷键设置
+-------------------------------------------------------------------------------
+                            -- Import Key Mapping --
+-------------------------------------------------------------------------------
+
 require "core.keymaps"
 
--- 自动命令设置
--- require "plugins.autocommands"
+-------------------------------------------------------------------------------
+                           -- Import Autocommands --
+-------------------------------------------------------------------------------
 
--- 自定义函数设置
+require "core.autocmd"
+
+-------------------------------------------------------------------------------
+                             -- Import Functions --
+-------------------------------------------------------------------------------
+
 -- require "plugins.functions"
 
