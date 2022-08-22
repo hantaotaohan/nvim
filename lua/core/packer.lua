@@ -1,8 +1,6 @@
 local M = {}
 
 M.options = {
-    package_root   = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack'),
-    compile_path = util.join_paths(vim.fn.stdpath('data'), 'plugin', 'packer_compiled.lua'),
     max_jobs = nil,
     auto_clean = true,
     compile_on_sync = true,
