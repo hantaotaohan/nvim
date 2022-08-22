@@ -7,7 +7,7 @@ if not mason_ok or not mason_lsp_ok then
 end
 
 -------------------------------------------------------------------------------
-                                  -- Mason --
+-- Mason --
 -------------------------------------------------------------------------------
 
 mason.setup {
@@ -43,7 +43,7 @@ mason.setup {
 }
 
 -------------------------------------------------------------------------------
-                             -- Mason Lsp Config --
+-- Mason Lsp Config --
 -------------------------------------------------------------------------------
 
 mason_lsp.setup {
@@ -61,7 +61,7 @@ mason_lsp.setup {
 }
 
 -------------------------------------------------------------------------------
-                             -- Nvim Lsp Config --
+-- Nvim Lsp Config --
 -------------------------------------------------------------------------------
 
 local lspconfig = require("lspconfig")
@@ -97,29 +97,29 @@ capabilities.textDocument.completion.completionItem = {
 }
 
 -------------------------------------------------------------------------------
-                             -- Lsp Config --
+-- Lsp Config --
 -------------------------------------------------------------------------------
 
 local function on_attach(client, bufnr)
-  -- set up buffer keymaps, etc.
+    -- set up buffer keymaps, etc.
 end
 
 lspconfig.bashls.setup {
-  filetypes = require('lsp.config.bashls').filetypes,
-  init_options = require('lsp.config.bashls').init_options,
-  on_attach = on_attach,
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = require('plugins.configs.lsp.config.bashls').settings,
 }
 
 lspconfig.pyright.setup {
-  capabilities = capabilities,
-  on_attach = require('lsp.config.pyright').on_attach,
-  settings = require('lsp.config.pyright').settings,
+    capabilities = capabilities,
+    on_attach = require('plugins.configs.lsp.config.pyright').on_attach,
+    settings = require('plugins.configs.lsp.config.pyright').settings,
 }
 
 lspconfig.sumneko_lua.setup {
     capabilities = capabilities,
-    on_attach = on_attach,
-    settings = require('lsp.config.sumneko_lua').settings,
+    on_attach = require('plugins.configs.lsp.config.sumneko_lua').on_attach,
+    settings = require('plugins.configs.lsp.config.sumneko_lua').settings,
 }
 
 for _, server in ipairs { "bashls", "pyright", "sumneko_lua" } do
