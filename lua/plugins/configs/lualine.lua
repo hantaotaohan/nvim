@@ -11,6 +11,7 @@ local colors = {
 }
 
 local empty = require('lualine.component'):extend()
+
 function empty:draw(default_highlight)
     self.status = ''
     self.applied_separator = ''
@@ -34,40 +35,50 @@ local function process_sections(sections)
             comp.separator = left and { right = '' } or { left = '' }
         end
     end
+
     return sections
+
 end
 
 local options = {
+
     options = {
+
         icons_enabled = false,
         theme = 'auto',
-        show_filename_only = true,   -- Shows shortened relative path when set to false.
-        hide_filename_extension = false,   -- Hide filename extension when set to true.
-        show_modified_status = true, -- Shows indicator when the buffer is modified.
+        show_filename_only = true,
+        hide_filename_extension = false,
+        show_modified_status = true,
+
         -- component_separators = { left = '', right = ''},
         -- section_separators = { left = '', right = ''},
+
         component_separators = {},
         section_separators = { left = '', right = '' },
+
         disabled_filetypes = {
             statusline = {},
             winbar = {},
         },
-
 
         buffers_color = {
             -- Same values as the general color option can be used here.
             active = 'lualine_{section}_normal',     -- Color for active buffer.
             inactive = 'lualine_{section}_inactive', -- Color for inactive buffer.
         },
+
         ignore_focus = {},
         always_divide_middle = true,
         globalstatus = false,
+
         refresh = {
             statusline = 1000,
             tabline = 1000,
             winbar = 1000,
         }
+
     },
+
     sections = process_sections {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
@@ -126,14 +137,27 @@ local options = {
         }
     },
 
-    inactive_sections = {
+    inactive_sections = process_sections {
         lualine_a = {},
-        lualine_b = {},
+        lualine_b = {'branch'},
         lualine_c = {'filename'},
         lualine_x = {'location'},
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
+
+        lualine_b = {
+            {
+                'branch',
+                colored = true, -- Displays a colored diff status if set to true
+                source = nil, -- A function that works as a data source for diff.
+                -- It must return a table as such:
+                --   { added = add_count, modified = modified_count, removed = removed_count }
+                -- or nil on failure. count <= 0 won't be displayed.
+                color = { fg = colors.black_1, bg = colors.red }
+            },
+        },
     },
+
     tabline = {},
 
     winbar = {
@@ -154,8 +178,7 @@ local options = {
         lualine_z = {}
     },
 
-
-    extensions = {'quickfix','nvim-tree'}
+    extensions = {'quickfix', 'nvim-tree', 'toggleterm', 'symbols-outline'}
 }
 
 require "lualine".setup(options)

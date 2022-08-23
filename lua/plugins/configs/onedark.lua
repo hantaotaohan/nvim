@@ -151,6 +151,10 @@ function NvimTreeHighlight()
 
 	highlight ("CmpItemMenu"                       , "#E06C75"  ,nil)
 
+-- lualine
+
+    -- highlight ("lualien_a_terminal"                , "#282C34"  , "#61AFEF", nil, nil)
+
 end
 
 vim.api.nvim_create_autocmd("BufEnter", {
