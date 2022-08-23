@@ -30,8 +30,8 @@ local options = {
     -- Custom Highlights --
     colors = {
         deep_dark = "#161910",    -- define a new color
-        -- green = '#00ffaa',            -- redefine an existing color
     }, -- Override default colors
+
     highlights = {
         -- EndOfBuffer = {bg = '$deep_dark'},
         -- TSString = {fg = '$bright_orange', bg = '#00ff00', fmt = 'bold'},
@@ -153,7 +153,7 @@ function NvimTreeHighlight()
 
 -- lualine
 
-    -- highlight ("lualien_a_terminal"                , "#282C34"  , "#61AFEF", nil, nil)
+    highlight ("lualine_a_terminal"                , "#282C34"  , "#61AFEF", nil, nil)
 
 end
 

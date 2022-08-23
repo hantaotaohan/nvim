@@ -88,7 +88,9 @@ local options = {
         lualine_z = {'location'},
 
         lualine_b = {
+
             'branch',
+
             {
                 'diff',
                 colored = true, -- Displays a colored diff status if set to true
@@ -99,6 +101,7 @@ local options = {
                 -- or nil on failure. count <= 0 won't be displayed.
                 color = { fg = colors.black_1, bg = colors.black_1 }
             },
+
             {
                 '%R',
                 cond = function()
@@ -108,9 +111,10 @@ local options = {
             },
 
             "diagnostics"
-
         },
+
         lualine_c = {
+
             {
                 'filename',
                 file_status = true,      -- Displays file status (readonly status, modified status)
@@ -131,13 +135,11 @@ local options = {
                     newfile = '[New]'     -- Text to show for new created file before first writting
                 },
             },
-
-
-
         }
     },
 
     inactive_sections = process_sections {
+
         lualine_a = {},
         lualine_b = {'branch'},
         lualine_c = {'filename'},
@@ -145,15 +147,24 @@ local options = {
         lualine_y = {},
         lualine_z = {},
 
+        lualine_a = {
+
+            {
+                'mode',
+                colored = true,
+                -- source = nil,
+                color = { fg = "#606B70", bg = colors.black_1 }
+                -- color = { fg = colors.black_1, bg = colors.red }
+            },
+        },
         lualine_b = {
+
             {
                 'branch',
-                colored = true, -- Displays a colored diff status if set to true
-                source = nil, -- A function that works as a data source for diff.
-                -- It must return a table as such:
-                --   { added = add_count, modified = modified_count, removed = removed_count }
-                -- or nil on failure. count <= 0 won't be displayed.
-                color = { fg = colors.black_1, bg = colors.red }
+                colored = true,
+                -- source = nil,
+                color = { fg = "#606B70", bg = colors.black_1 }
+                -- color = { fg = colors.black_1, bg = colors.red }
             },
         },
     },
@@ -178,7 +189,8 @@ local options = {
         lualine_z = {}
     },
 
-    extensions = {'quickfix', 'nvim-tree', 'toggleterm', 'symbols-outline'}
+    extensions = {'quickfix', 'nvim-tree', 'toggleterm', 'symbols-outline'},
+
 }
 
 require "lualine".setup(options)
