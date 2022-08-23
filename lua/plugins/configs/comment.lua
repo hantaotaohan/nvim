@@ -5,6 +5,7 @@ if not present then
 end
 
 local options = {
+
     ---Add a space b/w comment and the line
     ---@type boolean|fun():boolean
     padding = true,

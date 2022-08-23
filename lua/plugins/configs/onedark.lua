@@ -127,9 +127,8 @@ function NvimTreeHighlight()
 
 -- CMP
 -- gray
-	highlight ("PmenuSel"                          , "#ABB2BF"  , "#282C34", nil, nil )
 	highlight ("CMPPmenu"                          , "#ABB2BF"  , "#1E2227", nil, nil )
-	highlight ("CMPPmenuSel"                       , "#ABB2BF"  , "#1E2227", nil, nil )
+	highlight ("CMPPmenuSel"                       , "#ABB2BF"  , "#282C34", nil, nil )
 	highlight ("CmpItemAbbrDeprecated"             , "#282C34"  , nil ,nil  ,nil)
 	highlight ("CmpBorder"                         , "#565960"  , nil ,nil  ,nil)
 	highlight ("CmpDocBorder"                      , "#565960"  , nil ,nil  ,nil)

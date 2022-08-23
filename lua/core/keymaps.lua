@@ -40,6 +40,11 @@ vim.g.maplocalleader = ";"
 vim.cmd [[ cnoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>" ]]
 vim.cmd [[ cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>" ]]
 
+--------------------------------- Nohighlight ---------------------------------
+
+keymap("n", "<Space>", "<cmd>noh<CR>", opts)
+keymap("v", "<Space>", "<cmd>noh<CR>", opts)
+
 --------------------------------- Quick Save ----------------------------------
 
 keymap("n", "<LocalLeader>w", "<cmd>w<CR>", opts)
@@ -207,6 +212,25 @@ keymap("v", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
 
 ------------------------------ IndentBlankLine --------------------------------
 
-keymap("n", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
-keymap("i", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
-keymap("v", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
+keymap("n", "<LocalLeader>tl", "<cmd>IndentBlanklineToggle<CR>", opts)
+keymap("i", "<LocalLeader>tl", "<cmd>IndentBlanklineToggle<CR>", opts)
+keymap("v", "<LocalLeader>tl", "<cmd>IndentBlanklineToggle<CR>", opts)
+
+---------------------------------- Gitsigns -----------------------------------
+
+keymap("n", "<LocalLeader>tgs", "<cmd>Gitsigns toggle_signs<CR>", opts)
+keymap("i", "<LocalLeader>tgs", "<cmd>Gitsigns toggle_signs<CR>", opts)
+keymap("v", "<LocalLeader>tgs", "<cmd>Gitsigns toggle_signs<CR>", opts)
+
+keymap("n", "<LocalLeader>tgl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
+keymap("i", "<LocalLeader>tgl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
+keymap("v", "<LocalLeader>tgl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
+
+keymap("n", "<LocalLeader>tgw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
+keymap("i", "<LocalLeader>tgw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
+keymap("v", "<LocalLeader>tgw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
+
+keymap("n", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
+keymap("i", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
+keymap("v", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
+

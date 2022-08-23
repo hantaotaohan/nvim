@@ -64,14 +64,18 @@ end
 
 
 local options = {
+
     window = {
+
         completion = {
             border = border "CmpBorder",
-            winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+            winhighlight = "Normal:CmpPmenu,CursorLine:CmpPmenuSel,Search:None",
         },
+
         documentation = {
             border = border "CmpDocBorder",
         },
+
     },
 
     snippet = {
