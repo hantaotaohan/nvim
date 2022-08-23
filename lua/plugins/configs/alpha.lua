@@ -5,7 +5,7 @@ if not present then
 end
 
 local function button(sc, txt, keybind)
-    local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
+    local sc_ = sc:gsub("%s", ""):gsub("SPC", "<Localleader>")
     local opts = {
         position = "center",
         text = txt,
@@ -40,13 +40,13 @@ local options = {
     header = {
         type = "text",
         val = {
-            "                                         ",
-            "  _____                 _____            ",
-            " |_   _|_ _  ___       |_   _|_ _  ___   ",
-            "   | |/ _` |/ _ \\        | |/ _` |/ _ \\  ",
-            "   | | (_| | (_) |  _    | | (_| | (_) | ",
-            "   |_|\\__,_|\\___/  (_)   |_|\\__,_|\\___/  ",
-            "                                         ",
+            [[                                              ]],
+            [[    _____                 _____               ]],
+            [[   |_   _|_ _  ___       |_   _|_ _  ___      ]],
+            [[     | |/ _` |/ _ \        | |/ _` |/ _ \     ]],
+            [[     | | (_| | (_) |  _    | | (_| | (_) |    ]],
+            [[     |_|\__,_|\___/  (_)   |_|\__,_|\___/     ]],
+            [[                                              ]],
         },
 
         opts = {
@@ -58,12 +58,14 @@ local options = {
     buttons = {
         type = "group",
         val = {
+            button("e", "  New File  ", ":ene <BAR> startinsert <CR>"),
             button("SPC f f", "  Find File  ", ":Telescope find_files<CR>"),
             button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
             button("SPC f w", "  Find Word  ", ":Telescope live_grep<CR>"),
             button("SPC b m", "  Bookmarks  ", ":Telescope marks<CR>"),
             button("SPC t h", "  Themes  ", ":Telescope themes<CR>"),
             button("SPC e s", "  Settings", ":e $MYVIMRC | :cd %:p:h <CR>"),
+            button("q", "  Quit Nvim  ", ":qa<CR>"),
         },
 
         opts = {

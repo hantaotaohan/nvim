@@ -17,21 +17,8 @@ autocmd("FileType", {
 ------------- Disable Statusline or Tabline or Cmdline In Dashboard -----------
 
 autocmd("FileType", {
-    pattern = "alpha",
-    callback = function()
-        vim.opt.laststatus = 0
-        vim.opt.cmdheight  = 0
-        vim.opt.showtabline = 1
-    end,
-})
-
-autocmd("BufUnload", {
-    buffer = 0,
-    callback = function()
-        vim.opt.laststatus = 3
-        vim.opt.cmdheight  = 1
-        vim.opt.showtabline = 2
-    end,
+	pattern = "alpha",
+    command = "set showtabline=0 laststatus=0 cmdheight=0 | autocmd BufUnload <buffer> set showtabline=2 laststatus=2 cmdheight=1"
 })
 
 ----------------------- Don't Auto Commenting New Lines -----------------------

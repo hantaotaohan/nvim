@@ -25,19 +25,19 @@ if fn.empty(fn.glob(install_path)) > 0 then
     fn.system { "git", "clone", "--depth", "1", "https://hub.fastgit.xyz/wbthomason/packer.nvim", install_path }
     vim.cmd "packadd packer.nvim"
 
-    vim.cmd "set laststatus=0"
-    vim.cmd "set cmdheight=0"
-    vim.cmd "set showtabline=0"
-    vim.cmd "set colorcolumn=0"
-    vim.cmd "set nonumber"
-    vim.cmd "set nocursorline"
-    vim.cmd "hi NonText guifg=#282C34"
+    -- vim.cmd "set laststatus=0"
+    -- vim.cmd "set cmdheight=0"
+    -- vim.cmd "set showtabline=0"
+    -- vim.cmd "set colorcolumn=0"
+    -- vim.cmd "set nonumber"
+    -- vim.cmd "set nocursorline"
+    -- vim.cmd "hi NonText guifg=#282C34"
 
     require "plugins"
     vim.cmd "PackerSync"
 end
 
--- vim.cmd([[
+-- vim.cmd([zz[
 --   augroup packer_user_config
 --     autocmd!
 --     autocmd BufWritePost ~/.config/nvim/lua/plugins/init.lua source <afile> | PackerSync

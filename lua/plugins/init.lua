@@ -16,7 +16,7 @@ local plugins = {
     ---------------------------------------------------------------------------
 
     {
-        "wbthomason/packer.nvim", 
+        "wbthomason/packer.nvim",
         disable = false,
         cmd = require("core.lazyload").packer_cmds,
         config = function()
@@ -27,17 +27,17 @@ local plugins = {
     ---------------------------------------------------------------------------
     -- 模糊搜索插件依赖项
     ---------------------------------------------------------------------------
-    { 
-        "nvim-lua/plenary.nvim", 
+    {
+        "nvim-lua/plenary.nvim",
         disable = false,
-        module = "plenary" 
+        module = "plenary",
     },
 
     ---------------------------------------------------------------------------
     -- 模糊搜索插件
     ---------------------------------------------------------------------------
-    { 
-        "nvim-telescope/telescope.nvim", 
+    {
+        "nvim-telescope/telescope.nvim",
         disable = false,
         cmd = "Telescope",
         config = function()
@@ -49,7 +49,7 @@ local plugins = {
     -- 颜色主题
     ---------------------------------------------------------------------------
     {
-        "hantaotaohan/onedark.nvim", 
+        "hantaotaohan/onedark.nvim",
         disable = false,
         config = function()
             require "plugins.configs.onedark"
@@ -60,7 +60,7 @@ local plugins = {
     -- 标签页插件
     ---------------------------------------------------------------------------
     {
-        "akinsho/bufferline.nvim", 
+        "akinsho/bufferline.nvim",
         disable = false,
         tag = "v2.*",
         config = function()
@@ -72,7 +72,7 @@ local plugins = {
     -- 状态栏插件
     ---------------------------------------------------------------------------
     {
-        "nvim-lualine/lualine.nvim", 
+        "nvim-lualine/lualine.nvim",
         disable = false,
         config = function()
             require "plugins.configs.lualine"
@@ -160,10 +160,12 @@ local plugins = {
     ---------------------------------------------------------------------------
 
     {
-        'lewis6991/gitsigns.nvim', 
+        'lewis6991/gitsigns.nvim',
         disable = false,
-        ft = "gitcommit", 
-        event = "BufRead",
+        ft = "gitcommit",
+		setup = function()
+			require("core.lazyload").gitsigns()
+		end,
         config = function()
             require('gitsigns').setup()
         end,
@@ -175,17 +177,18 @@ local plugins = {
     {
         "numToStr/Comment.nvim",
         disable = false,
+		module = "Comment",
+		keys = { "gc", "gb" },
         config = function()
             require "plugins.configs.comment"
         end,
-
     },
 
     ---------------------------------------------------------------------------
     -- 快捷键提示插件
     ---------------------------------------------------------------------------
-    { 
-        "folke/which-key.nvim", 
+    {
+        "folke/which-key.nvim",
         disable = false,
         module = "which-key",
         keys = "<localleader>",
@@ -198,14 +201,18 @@ local plugins = {
     -- 语法渲染插件
     ---------------------------------------------------------------------------
     {
-        "nvim-treesitter/nvim-treesitter", 
+        "nvim-treesitter/nvim-treesitter",
         disable = false,
-        module = "nvim-treesitter", 
-        -- run = ":TSUpdate",
+        module = "nvim-treesitter",
+		setup = function()
+			require("core.lazyload").on_file_open "nvim-treesitter"
+		end,
+		cmd = require("core.lazyload").treesitter_cmds,
+        run = ":TSUpdate",
         config = function()
             require "plugins.configs.treesitter"
         end,
-    },     -- Syntax highlighting
+    },
 
 
     ---------------------------------------------------------------------------
@@ -254,7 +261,7 @@ local plugins = {
         after = "LuaSnip",
     },
 
-    { 
+    {
         "hrsh7th/cmp-nvim-lua",
         disable = false,
         after = "cmp_luasnip",
