@@ -58,14 +58,14 @@ local options = {
     buttons = {
         type = "group",
         val = {
-            button("e", "  New File  ", ":ene <BAR> startinsert <CR>"),
+            button("SPC e e", "  New File  ", ":ene <BAR> startinsert <CR>"),
             button("SPC f f", "  Find File  ", ":Telescope find_files<CR>"),
             button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
             button("SPC f w", "  Find Word  ", ":Telescope live_grep<CR>"),
             button("SPC b m", "  Bookmarks  ", ":Telescope marks<CR>"),
             button("SPC t h", "  Themes  ", ":Telescope themes<CR>"),
             button("SPC e s", "  Settings", ":e $MYVIMRC | :cd %:p:h <CR>"),
-            button("q", "  Quit Nvim  ", ":qa<CR>"),
+            button("SPC q q", "  Quit Nvim  ", ":qa<CR>"),
         },
 
         opts = {
