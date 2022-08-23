@@ -57,9 +57,7 @@ require "core.keymaps"
 require "core.autocmd"
 
 -------------------------------------------------------------------------------
-                             -- Import Functions --
+                               -- LSP Install  --
 -------------------------------------------------------------------------------
-
--- require "plugins.functions"
 
 require "plugins.configs.lsp.install"
