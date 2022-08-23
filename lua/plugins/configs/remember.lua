@@ -5,6 +5,7 @@ if not present then
 end
 
 local options = {
+
 	open_folds = true,
     ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit", "qf" },
     ignore_buftype = { "quickfix", "nofile", "help", "dashboard", "telescope", "nvim-tree" },

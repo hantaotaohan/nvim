@@ -5,6 +5,7 @@ if not present then
 end
 
 local options = {
+
     auto_reload_on_write = true,
     create_in_closed_folder = false,
     disable_netrw = true,
@@ -24,6 +25,7 @@ local options = {
     respect_buf_cwd = true,
     on_attach = "disable", -- function(bufnr). If nil, will use the deprecated mapping strategy
     remove_keymaps = false, -- boolean (disable totally or not) or list of key (lhs)
+
     view = {
         adaptive_size = true,
         centralize_selection = false,
@@ -35,9 +37,10 @@ local options = {
         number = false,
         relativenumber = false,
         signcolumn = "yes",
-        -- @deprecated
+
         mappings = {
             custom_only = true,
+
             list = {
                 { key = {"<CR>","o"}   ,     action = "edit"               },
                 { key = "O"            ,     action = "edit_no_picker"     },
@@ -74,6 +77,7 @@ local options = {
                 { key = "m"            ,     action = "toggle_mark"        },
             },
         },
+
         float = {
             enable = false,
             open_win_config = {
@@ -86,6 +90,7 @@ local options = {
             },
         },
     },
+
     renderer = {
         add_trailing = false,
         group_empty = false,
@@ -103,21 +108,25 @@ local options = {
                 none = "  ",
             },
         },
+
         icons = {
             webdev_colors = true,
             git_placement = "after",
             padding = " ",
             symlink_arrow = " ➛ ",
+
             show = {
                 file = false,
                 folder = true,
                 folder_arrow = false,
                 git = true,
             },
+
             glyphs = {
                 default = "",
                 symlink = "",
                 bookmark = "▐",
+
                 folder = {
                     arrow_closed = "+",
                     arrow_open = "-",
@@ -128,38 +137,45 @@ local options = {
                     symlink = "",
                     symlink_open = "",
                 },
+
                 git = {
-                    unstaged = " м",
-                    staged = " а",
+                    unstaged = " M",
+                    staged = " A",
                     unmerged = " E",
                     renamed = " R",
-                    untracked = " ★",
+                    untracked = " ★" ,
                     deleted = " D",
-                    ignored = " I",
+                    ignored = " G",
                 },
             },
         },
+
         special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
         symlink_destination = false,
     },
+
     hijack_directories = {
         enable = true,
         auto_open = true,
     },
+
     update_focused_file = {
         enable = true,
         update_root = true,
         ignore_list = {},
     },
+
     ignore_ft_on_setup = {},
     system_open = {
         cmd = "",
         args = {},
     },
+
     diagnostics = {
         enable = false,
         show_on_dirs = false,
         debounce_delay = 50,
+
         icons = {
             hint = "",
             info = "",
@@ -167,32 +183,39 @@ local options = {
             error = "",
         },
     },
+
     filters = {
         dotfiles = false,
         custom = {},
         exclude = {},
     },
+
     filesystem_watchers = {
         enable = true,
         debounce_delay = 50,
     },
+
     git = {
         enable = true,
         ignore = true,
         show_on_dirs = true,
         timeout = 400,
     },
+
     actions = {
         use_system_clipboard = true,
+
         change_dir = {
             enable = true,
             global = false,
             restrict_above_cwd = false,
         },
+
         expand_all = {
             max_folder_discovery = 300,
             exclude = {},
         },
+
         file_popup = {
             open_win_config = {
                 col = 10,
@@ -202,6 +225,7 @@ local options = {
                 style = "minimal",
             },
         },
+
         open_file = {
             quit_on_open = true,
             resize_window = true,
@@ -209,23 +233,27 @@ local options = {
                 enable = true,
                 chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                 exclude = {
-                    filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+                    filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame","lualine" },
                     buftype = { "nofile", "terminal", "help" },
                 },
             },
         },
+
         remove_file = {
             close_window = true,
         },
     },
+
     trash = {
         cmd = "gio trash",
         require_confirm = true,
     },
+
     live_filter = {
         prefix = "[Search]: ",
         always_show_folders = false,
     },
+
     log = {
         enable = false,
         truncate = false,
@@ -243,15 +271,3 @@ local options = {
 }
 
 require "nvim-tree".setup(options)
-
-
--- 关闭最后一个buffer时 自动退出nvim-tree
--- vim.o.confirm = true
--- vim.api.nvim_create_autocmd("BufEnter", {
---   group = vim.api.nvim_create_augroup("NvimTreeClose", {clear = true}),
---   callback = function()
---     local layout = vim.api.nvim_call_function("winlayout", {})
---     if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("quit") end
---   end
--- })
-

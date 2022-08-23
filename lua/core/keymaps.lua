@@ -98,6 +98,12 @@ keymap("n", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR>", opts)
 keymap("i", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
 keymap("v", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
 
+------------------------------- NvimTreeToggle --------------------------------
+
+keymap("n", "<LocalLeader>t", "<cmd>SymbolsOutline<CR>", opts)
+keymap("i", "<LocalLeader>t", "<cmd>SymbolsOutline<CR><Esc>", opts)
+keymap("v", "<LocalLeader>t", "<cmd>SymbolsOutline<CR><Esc>", opts)
+
 ---------------------------------- ToggleTerm ---------------------------------
 
 keymap('n', '<LocalLeader>cc', '<CMD>ToggleTerm size=10 direction=horizontal<CR>', opts)

@@ -5,12 +5,13 @@ if not present then
 end
 
 local options = {
+
     history = true,
     updateevents = "TextChanged,TextChangedI",
+
 }
 
 require "luasnip".config.set_config(options)
-
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.luasnippets_path or "" }
 

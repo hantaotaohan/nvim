@@ -61,8 +61,9 @@ end
 
 function NvimTreeHighlight()
 
-    -- Nvim-tree
-    -- Default linked group follows name.
+------------------------------------------------------------------------------- 
+-- Nvim-tree
+------------------------------------------------------------------------------- 
 
     highlight("NvimTreeSymlink"                    , nil        ,nil  ,nil  ,nil)
     highlight("NvimTreeFolderName"                 , nil        ,nil  ,nil  ,nil)
@@ -125,8 +126,10 @@ function NvimTreeHighlight()
     -- highlight("IndentBlanklineContextChar"         , nil        ,nil  ,nil  ,nil)
     -- highlight("IndentBlanklineContextStart"        , nil        ,nil  ,nil  ,nil)
 
+------------------------------------------------------------------------------- 
 -- CMP
--- gray
+------------------------------------------------------------------------------- 
+
 	highlight ("CMPPmenu"                          , "#ABB2BF"  , "#1E2227", nil, nil )
 	highlight ("CMPPmenuSel"                       , "#ABB2BF"  , "#282C34", nil, nil )
 	highlight ("CmpItemAbbrDeprecated"             , "#282C34"  , nil ,nil  ,nil)
@@ -151,9 +154,13 @@ function NvimTreeHighlight()
 
 	highlight ("CmpItemMenu"                       , "#E06C75"  ,nil)
 
+------------------------------------------------------------------------------- 
 -- lualine
+------------------------------------------------------------------------------- 
 
     highlight ("lualine_a_terminal"                , "#282C34"  , "#61AFEF", nil, nil)
+
+------------------------------------------------------------------------------- 
 
 end
 

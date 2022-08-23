@@ -124,8 +124,8 @@ o.updatetime=300
 
 -- Split Window 从下边和右边出现
 
-o.splitbelow = true
-o.splitright = true
+o.splitbelow = false
+o.splitright = false
 o.termguicolors = true
 
 -- 自动补全不自动选中

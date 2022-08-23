@@ -112,13 +112,15 @@ lspconfig.bashls.setup {
 
 lspconfig.pyright.setup {
     capabilities = capabilities,
-    on_attach = require('plugins.configs.lsp.config.pyright').on_attach,
+    on_attach = on_attach,
+    -- on_attach = require('plugins.configs.lsp.config.pyright').on_attach,
     settings = require('plugins.configs.lsp.config.pyright').settings,
 }
 
 lspconfig.sumneko_lua.setup {
     capabilities = capabilities,
-    on_attach = require('plugins.configs.lsp.config.sumneko_lua').on_attach,
+    on_attach = on_attach,
+    -- on_attach = require('plugins.configs.lsp.config.sumneko_lua').on_attach,
     settings = require('plugins.configs.lsp.config.sumneko_lua').settings,
 }
 
