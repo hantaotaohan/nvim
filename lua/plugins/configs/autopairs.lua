@@ -6,13 +6,17 @@ if not present then
 end
 
 local options = {
+
     check_ts = true,
+
     ts_config = {
         lua = { "string", "source" },
         javascript = { "string", "template_string" },
         java = false,
     },
+
     disable_filetype = { "TelescopePrompt", "spectre_panel" },
+
     fast_wrap = {
         map = "<M-e>",
         chars = { "{", "[", "(", '"', "'" },
@@ -24,6 +28,7 @@ local options = {
         highlight = "PmenuSel",
         highlight_grey = "LineNr",
     },
+
 }
 
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"

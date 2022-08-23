@@ -196,11 +196,17 @@ keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", b
 keymap("v", "<leader>cf", "<cmd>'<.'>lua vim.lsp.buf.range_formatting()<CR>", bufopts)
 keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", bufopts)
 keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", bufopts)
-keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", bufopts)
-keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", bufopts)
+keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", bufopts)
+keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", bufopts)
 
 ------------------------------------ Alpha ------------------------------------
 
 keymap("n", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
 keymap("i", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
 keymap("v", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
+
+------------------------------ IndentBlankLine --------------------------------
+
+keymap("n", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
+keymap("i", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
+keymap("v", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
