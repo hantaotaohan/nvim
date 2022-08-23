@@ -17,11 +17,12 @@ local options = {
 	},
 
 	window = {
-		border = "none", -- none/single/double/shadow
+		border = "single", -- none/single/double/shadow
 	},
 
 	layout = {
 		spacing = 6, -- spacing between columns
+        align = "center",
 	},
 
 	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },

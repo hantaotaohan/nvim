@@ -29,7 +29,6 @@ local options = {
 
     -- Custom Highlights --
     colors = {
-        deep_dark = "#161910",    -- define a new color
     }, -- Override default colors
 
     highlights = {
@@ -119,7 +118,9 @@ function NvimTreeHighlight()
 
     highlight("NvimTreeBookmark"                   , "#C678DD"  ,nil  ,nil  ,nil)
 
-    -- IndenBlank
+------------------------------------------------------------------------------- 
+-- IndenBlank
+------------------------------------------------------------------------------- 
 
     -- highlight("IndentBlanklineChar"                , nil        ,nil  ,nil  ,nil)
     -- highlight("IndentBlanklineSpaceChar"           , nil        ,nil  ,nil  ,nil)
@@ -158,7 +159,7 @@ function NvimTreeHighlight()
 -- lualine
 ------------------------------------------------------------------------------- 
 
-    highlight ("lualine_a_terminal"                , "#282C34"  , "#61AFEF", nil, nil)
+    highlight ("lualine_a_terminal"                , "#282C34"  , "#61AFEF", "bold", "bold")
 
 ------------------------------------------------------------------------------- 
 
