@@ -22,18 +22,21 @@ local options = {
 			style = 'icon' -- | 'underline' | 'none',
 		},
 
+        color_icons = false,
         buffer_close_icon = "✖ ",
         modified_icon = "⬥ ",
         close_icon = "",
+		left_trunc_marker = '',
+		right_trunc_marker = '',
 
-        max_name_length = 25,
-        max_prefix_length = 1, -- prefix used when a buffer is de-duplicated
-        tab_size = 25,
+        max_name_length = 18,
+        max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
+        tab_size = 18,
 
         diagnostics = false, -- | "nvim_lsp" | "coc",
         diagnostics_update_in_insert = false,
 
-        offsets = { { filetype = "NvimTree", text = "NvimTree", padding = 1, highlight = "BufferLineFill", text_align = "center"  } },
+        offsets = { { filetype = "NvimTree", text = "NvimTree", padding = 1, highlight = "BufferLineFill", text_align = "center"  }},
 
         show_buffer_icons = false,
         show_buffer_close_icons = false,

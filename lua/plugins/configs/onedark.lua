@@ -125,6 +125,33 @@ function NvimTreeHighlight()
     -- highlight("IndentBlanklineContextChar"         , nil        ,nil  ,nil  ,nil)
     -- highlight("IndentBlanklineContextStart"        , nil        ,nil  ,nil  ,nil)
 
+-- CMP
+-- gray
+	highlight ("PmenuSel"                          , "#ABB2BF"  , "#282C34", nil, nil )
+	highlight ("CMPPmenu"                          , "#ABB2BF"  , "#1E2227", nil, nil )
+	highlight ("CMPPmenuSel"                       , "#ABB2BF"  , "#1E2227", nil, nil )
+	highlight ("CmpItemAbbrDeprecated"             , "#282C34"  , nil ,nil  ,nil)
+	highlight ("CmpBorder"                         , "#565960"  , nil ,nil  ,nil)
+	highlight ("CmpDocBorder"                      , "#565960"  , nil ,nil  ,nil)
+
+	highlight ("CmpItemAbbrMatch"                  , "#61AFEF"  ,nil  ,nil  ,nil)
+	highlight ("CmpItemKindFile"                   , "#E5C07B"  ,nil  ,nil  ,nil)
+	highlight ("CmpItemKindConstructor"            , "#E5C07B"  ,nil  ,nil  ,nil)
+	highlight ("CmpItemAbbrMatchFuzzy"             , "#61AFEF"  ,nil  ,nil  ,nil)
+	-- light l(ue
+	highlight ("CmpItemKindVariable"               , "#C678DD"  ,nil  ,nil  ,nil)
+	highlight ("CmpItemKindInterface"              , "#9CDCFE"  ,nil  ,nil  ,nil)
+	highlight ("CmpItemKindText"                   , "#ABB2BF"  ,nil  ,nil  ,nil)
+	-- pink
+	highlight ("CmpItemKindFunction"               , "#C678DD"  ,nil  ,nil  ,nil)
+	highlight ("CmpItemKindMethod"                 , "#C678DD"  ,nil  ,nil  ,nil)
+	-- front
+	highlight ("CmpItemKindKeyword"                , "#D4D4D4"  ,nil  ,nil  ,nil)
+	highlight ("CmpItemKindProperty"               , "#D4D4D4"  ,nil  ,nil  ,nil)
+	highlight ("CmpItemKindUnit"                   , "#D4D4D4"  ,nil  ,nil  ,nil)
+
+	highlight ("CmpItemMenu"                       , "#E06C75"  ,nil)
+
 end
 
 vim.api.nvim_create_autocmd("BufEnter", {
