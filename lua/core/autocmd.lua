@@ -21,6 +21,9 @@ autocmd("FileType", {
     command = "set showtabline=0 laststatus=0 cmdheight=0 | autocmd BufUnload <buffer> set showtabline=2 laststatus=2 cmdheight=1"
 })
 
+vim.cmd[[autocmd FileType alpha noremap <buffer> i <nop>]]
+vim.cmd[[autocmd FileType alpha noremap <buffer> r <nop>]]
+
 ----------------------- Don't Auto Commenting New Lines -----------------------
 
 autocmd("BufEnter", {
