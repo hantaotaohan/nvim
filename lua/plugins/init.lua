@@ -244,6 +244,12 @@ local plugins = {
     },
 
     {
+        "hrsh7th/cmp-nvim-lsp",
+        disable = false,
+        after = "cmp_luasnip",
+    },
+
+    {
         "hrsh7th/nvim-cmp",
         disable = false,
         after = "friendly-snippets",

@@ -46,3 +46,11 @@ autocmd("TextYankPost", {
     command = "if v:event.operator ==# 'y' | call system('/mnt/c/Windows/System32/clip.exe', @0) | endif"
 })
 
+-------------------------------- Yank highlight -------------------------------
+
+autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank({ higroup = 'lualine_a_visual', timeout = 200 })
+    end
+})
+

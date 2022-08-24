@@ -64,21 +64,32 @@ mason_lsp.setup {
 -- Nvim Lsp Config --
 -------------------------------------------------------------------------------
 
-local lspconfig = require("lspconfig")
+local present, lspconfig = pcall(require, "lspconfig")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-if cmp_nvim_lsp_ok then
-    capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+if not present then
+    return
 end
 
-capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
-}
+local M = {}
 
-capabilities.textDocument.completion.completionItem = {
+-- export on_attach & capabilities for custom lspconfigs
+
+M.on_attach = function(client, bufnr)
+    if vim.g.vim_version > 7 then
+        -- nightly
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    else
+        -- stable
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+    end
+
+end
+
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+
+M.capabilities.textDocument.completion.completionItem = {
     documentationFormat = { "markdown", "plaintext" },
     snippetSupport = true,
     preselectSupport = true,
@@ -96,41 +107,23 @@ capabilities.textDocument.completion.completionItem = {
     },
 }
 
--------------------------------------------------------------------------------
--- Lsp Config --
--------------------------------------------------------------------------------
-
-local function on_attach(client, bufnr)
-    -- set up buffer keymaps, etc.
-end
-
-lspconfig.bashls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = require('plugins.configs.lsp.config.bashls').settings,
+lspconfig.sumneko_lua.setup {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    settings = require('plugins.configs.lsp.config.sumneko_lua').settings
 }
 
 lspconfig.pyright.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    -- on_attach = require('plugins.configs.lsp.config.pyright').on_attach,
-    settings = require('plugins.configs.lsp.config.pyright').settings,
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    settings = require('plugins.configs.lsp.config.pyright').settings
 }
 
-lspconfig.sumneko_lua.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    -- on_attach = require('plugins.configs.lsp.config.sumneko_lua').on_attach,
-    settings = require('plugins.configs.lsp.config.sumneko_lua').settings,
+lspconfig.bashls.setup {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    settings = require('plugins.configs.lsp.config.bashls').settings
 }
-
-for _, server in ipairs { "bashls", "pyright", "sumneko_lua" } do
-    lspconfig[server].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-    }
-end
-
 
 -------------------------------------------------------------------------------
 -- LSP UI
@@ -139,6 +132,8 @@ end
 local signs = { Error = "⯈", Warn = "⯈", Hint = "⯈", Info = "⯈" }
 
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+return M

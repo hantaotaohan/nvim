@@ -5,6 +5,8 @@
 local o = vim.opt
 local g = vim.g
 
+local vim_data_path = vim.fn.stdpath("data")
+
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
@@ -22,168 +24,99 @@ end
                              -- Start Configure --
 -------------------------------------------------------------------------------
 
--- UTF8 字符编码设置
-
-g.encoding = "UTF-8"
+-- 编码设置
+g.encoding = "utf-8"
 o.fileencoding = "utf-8"
 
--- 移动时光标周围保留8行
-
+-- 光标设置
+o.whichwrap = ""
 o.scrolloff = 8
 o.sidescrolloff = 8
 
--- 使用相对行号
-
+-- 行号边栏设置
 o.number = true
+o.numberwidth = 6
+o.signcolumn = "yes"
 o.relativenumber = false
 
--- 行号宽度
-o.numberwidth = 4
-
--- 高亮所在行
-
+-- 编辑区域设置
+o.list = false
 o.cursorline = true
-
--- 显示左侧图标指示列
-
-o.signcolumn = "yes:2"
-
--- 右侧参考线
-
 o.colorcolumn = "80"
+o.listchars:append("eol:↲" ) 
+o.listchars:append("tab:·")
+o.listchars:append("space:⋅")
+o.listchars:append("trail:•")
+o.listchars:append("extends:▸") 
+o.listchars:append("precedes:◂") 
+o.listchars:append("conceal:┊")
+o.listchars:append("nbsp:␣")
 
--- 缩进4个空格等于一个Tab
-
+-- 缩进设置
 o.tabstop = 4
-o.softtabstop = 4
-o.shiftround = true
-
--- 手动缩进时移动长度
-
 o.shiftwidth = 4
-
--- 空格替代tab
-
+o.softtabstop = 4
 o.expandtab = true
-
--- 新行对齐当前行
-
+o.shiftround = true
 o.autoindent = true
 o.smartindent = true
 
--- 搜索大小写不敏感，除非包含大写
-
-o.ignorecase = true
+-- 搜索设置
+o.wrapscan = true
+o.hlsearch = true
 o.smartcase = true
 o.infercase = true
-o.wrapscan = true
-
--- 边输入边搜索
-
 o.incsearch = true
+o.ignorecase = true
 
--- 搜索高亮
-
-o.hlsearch = true
-
--- 命令行高为 1，提供足够的显示空间
-
+-- 命令行区域设置
+o.ruler = true
 o.cmdheight = 1
-
--- 当文件被外部程序修改时，自动加载
-
-o.autoread = true
-
--- 禁止折行
-
-o.wrap = false
-
--- 光标在行首尾时<Left><Right>可以跳到下一行
-
-o.whichwrap = ""
-
--- 允许隐藏被修改过的buffer
-
-o.hidden = true
-
--- 鼠标支持
-
-o.mouse = "a"
-
--- 禁止创建备份文件
-
-vim.o.backup = false
-vim.o.writebackup = false
-vim.o.swapfile = false
-
--- 设置超时时间
-
-o.timeoutlen=500    
-o.ttimeoutlen=10   
-o.updatetime=300  
-
--- Split Window 从下边和右边出现
-
-o.splitbelow = false
-o.splitright = false
-o.termguicolors = true
-
--- 自动补全不自动选中
-
--- vim.g.completeopt = "menu,menuone,noselect,noinsert"
-
--- Terminal 支持 256
-
-vim.o.termguicolors = true
-
--- 是否显示不可见字符
-
-o.list = false
-
--- 不可见字符的显示，这里只把空格显示为一个点
-
-o.listchars = "space:·,tab:'|',trail:.,extends:>,precedes:<"
-
--- 补全增强
-
-o.wildmenu = true
-
--- 不要将消息传递到|输入菜单
-
-o.shortmess = vim.o.shortmess .. "c"
-
--- 补全最多显示10行
-
-o.pumheight = 10
-
--- 永远显示 tabline
-
-o.showtabline = 2
-
--- 使用增强状态栏插件后不再需要 vim 的模式提示
-
+o.laststatus = 2
 o.showmode = false
 
-
--- StatusLine 高度
-
-o.laststatus = 3 -- global statusline
-
--- 设置 Nvim 的标题
-
+-- 行为设置
+o.wrap = false
 o.title = true
+o.mouse = "a"
+o.history = 9000
+o.autoread = true
+o.winblend = 20
+o.lazyredraw = true
+o.splitbelow = false
+o.splitright = false
+o.jumpoptions = 'view'
+o.shortmess:append "c"
+o.shortmess:append 'A'
+o.shortmess:append 'I'
+o.shortmess:append 'O'
+o.shortmess:append 'T'
+o.shortmess:append 'a'
+o.shortmess:append 'o'
+o.shortmess:append 't'
+o.termguicolors = true
+o.clipboard:append "unnamedplus"
 
--- 打通剪贴板
+-- 标签页设置
+o.hidden = true
+o.showtabline = 2
 
-o.clipboard = "unnamedplus"
-
--- Status 右下角显示标尺
-
-o.ruler = true
-
--- 允许保存撤销文件
-
+-- 备份文件设置
+o.backup = false
 o.undofile = true
+o.swapfile = false
+o.undolevels = 10000
+o.writebackup = false
+o.undodir = vim_data_path .. "/undo"
+
+-- 设置超时时间
+o.timeoutlen = 500
+o.ttimeoutlen = 10
+o.updatetime = 300
+
+-- 补全设置
+o.pumheight = 10
+o.wildmenu = true
 
 -------------------------------------------------------------------------------
                         -- Disable Nvim Built Plugins --
