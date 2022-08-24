@@ -106,25 +106,25 @@ keymap("v", "<LocalLeader>t", "<cmd>SymbolsOutline<CR><Esc>", opts)
 
 ---------------------------------- ToggleTerm ---------------------------------
 
-keymap('n', '<LocalLeader>cc', '<CMD>ToggleTerm size=10 direction=horizontal<CR>', opts)
-keymap('i', '<LocalLeader>cc', '<CMD>ToggleTerm size=10 direction=horizontal<CR>', opts)
-keymap('v', '<LocalLeader>cc', '<CMD>ToggleTerm size=10 direction=horizontal<CR>', opts)
-keymap('t', '<LocalLeader>cc', '<C-\\><C-n><CMD>ToggleTerm size=10 direction=horizontal<CR>',opts)
+keymap('n', '<LocalLeader>cc', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
+keymap('i', '<LocalLeader>cc', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
+keymap('v', '<LocalLeader>cc', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
+keymap('t', '<LocalLeader>cc', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>',opts)
 
-keymap('n', '<LocalLeader>cv', '<CMD>ToggleTerm size=80 direction=vertical<CR>', opts)
-keymap('i', '<LocalLeader>cv', '<CMD>ToggleTerm size=80 direction=vertical<CR>', opts)
-keymap('v', '<LocalLeader>cv', '<CMD>ToggleTerm size=80 direction=vertical<CR>', opts)
-keymap('t', '<LocalLeader>cv', '<C-\\><C-n><CMD>ToggleTerm size=80 direction=vertical<CR>',opts)
+keymap('n', '<LocalLeader>cv', '<CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>', opts)
+keymap('i', '<LocalLeader>cv', '<CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>', opts)
+keymap('v', '<LocalLeader>cv', '<CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>', opts)
+keymap('t', '<LocalLeader>cv', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>',opts)
 
-keymap('n', '<LocalLeader>ct', '<CMD>ToggleTerm direction=tab<CR>', opts)
-keymap('i', '<LocalLeader>ct', '<CMD>ToggleTerm direction=tab<CR>', opts)
-keymap('v', '<LocalLeader>ct', '<CMD>ToggleTerm direction=tab<CR>', opts)
-keymap('t', '<LocalLeader>ct', '<C-\\><C-n><CMD>ToggleTerm direction=tab<CR>',opts)
+keymap('n', '<LocalLeader>ct', '<CMD>ToggleTerm dir=%:p:h direction=tab<CR>', opts)
+keymap('i', '<LocalLeader>ct', '<CMD>ToggleTerm dir=%:p:h direction=tab<CR>', opts)
+keymap('v', '<LocalLeader>ct', '<CMD>ToggleTerm dir=%:p:h direction=tab<CR>', opts)
+keymap('t', '<LocalLeader>ct', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h direction=tab<CR>',opts)
 
-keymap('n', '<LocalLeader>cf', '<CMD>ToggleTerm direction=float<CR>', opts)
-keymap('i', '<LocalLeader>cf', '<CMD>ToggleTerm direction=float<CR>', opts)
-keymap('v', '<LocalLeader>cf', '<CMD>ToggleTerm direction=float<CR>', opts)
-keymap('t', '<LocalLeader>cf', '<C-\\><C-n><CMD>ToggleTerm direction=float<CR>',opts)
+keymap('n', '<LocalLeader>cf', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
+keymap('i', '<LocalLeader>cf', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
+keymap('v', '<LocalLeader>cf', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
+keymap('t', '<LocalLeader>cf', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h direction=float<CR>',opts)
 
 ---------------------------------- Telescope --------------------------------- 
 

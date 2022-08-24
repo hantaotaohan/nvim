@@ -46,7 +46,7 @@ o.cursorline = true
 
 -- 显示左侧图标指示列
 
-o.signcolumn = "yes"
+o.signcolumn = "yes:2"
 
 -- 右侧参考线
 

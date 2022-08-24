@@ -37,6 +37,7 @@ local marginTopPercent = 0.3
 local headerPadding = fn.max { 2, fn.floor(fn.winheight(0) * marginTopPercent) }
 
 local options = {
+
     header = {
         type = "text",
         val = {
@@ -57,6 +58,7 @@ local options = {
 
     buttons = {
         type = "group",
+
         val = {
 
             button("f", "  Find File  ", ":Telescope find_files<CR>"),
@@ -95,5 +97,5 @@ alpha.setup {
         options.headerPaddingBottom,
         options.buttons,
     },
-    opts = {},
+    opts = {position = "center"},
 }

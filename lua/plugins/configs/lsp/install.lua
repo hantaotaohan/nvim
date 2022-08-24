@@ -130,3 +130,15 @@ for _, server in ipairs { "bashls", "pyright", "sumneko_lua" } do
         capabilities = capabilities,
     }
 end
+
+
+-------------------------------------------------------------------------------
+-- LSP UI
+-------------------------------------------------------------------------------
+
+local signs = { Error = "⯈", Warn = "⯈", Hint = "⯈", Info = "⯈" }
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
