@@ -40,10 +40,17 @@ vim.g.maplocalleader = ";"
 vim.cmd [[ cnoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>" ]]
 vim.cmd [[ cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>" ]]
 
---------------------------------- Nohighlight ---------------------------------
+-------------------------------- No Highlight ---------------------------------
 
-keymap("n", "<Space>", "<cmd>noh<CR>", opts)
-keymap("v", "<Space>", "<cmd>noh<CR>", opts)
+-- keymap("n", "<Space>", "<cmd>noh<CR>", opts)
+-- keymap("v", "<Space>", "<cmd>noh<CR>", opts)
+
+keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
+
+----------------------------- Move Selected Line ------------------------------
+
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 --------------------------------- Quick Save ----------------------------------
 

@@ -243,11 +243,11 @@ local plugins = {
         event = "InsertEnter",
     },
 
-    {
-        "hrsh7th/cmp-nvim-lsp",
-        disable = false,
-        after = "cmp_luasnip",
-    },
+    -- {
+    --     "hrsh7th/cmp-nvim-lsp",
+    --     disable = false,
+    --     after = "cmp_luasnip",
+    -- },
 
     {
         "hrsh7th/nvim-cmp",
