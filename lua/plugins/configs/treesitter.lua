@@ -9,15 +9,19 @@ for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) 
 end
 
 local options = {
+
 	ensure_installed = { "lua", "python" },
 	sync_install = false,
-	-- NOTE: need to ignore installation of phpdoc parser because it is not ready for Mac m1 arm64 architecture
+    auto_install = false,
+
 	ignore_install = { "c", "phpdoc", "tree-sitter-phpdoc" }, -- List of parsers to ignore installing
 	autopairs = { enable = true },
 	autotag = {enable = true},
+
 	-- 启用代码高亮模块
 	highlight = {
-		enable = false,
+		enable = true,
+        disable = { "c", "rust" },
 		additional_vim_regex_highlighting = false,
 	},
 
@@ -31,10 +35,15 @@ local options = {
 			scope_incremental = "<TAB>",
 		},
 	},
+
 	-- 启用代码缩进模块 (=)
 	indent = {
 		enable = true,
 	},
+
+    textobjects = {
+        enable = true
+    },
 
 	rainbow = {
 		enable = true,
@@ -53,7 +62,6 @@ local options = {
 	},
 }
 
-
 -- 开启 Folding 模块
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -63,4 +71,4 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 
 require("nvim-treesitter.install").prefer_git = true
-require "nvim-treesitter.configs".setup(options)
+require("nvim-treesitter.configs").setup(options)
