@@ -178,10 +178,10 @@ function NvimTreeHighlight()
     highlight("TelescopeResultsNormal           ",         nil,        nil,        nil,        nil )
 
 	-- 边框高亮组
-    highlight("TelescopeBorder                  ",         "#61AFEF",        nil,        nil,        nil )
-    highlight("TelescopePromptBorder            ",         "#61AFEF",        nil,        nil,        nil )
-    highlight("TelescopeResultsBorder           ",         "#61AFEF",        nil,        nil,        nil )
-    highlight("TelescopePreviewBorder           ",         "#61AFEF",        nil,        nil,        nil )
+    highlight("TelescopeBorder                  ",         "#646870",  nil,        nil,        nil )
+    highlight("TelescopePromptBorder            ",         "#646870",  nil,        nil,        nil )
+    highlight("TelescopeResultsBorder           ",         "#646870",  nil,        nil,        nil )
+    highlight("TelescopePreviewBorder           ",         "#646870",  nil,        nil,        nil )
 
 	-- 标题高亮组                                                                                   
     highlight("TelescopeTitle                   ",         nil,        nil,        nil,        nil )
@@ -197,7 +197,7 @@ function NvimTreeHighlight()
     highlight("TelescopePromptPrefix            ",         nil,        nil,        nil,        nil )
 
 	-- 用于在预览器中突出显示匹配的行。仅适用于 (vim_buffer_ previewer)
-    highlight("TelescopePreviewLine             ",         nil,        nil,        nil,        nil )
+    highlight("TelescopePreviewLine             ",         nil,        "#4E5666",  nil,        nil )
     highlight("TelescopePreviewMatch            ",         nil,        nil,        nil,        nil )
     highlight("TelescopePreviewPipe             ",         nil,        nil,        nil,        nil )
     highlight("TelescopePreviewCharDev          ",         nil,        nil,        nil,        nil )

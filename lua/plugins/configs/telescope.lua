@@ -7,8 +7,82 @@ end
 vim.g.theme_switcher_loaded = true
 
 local options = {
+
     defaults = {
+
+        sorting_strategy = "ascending",       -- escending (default) | ascending
+        selection_strategy = "reset",         -- reset (default) | follow | row | closest | none
+        scroll_strategy = "cycle",            -- cycle" (default) | limit
+        layout_strategy = "horizontal",       -- vertical | center | cursor
+        hl_result_eol = true,
+
+        layout_config = {
+            bottom_pane = {
+                height = 25,
+                preview_cutoff = 120,
+                prompt_position = "top"
+            },
+            center = {
+                height = 0.4,
+                preview_cutoff = 40,
+                prompt_position = "top",
+                width = 0.5
+            },
+            cursor = {
+                height = 0.9,
+                preview_cutoff = 40,
+                width = 0.8
+            },
+            horizontal = {
+                height = 0.8,
+                preview_cutoff = 120,
+                prompt_position = "top",
+                width = 0.8
+            },
+            vertical = {
+                height = 0.9,
+                preview_cutoff = 40,
+                prompt_position = "top",
+                width = 0.8
+            },
+        },
+
+        cycle_layout_list = { "horizontal", "vertical" },
+        winblend = 20,
+        wrap_results = true,
+        prompt_prefix = "Search: ",
+        selection_caret = " ⯈ ",
+        entry_prefix = "   ",
+        multi_icon = " + ",
+        initial_mode = "normal",              -- insert | normal 
+        border = true,
+
+        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+        -- borderchars = {
+        --     prompt =  {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
+        --     results = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
+        --     preview = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
+        -- },
+
+        dynamic_preview_title = true,
+        results_title = "Results",
+        prompt_title = "Prompt",
+
+        mappings = {
+
+            i = {
+                ["<LocalLeader>q"] = { "<esc>", type = "command" },
+            },
+
+            n = {
+                ["q"] = require("telescope.actions").close,
+                ["<LocalLeader>q"] = require("telescope.actions").close,
+            },
+
+        },
+
         vimgrep_arguments = {
+
             "rg",
             "--color=never",
             "--no-heading",
@@ -16,51 +90,19 @@ local options = {
             "--line-number",
             "--column",
             "--smart-case",
-            "--trim",
         },
-        prompt_prefix = "   ",
-        selection_caret = "  ",
-        entry_prefix = "  ",
-        initial_mode = "normal",              -- insert | normal 
-        selection_strategy = "reset",
-        sorting_strategy = "ascending",
-        layout_strategy = "horizontal",       --vertical | center | cursor
-        layout_config = {
-            horizontal = {
-                prompt_position = "top",
-                preview_width = 0.55,
-                results_width = 0.8,
-            },
-            vertical = {
-                mirror = false,
-            },
-            width = 0.87,
-            height = 0.80,
-            preview_cutoff = 120,
-        },
+
+        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+        color_devicons = false,
+        file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+        grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+        qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+
         file_sorter = require("telescope.sorters").get_fuzzy_file,
         file_ignore_patterns = { "node_modules" },
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         path_display = { "truncate" },
-        winblend = 1,
-        border = {},
-        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-        color_devicons = true,
-        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-        grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-        qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-        -- Developer configurations: Not meant for general override
         buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-        mappings = {
-            i = {
-                ["<LocalLeader>q"] = { "<esc>", type = "command" },
-            },
-            n = {
-                ["q"] = require("telescope.actions").close,
-                ["<LocalLeader>q"] = require("telescope.actions").close,
-            },
-        },
     },
 
     extensions_list = { "themes", "terms" },
