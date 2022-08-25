@@ -166,10 +166,10 @@ function NvimTreeHighlight()
 ------------------------------------------------------------------------------- 
 
 	-- 设置选择器中选定项目的突出显示
-    highlight("TelescopeSelection               ",         nil,        nil,        nil,        nil )
-    highlight("TelescopeSelectionCaret          ",         nil,        nil,        nil,        nil )
-    highlight("TelescopeMultiSelection          ",         nil,        nil,        nil,        nil )
-    highlight("TelescopeMultiIcon               ",         nil,        nil,        nil,        nil )
+    highlight("TelescopeSelection               ",         nil,        "#3E4552",  nil,        nil )
+    highlight("TelescopeSelectionCaret          ",         "#61AFEF",  nil,        nil,        nil )
+    highlight("TelescopeMultiSelection          ",         "#E06C75",  nil,        nil,        nil )
+    highlight("TelescopeMultiIcon               ",         "#E06C75",  nil,        nil,        nil )
 
 	-- 望远镜创建的浮动窗口中的“正常”。
     highlight("TelescopeNormal                  ",         nil,        nil,        nil,        nil )
@@ -191,7 +191,7 @@ function NvimTreeHighlight()
     highlight("TelescopePromptCounter           ",         nil,        nil,        nil,        nil )
 
 	-- 用于突出显示您匹配的字符。
-    highlight("TelescopeMatching                ",         nil,        nil,        nil,        nil )
+    highlight("TelescopeMatching                ",         "#61AFEF",  nil,        nil,        nil )
 
 	-- 用于提示前缀
     highlight("TelescopePromptPrefix            ",         nil,        nil,        nil,        nil )
@@ -239,6 +239,26 @@ function NvimTreeHighlight()
     highlight("TelescopeResultsDiffAdd          ",         nil,        nil,        nil,        nil )
     highlight("TelescopeResultsDiffDelete       ",         nil,        nil,        nil,        nil )
     highlight("TelescopeResultsDiffUntracked    ",         nil,        nil,        nil,        nil )
+
+
+------------------------------------------------------------------------------- 
+-- System
+------------------------------------------------------------------------------- 
+    highlight("Search                           ",         "#282C34",  "#E06C75",  nil,        nil )
+    highlight("IncSearch                        ",         "#282C34",  "#E06C75",  nil,        nil )
+    highlight("Folded                           ",         "#282C34",  "#80868F",  nil,        nil )
+    highlight("FoldColumn                       ",         "#4E5666",  "#23272E",  nil,        nil )
+
+    -- highlight("ColorColumn       ",         "#ABB2BF",        "#23272E",        nil,        nil )
+    -- highlight("SignColumn        ",         nil,              "#23272E",        nil,        nil )
+    -- highlight("CursorColumn      ",         nil,              "#23272E",        nil,        nil )
+
+    -- highlight("QuickFixLine      ",         "#ABB2BF",        "#282C34",        nil,        nil )
+    -- highlight("SignColumn        ",         "#E06C75",        "#282C34",        nil,        nil )
+    -- highlight("DiffDelete        ",         "#E06C75",        "#E06C75",        nil,        nil )
+    -- highlight("CursorLineNr      ",         "#61AFEF",        "#282C34",        nil,        nil )
+    -- highlight("Cursor            ",         "#282C34",        "#ABB2BF",        nil,        nil )
+
 ------------------------------------------------------------------------------- 
 
 end

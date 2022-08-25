@@ -341,13 +341,13 @@ local plugins = {
     -- 记住光标位置
     ---------------------------------------------------------------------------
 
-    {
-        "vladdoster/remember.nvim",
-        disable = false,
-        config = function()
-            require "plugins.configs.remember"
-        end,
-    },
+    -- {
+    --     "vladdoster/remember.nvim",
+    --     disable = false,
+    --     config = function()
+    --         require "plugins.configs.remember"
+    --     end,
+    -- },
 
     ---------------------------------------------------------------------------
 }

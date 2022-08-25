@@ -95,9 +95,11 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 --------------------------------- Indent Mode ---------------------------------
 
-keymap("i", "<S-Tab>", "<C-d>", opts)
+keymap("n", ">", ">>", opts)
+keymap("n", "<", "<<", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+keymap("i", "<S-Tab>", "<C-d>", opts)
 
 ---------------------------------- Nvim-Tree ----------------------------------
 
