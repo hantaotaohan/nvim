@@ -9,7 +9,7 @@ local options = {
     copy_sync = {
         -- enables copy sync. by default, all registers are synchronized.
         -- to control which registers are synced, see the `sync_*` options.
-        enable = false,
+        enable = true,
 
         -- ignore specific tmux buffers e.g. buffer0 = true to ignore the
         -- first buffer or named_buffer_name = true to ignore a named tmux
@@ -45,7 +45,7 @@ local options = {
         cycle_navigation = true,
 
         -- enables default keybindings (C-hjkl) for normal mode
-        enable_default_keybindings = false,
+        enable_default_keybindings = true,
 
         -- prevents unzoom tmux when navigating beyond vim border
         persist_zoom = false,

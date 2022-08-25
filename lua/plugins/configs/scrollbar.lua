@@ -13,49 +13,49 @@ local options = {
     max_lines = false, -- disables if no. of lines in buffer exceeds this
     handle = {
         text = " ",
-        color = nil,
+        color = "#2d323b",
         cterm = nil,
         highlight = "CursorColumn",
         hide_if_all_visible = true, -- Hides handle if all lines are visible
     },
     marks = {
         Search = {
-            text = { "-", "=" },
+            text = { "█" },
             priority = 0,
             color = nil,
             cterm = nil,
             highlight = "Search",
         },
         Error = {
-            text = { "-", "=" },
+            text = { "█" },
             priority = 1,
             color = nil,
             cterm = nil,
             highlight = "DiagnosticVirtualTextError",
         },
         Warn = {
-            text = { "-", "=" },
+            text = { "█" },
             priority = 2,
             color = nil,
             cterm = nil,
             highlight = "DiagnosticVirtualTextWarn",
         },
         Info = {
-            text = { "-", "=" },
+            text = { "█" },
             priority = 3,
             color = nil,
             cterm = nil,
             highlight = "DiagnosticVirtualTextInfo",
         },
         Hint = {
-            text = { "-", "=" },
+            text = { "█" },
             priority = 4,
             color = nil,
             cterm = nil,
             highlight = "DiagnosticVirtualTextHint",
         },
         Misc = {
-            text = { "-", "=" },
+            text = { "█" },
             priority = 5,
             color = nil,
             cterm = nil,
@@ -94,3 +94,4 @@ local options = {
 }
 
 scrollbar.setup(options)
+

@@ -262,11 +262,11 @@ function NvimTreeHighlight()
 ------------------------------------------------------------------------------- 
 -- Scrollbar
 ------------------------------------------------------------------------------- 
-    highlight("ScrollbarHandle                  ",         "#282C34",  "#3E4552",  nil,        nil )
+    -- highlight("ScrollbarHandle                  ",         "#282C34",  "#3E4552",  nil,        nil )
     -- highlight("IncSearch                        ",         "#282C34",  "#E06C75",  nil,        nil )
     -- highlight("Folded                           ",         "#282C34",  "#80868F",  nil,        nil )
     -- highlight("FoldColumn                       ",         "#4E5666",  "#23272E",  nil,        nil )
-
+    highlight("MarkSignHL                       ",         "#abb2bf",  "#0366d6",  nil,        nil )
 ------------------------------------------------------------------------------- 
 
 end
