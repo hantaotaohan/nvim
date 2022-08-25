@@ -27,23 +27,14 @@ autocmd("FileType", {
     command = "set showtabline=0 laststatus=0 cmdheight=0 | autocmd BufUnload <buffer> set showtabline=2 laststatus=2 cmdheight=1"
 })
 
--- autocmd("FileType", {
--- 	group = "Alpha",
--- 	pattern = "alpha",
---     command = "autocmd FileType alpha nnoremap <buffer> i <nop>"
--- })
---
--- autocmd("FileType", {
--- 	group = "Alpha",
--- 	pattern = "alpha",
---     command = "autocmd FileType alpha nnoremap <buffer> r <nop>"
--- })
-
 ----------------------- Don't Auto Commenting New Lines -----------------------
 
+augroup("Comment", {})
+
 autocmd("BufEnter", {
+	group = "Comment",
     pattern = "*",
-    command = "set fo-=c fo-=r fo-=o",
+    command = "set fo-=c fo-=r fo-=o"
 })
 
 ----------------------------- Auto Exit Nvim-Tree -----------------------------

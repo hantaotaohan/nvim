@@ -17,15 +17,14 @@
 
 local opts = { noremap = true, silent = true }
 local bufopts = { noremap=true, silent=true, buffer=bufnr }
-local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -------------------------------------------------------------------------------
                              -- Disable Keymaps --
 -------------------------------------------------------------------------------
 
-keymap("n", "q", "<nop>", opts)
-keymap("v", "q", "<nop>", opts)
+keymap("n", "q", "<Nop>", opts)
+keymap("v", "q", "<Nop>", opts)
 
 keymap("n", "<C-f>", "<nop>", opts)
 keymap("n", "<C-b>", "<nop>", opts)
@@ -34,6 +33,10 @@ keymap("n", "<C-b>", "<nop>", opts)
 
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ";"
+
+------------------------------ Mapping for paste ------------------------------
+
+keymap("x", "p", '"_dP', opts)
 
 ------------------------------- Completion Menu -------------------------------
 
@@ -248,4 +251,8 @@ keymap("v", "<LocalLeader>tgw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
 keymap("n", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
 keymap("i", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
 keymap("v", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
+
+---------------------------------- Marks --------------------------------------
+
+keymap("n", "dm<space>", "<cmd>delm!<CR>", opts)
 
