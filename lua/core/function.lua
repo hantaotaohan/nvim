@@ -114,7 +114,7 @@ M.toggle_syntax = function ()
         cmd("syntax off")
         cmd("TSToggle highlight")
     else
-        cmd("syntax enable")
+        cmd("syntax on")
         cmd("TSToggle highlight")
     end
 end
