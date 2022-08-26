@@ -266,7 +266,7 @@ function NvimTreeHighlight()
     -- highlight("IncSearch                        ",         "#282C34",  "#E06C75",  nil,        nil )
     -- highlight("Folded                           ",         "#282C34",  "#80868F",  nil,        nil )
     -- highlight("FoldColumn                       ",         "#4E5666",  "#23272E",  nil,        nil )
-    highlight("MarkSignHL                       ",         "#abb2bf",  "#0366d6",  nil,        nil )
+    highlight("MarkSignHL                       ",         "#DCDCDC",  "#0366d6",  nil,        nil )
 ------------------------------------------------------------------------------- 
 
 end

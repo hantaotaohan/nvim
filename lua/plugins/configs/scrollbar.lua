@@ -61,6 +61,27 @@ local options = {
             cterm = nil,
             highlight = "Normal",
         },
+        GitAdd = {
+            color = "#3c4f2b",
+            text = { "█" },
+            priority = 5,
+            cterm = nil,
+            highlight = "CursorColumn",
+        },
+        GitDelete = {
+            color = "#6f2735",
+            text = { "█" },
+            priority = 5,
+            cterm = nil,
+            highlight = "CursorColumn",
+        },
+        GitChange = {
+            color = "#32575f",
+            text = { "█" },
+            priority = 5,
+            cterm = nil,
+            highlight = "CursorColumn",
+        },
     },
     excluded_buftypes = {
         "terminal",
@@ -68,6 +89,8 @@ local options = {
     excluded_filetypes = {
         "prompt",
         "TelescopePrompt",
+        "NvimTree",
+        "alpha",
     },
     autocmd = {
         render = {
@@ -90,8 +113,38 @@ local options = {
     handlers = {
         diagnostic = true,
         search = false, -- Requires hlslens to be loaded, will run require("scrollbar.handlers.search").setup() for you
+        git = true,
     },
 }
 
 scrollbar.setup(options)
 
+
+local gitsign = require('gitsigns')
+local gitsign_hunks = require('gitsigns.hunks')
+
+require('scrollbar.handlers').register('git', function(bufnr)
+    local nb_lines = vim.api.nvim_buf_line_count(bufnr)
+    local colors_type = {
+        add = 'GitAdd',
+        delete = 'GitDelete',
+        change = 'GitChange',
+        changedelete = 'GitChange'
+    }
+
+    local lines = {}
+    local hunks = gitsign.get_hunks(bufnr)
+    if hunks then
+        for _, hunk in ipairs(hunks) do
+            hunk.vend = math.min(hunk.added.start, hunk.removed.start) + hunk.added.count + hunk.removed.count
+            local signs = gitsign_hunks.calc_signs(hunk, 0, nb_lines)
+            for _, sign in ipairs(signs) do
+                table.insert(lines, {
+                    line = sign.lnum,
+                    type = colors_type[sign.type]
+                })
+            end
+        end
+    end
+    return lines
+end)

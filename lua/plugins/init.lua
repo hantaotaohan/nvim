@@ -220,7 +220,12 @@ local plugins = {
     -- 语法渲染插件 - 扩展 - 彩虹括号
     ---------------------------------------------------------------------------
 
-    { "p00f/nvim-ts-rainbow" },
+    { 
+        "p00f/nvim-ts-rainbow",
+        setup = function()
+            require("core.lazyload").on_file_open "nvim-ts-rainbow"
+        end,
+    },
 
     ---------------------------------------------------------------------------
     -- LSP
@@ -353,13 +358,13 @@ local plugins = {
     -- 滚动条插件
     ---------------------------------------------------------------------------
 
-    {
-        "petertriho/nvim-scrollbar",
-        disable = false,
-        config = function()
-            require "plugins.configs.scrollbar"
-        end,
-    },
+    -- {
+    --     "petertriho/nvim-scrollbar",
+    --     disable = false,
+    --     config = function()
+    --         require "plugins.configs.scrollbar"
+    --     end,
+    -- },
 
     ---------------------------------------------------------------------------
     -- 书签插件

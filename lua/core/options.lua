@@ -42,8 +42,8 @@ o.virtualedit = 'block'
 
 -- 行号边栏设置
 o.number = true
-o.numberwidth = 6
-o.signcolumn = "auto:3"
+o.numberwidth = 3
+o.signcolumn = "yes:3"
 o.relativenumber = false
 
 -- 编辑区域设置
@@ -137,12 +137,14 @@ o.viewoptions:append "slash"
 o.viewoptions:append "unix"
 o.undodir = vim_data_path .. "/undo"
 
+o.shada = "'200,<10000,s100,/10000,:1000,n~/.config/nvim/.shada"
+o.shadafile = vim.fn.stdpath("data") .. "/shada/main.shada"
+
 -- 设置超时时间
 o.timeoutlen = 300
 o.ttimeoutlen = 10
 o.updatetime = 100
 o.updatecount = 0
-o.viminfo = "'1000"
 
 -- 补全设置
 o.pumheight = 10
