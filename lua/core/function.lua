@@ -67,5 +67,57 @@ M.toggle_autoformat = function()
 end
 
 -------------------------------------------------------------------------------
+-- Toggle Number
+-------------------------------------------------------------------------------
 
+M.toggle_number = function ()
+    if vim.opt.number._value == true then
+        vim.opt.number = false
+        -- vim.opt.signcolumn = "no"
+    else
+        vim.opt.number = true
+        -- vim.opt.signcolumn = "yes:2"
+    end
+end
+
+-------------------------------------------------------------------------------
+-- Toggle NumberColumn And Sigcolumn
+-------------------------------------------------------------------------------
+
+M.toggle_column = function ()
+    if vim.opt.signcolumn._value == "yes:3" then
+        vim.opt.signcolumn = "no"
+    else
+        vim.opt.signcolumn = "yes:3"
+    end
+end
+
+-------------------------------------------------------------------------------
+-- Toggle NumberColumn And Sigcolumn
+-------------------------------------------------------------------------------
+local disable_ft = {
+    "NvimTree", "guihua", "guihua_rust", "TelescopePrompt", "csv", "txt",
+    "defx", "sidekick"
+}
+
+local syn_on = not vim.tbl_contains(disable_ft, vim.bo.filetype)
+
+-- M.toggle_syntax = function ()
+--     if syn_on then
+--         vim.cmd([[syntax on]])
+--     else
+--         vim.cmd([[syntax manual]])
+--     end
+-- end
+M.toggle_syntax = function ()
+    if syn_on then
+        cmd("syntax off")
+        cmd("TSToggle highlight")
+    else
+        cmd("syntax enable")
+        cmd("TSToggle highlight")
+    end
+end
+
+-------------------------------------------------------------------------------
 return M

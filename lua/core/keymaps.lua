@@ -112,6 +112,10 @@ keymap("i", "<S-Tab>", "<C-d>", opts)
 
 ---------------------------- Toggle System Tools -------------------------------
 
+keymap("n", "<F3>", "<cmd>lua require('core.function').toggle_number()<cr>", opts)
+keymap("n", "<F4>", "<cmd>lua require('core.function').toggle_column()<cr>", opts)
+keymap("n", "<F5>", "<cmd>lua require('core.function').toggle_syntax()<cr>", opts)
+keymap("n", "<F6>", "<cmd>ScrollbarToggle<cr>", opts)
 keymap("n", "<F7>", "<cmd>lua require('core.function').toggle_qf()<cr>", opts)
 keymap("n", "<F8>", "<cmd>lua require('core.function').toggle_colorcolumn()<cr>", opts)
 keymap("n", "<F9>", "<cmd>lua require('core.function').toggle_diagnostics()<cr>", opts)
