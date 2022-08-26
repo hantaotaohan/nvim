@@ -49,7 +49,7 @@ o.relativenumber = false
 -- 编辑区域设置
 o.list = false
 o.cursorline = true
-o.colorcolumn = "80"
+o.colorcolumn = ""
 o.listchars:append("eol:↲" )
 o.listchars:append("tab:·")
 o.listchars:append("space:⋅")
@@ -155,7 +155,7 @@ o.wildmenu = true
 o.foldlevel = 0
 o.foldnestmax = 1
 o.foldenable = true
-o.foldcolumn = "1"
+o.foldcolumn = "0"
 o.foldmethod = "manual"
 o.foldtext='NeatFoldText()'
 -- o.foldclose = "all"

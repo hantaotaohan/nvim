@@ -19,6 +19,8 @@ local opts = { noremap = true, silent = true }
 local bufopts = { noremap=true, silent=true, buffer=bufnr }
 local keymap = vim.api.nvim_set_keymap
 
+require ("core.function")
+
 -------------------------------------------------------------------------------
                              -- Disable Keymaps --
 -------------------------------------------------------------------------------
@@ -28,6 +30,10 @@ keymap("v", "q", "<Nop>", opts)
 
 keymap("n", "<C-f>", "<nop>", opts)
 keymap("n", "<C-b>", "<nop>", opts)
+
+-------------------------------------------------------------------------------
+                              -- Start Keymaps --
+-------------------------------------------------------------------------------
 
 ---------------------- Remap Leader And LocalLeader Key -----------------------
 
@@ -103,6 +109,13 @@ keymap("n", "<", "<<", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 keymap("i", "<S-Tab>", "<C-d>", opts)
+
+---------------------------- Toggle System Tools -------------------------------
+
+keymap("n", "<F7>", "<cmd>lua require('core.function').toggle_qf()<cr>", opts)
+keymap("n", "<F8>", "<cmd>lua require('core.function').toggle_colorcolumn()<cr>", opts)
+keymap("n", "<F9>", "<cmd>lua require('core.function').toggle_diagnostics()<cr>", opts)
+
 
 ---------------------------------- Nvim-Tree ----------------------------------
 
@@ -251,8 +264,4 @@ keymap("v", "<LocalLeader>tgw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
 keymap("n", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
 keymap("i", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
 keymap("v", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
-
----------------------------------- Marks --------------------------------------
-
-keymap("n", "dm<space>", "<cmd>delm!<CR>", opts)
 

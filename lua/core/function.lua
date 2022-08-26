@@ -3,6 +3,11 @@ local fn = vim.fn
 
 local M = {}
 
+-- check if a variable is not empty nor nil
+M.isNotEmpty = function(s)
+  return s ~= nil and s ~= ""
+end
+
 -------------------------------------------------------------------------------
 -- Toggle QuickFix
 -------------------------------------------------------------------------------
@@ -30,12 +35,9 @@ end
 
 M.toggle_colorcolumn = function()
     local value = vim.inspect(vim.opt.colorcolumn:get())
-    print(value)
     if value == "{}" then
-        M.notify("Enable colocolumn", "info", "functions.lua")
-        vim.opt.colorcolumn = "79"
+        vim.opt.colorcolumn = "80"
     else
-        M.notify("Disable colocolumn", "info", "functions.lua")
         vim.opt.colorcolumn = {}
     end
 end

@@ -91,6 +91,7 @@ local options = {
         "TelescopePrompt",
         "NvimTree",
         "alpha",
+        "packer",
     },
     autocmd = {
         render = {
@@ -119,7 +120,7 @@ local options = {
 
 scrollbar.setup(options)
 
-
+require("packer").loader("gitsigns.nvim")
 local gitsign = require('gitsigns')
 local gitsign_hunks = require('gitsigns.hunks')
 

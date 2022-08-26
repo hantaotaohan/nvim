@@ -39,7 +39,7 @@ local options = {
 
     -- Plugins Config --
     diagnostics = {
-        darker = true, -- darker colors for diagnostic
+        darker = false, -- darker colors for diagnostic
         undercurl = true,   -- use undercurl instead of underline for diagnostics
         background = true,    -- use background color for virtual text
     },
