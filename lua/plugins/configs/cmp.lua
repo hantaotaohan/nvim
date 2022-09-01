@@ -19,34 +19,34 @@ local function border(hl_name)
     }
 end
 
-local kind_icons = {
-    Text = "Ⓣ  ",
-    Method = "Ⓜ  ",
-    Function = "Ⓕ  ",
-    Constructor = "☼  ",
-    Field = "ⓕ  ",
-    Variable = "Ⓥ  ",
-    Class = "Ⓒ  ",
-    Interface = "☼  ",
-    Module = "☼  ",
-    Property = "☼  ",
-    Unit = "☼  ",
-    Value = "☼  ",
-    Enum = "☼  ",
-    Keyword = "Ⓚ  ",
-    Snippet = "Ⓢ  ",
-    Color = "☼  ",
-    File = "✦  " ,
-    Reference = "☼  ",
-    Folder = "✧  ",
-    EnumMember = "☼  ",
-    Constant = "☰  ",
-    Struct = "☼  ",
-    Event = "☼  ",
-    Operator = "⚛  ",
-    TypeParameter = "☼  ",
-    type
-}
+-- local kind_icons = {
+--     Text = "Ⓣ  ",
+--     Method = "Ⓜ  ",
+--     Function = "Ⓕ  ",
+--     Constructor = "☼  ",
+--     Field = "ⓕ  ",
+--     Variable = "Ⓥ  ",
+--     Class = "Ⓒ  ",
+--     Interface = "☼  ",
+--     Module = "☼  ",
+--     Property = "☼  ",
+--     Unit = "☼  ",
+--     Value = "☼  ",
+--     Enum = "☼  ",
+--     Keyword = "Ⓚ  ",
+--     Snippet = "Ⓢ  ",
+--     Color = "☼  ",
+--     File = "✦  " ,
+--     Reference = "☼  ",
+--     Folder = "✧  ",
+--     EnumMember = "☼  ",
+--     Constant = "☰  ",
+--     Struct = "☼  ",
+--     Event = "☼  ",
+--     Operator = "⚛  ",
+--     TypeParameter = "☼  ",
+--     type
+-- }
 
 local check_backspace = function()
     local col = vim.fn.col "." - 1
@@ -86,8 +86,13 @@ local options = {
 
     formatting = {
         format = function(_, vim_item)
-            vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+
+            local icons = require("plugins.configs.lsp.icon").lspkind
+            vim_item.kind = string.format("%s  %s", icons[vim_item.kind], vim_item.kind)
             return vim_item
+
+            -- vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+            -- return vim_item
         end,
     },
 

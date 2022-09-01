@@ -1,13 +1,12 @@
 local M = {}
 
 M.options = {
-    max_jobs = nil,
     auto_clean = true,
     compile_on_sync = true,
     git = { 
         depth = 1,
-        clone_timeout = 60,
-        default_url_format = 'https://hub.fastgit.xyz/%s'
+        -- clone_timeout = 60
+        -- default_url_format = 'https://hub.fastgit.xyz/%s'
     },
     display = {
         working_sym = "✚ ",
