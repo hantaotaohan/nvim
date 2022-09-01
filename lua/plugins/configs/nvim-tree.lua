@@ -111,7 +111,7 @@ local options = {
 
         icons = {
             webdev_colors = true,
-            git_placement = "after",
+            git_placement = "signcolumn",
             padding = " ",
             -- symlink_arrow = "➛",
 
@@ -139,7 +139,7 @@ local options = {
                 },
 
                 git = {
-                    unstaged = "⬥" ,
+                    unstaged = "⬝" ,
                     staged = "✔",
                     unmerged = "",
                     renamed = "➜",

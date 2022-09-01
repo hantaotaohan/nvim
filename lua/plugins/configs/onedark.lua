@@ -82,7 +82,7 @@ function NvimTreeHighlight()
     highlight("NvimTreeLspDiagnosticsInformation"  , nil        ,nil  ,nil  ,nil)   -- DiagnosticInfo
     highlight("NvimTreeLspDiagnosticsHint"         , nil        ,nil  ,nil  ,nil)   -- DiagnosticHint
 
-    highlight("NvimTreeGitDirty"                   , "#E5C07B"  ,nil  ,nil  ,nil)
+    highlight("NvimTreeGitDirty"                   , "#B69E7B"  ,nil  ,nil  ,nil)
     highlight("NvimTreeGitStaged"                  , "#C678DD"  ,nil  ,nil  ,nil)
     highlight("NvimTreeGitMerge"                   , "#56B6C2"  ,nil  ,nil  ,nil)
     highlight("NvimTreeGitRenamed"                 , "#61AFEF"  ,nil  ,nil  ,nil)
