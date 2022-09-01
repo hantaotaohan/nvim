@@ -1,7 +1,7 @@
 local M = {}
 
 M.lspkind = {
-  Namespace = "",
+  Namespace = " ",
   Text = " ",
   Method = " ",
   Function = " ",
@@ -27,9 +27,9 @@ M.lspkind = {
   Event = " ",
   Operator = " ",
   TypeParameter = " ",
-  Table = "",
+  Table = " ",
   Object = " ",
-  Tag = "",
+  Tag = " ",
   Array = "[]",
   Boolean = " ",
   Number = " ",

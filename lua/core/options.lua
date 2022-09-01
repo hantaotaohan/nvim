@@ -85,6 +85,7 @@ o.showcmd = false
 o.showmatch = true
 
 -- 行为设置
+o.re = 1
 o.wrap = false
 o.title = true
 o.mouse = 'a'
@@ -137,7 +138,7 @@ o.viewoptions:append "slash"
 o.viewoptions:append "unix"
 o.undodir = vim_data_path .. "/undo"
 
-o.shada = "'200,<10000,s100,/10000,:1000,n~/.config/nvim/.shada"
+-- o.shada = "'200,<10000,s100,/10000,:1000,n~/.config/nvim/.shada"
 o.shadafile = vim.fn.stdpath("data") .. "/shada/main.shada"
 
 -- 设置超时时间
@@ -148,7 +149,7 @@ o.updatecount = 0
 
 -- 补全设置
 o.pumheight = 10
-o.pumblend = 20
+o.pumblend = 10
 o.wildmenu = true
 
 -- 折叠设置

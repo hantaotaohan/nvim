@@ -81,20 +81,24 @@ local options = {
 
     sections = process_sections {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename', '%r'},
+        -- lualine_b = {'branch', 'diff', 'diagnostics'},
+        -- lualine_c = {'filename', '%r'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'},
 
         lualine_b = {
 
-            'branch',
+            {
+                'branch',
+                icons_enabled = true,
+                icon = '   '
+            },
 
             {
                 'diff',
                 colored = true, -- Displays a colored diff status if set to true
-                symbols = {added = '+', modified = '~', removed = '-'}, -- Changes the symbols used by the diff.
+                symbols = {added = '   ', modified = '   ', removed = '   '}, -- Changes the symbols used by the diff.
                 source = nil, -- A function that works as a data source for diff.
                 -- It must return a table as such:
                 --   { added = add_count, modified = modified_count, removed = removed_count }
@@ -140,8 +144,8 @@ local options = {
 
     inactive_sections = process_sections {
 
-        lualine_a = {},
-        lualine_b = {'branch'},
+        -- lualine_a = {},
+        -- lualine_b = {'branch'},
         lualine_c = {'filename'},
         lualine_x = {'location'},
         lualine_y = {},
@@ -161,6 +165,8 @@ local options = {
 
             {
                 'branch',
+                icons_enabled = true,
+                icon = '   ',
                 colored = true,
                 -- source = nil,
                 color = { fg = "#606B70", bg = colors.black_1 }

@@ -96,7 +96,7 @@ local options = {
         group_empty = false,
         highlight_git = true,
         full_name = false,
-        highlight_opened_files = "all",
+        highlight_opened_files = "none",
         root_folder_modifier = ":~",
         indent_markers = {
             enable = true,
@@ -112,7 +112,8 @@ local options = {
         icons = {
             webdev_colors = true,
             git_placement = "after",
-            -- symlink_arrow = " ➛ ",
+            padding = " ",
+            -- symlink_arrow = "➛",
 
             show = {
                 file = true,
@@ -128,23 +129,23 @@ local options = {
 
                 folder = {
                     default = "",
+                    open = "",
                     empty = "",
                     empty_open = "",
-                    open = "",
                     symlink = "",
-                    symlink_open = "",
+                    symlink_open = "",
                     arrow_open = "",
                     arrow_closed = "",
                 },
 
                 git = {
-                    unstaged = "✖",
+                    unstaged = "⬥" ,
                     staged = "✔",
                     unmerged = "",
                     renamed = "➜",
-                    untracked = "★",
-                    deleted = "",
-                    ignored = "◌",
+                    untracked = "★" ,
+                    deleted = " ",
+                    ignored = "◌" ,
                 },
             },
         },
@@ -176,10 +177,10 @@ local options = {
         debounce_delay = 50,
 
         icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
+            hint = " ",
+            info = " ",
+            warning = " ",
+            error = " ",
         },
     },
 

@@ -6,7 +6,6 @@ M.devicons = function()
   if present then
 
     local options = { override = require("plugins.configs.lsp.icon").devicons }
-    -- options = require("core.utils").load_override(options, "kyazdani42/nvim-web-devicons")
 
     devicons.setup(options)
   end

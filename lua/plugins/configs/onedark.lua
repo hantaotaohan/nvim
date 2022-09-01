@@ -118,6 +118,8 @@ function NvimTreeHighlight()
 
     highlight("NvimTreeBookmark"                   , "#C678DD"  ,nil  ,nil  ,nil)
 
+    highlight("NvimTreeIndentMarker"               , "#4F5767"  ,nil  ,nil  ,nil)
+
 ------------------------------------------------------------------------------- 
 -- IndenBlank
 ------------------------------------------------------------------------------- 
@@ -136,8 +138,9 @@ function NvimTreeHighlight()
 	highlight ("CmpItemAbbrDeprecated"             , "#282C34"  , nil ,nil  ,nil)
 	highlight ("CmpBorder"                         , "#565960"  , nil ,nil  ,nil)
 	highlight ("CmpDocBorder"                      , "#565960"  , nil ,nil  ,nil)
+	highlight ("CmpItemAbbr"                       , "#ABB2BF"  , nil ,nil  ,nil)
 
-	highlight ("CmpItemAbbrMatch"                  , "#61AFEF"  ,nil  ,nil  ,nil)
+	highlight ("CmpItemAbbrMatch"                  , "#61AFEF"  ,nil  ,nil  ,'bold')
 	highlight ("CmpItemKindFile"                   , "#E5C07B"  ,nil  ,nil  ,nil)
 	highlight ("CmpItemKindConstructor"            , "#E5C07B"  ,nil  ,nil  ,nil)
 	highlight ("CmpItemAbbrMatchFuzzy"             , "#61AFEF"  ,nil  ,nil  ,nil)
@@ -154,6 +157,20 @@ function NvimTreeHighlight()
 	highlight ("CmpItemKindUnit"                   , "#D4D4D4"  ,nil  ,nil  ,nil)
 
 	highlight ("CmpItemMenu"                       , "#E06C75"  ,nil)
+
+	highlight ("CmpItemKindConstant     "          , "#d19a66"  ,nil)
+	highlight ("CmpItemKindIdentifier   "          , "#e06c75"  ,nil)
+	highlight ("CmpItemKindField        "          , "#e06c75"  ,nil)
+	highlight ("CmpItemKindSnippet      "          , "#E06C75"  ,nil)
+	highlight ("CmpItemKindStructure    "          , "#c678dd"  ,nil)
+	highlight ("CmpItemKindType         "          , "#e5c07b"  ,nil)
+	highlight ("CmpItemKindFolder       "          , "#c8ccd4"  ,nil)
+	highlight ("CmpItemKindModule       "          , "#e5c07b"  ,nil)
+	highlight ("CmpItemKindColor        "          , "#E06C75"  ,nil)
+	highlight ("CmpItemKindReference    "          , "#abb2bf"  ,nil)
+	highlight ("CmpItemKindStruct       "          , "#c678dd"  ,nil)
+	highlight ("CmpItemKindOperator     "          , "#abb2bf"  ,nil)
+	highlight ("CmpItemKindTypeParameter"          , "#E06C75"  ,nil)
 
 ------------------------------------------------------------------------------- 
 -- lualine
