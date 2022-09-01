@@ -37,9 +37,9 @@ mason.setup {
 
     max_concurrent_installers = 10,
 
-    github = {
-        download_url_template = "https://hub.fastgit.xyz/%s/releases/download/%s/%s",
-    },
+--     github = {
+--        download_url_template = "https://hub.fastgit.xyz/%s/releases/download/%s/%s",
+--     },
 }
 
 -------------------------------------------------------------------------------
