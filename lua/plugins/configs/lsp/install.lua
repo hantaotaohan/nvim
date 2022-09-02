@@ -137,7 +137,7 @@ for type, icon in pairs(signs) do
 
     vim.diagnostic.config {
         virtual_text = {
-        prefix = "",
+            prefix = "",
         },
     signs = true,
     underline = true,
