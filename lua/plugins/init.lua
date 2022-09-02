@@ -428,6 +428,19 @@ local plugins = {
     -- },
 
     ---------------------------------------------------------------------------
+    -- Markdown 插件
+    ---------------------------------------------------------------------------
+
+    {
+        "ellisonleao/glow.nvim",
+        disable = false,
+        ft = {"markdown", "md"},
+        config = function()
+            require "plugins.configs.glow"
+        end,
+    },
+
+    ---------------------------------------------------------------------------
 }
 
 require("core.packer").run(plugins)

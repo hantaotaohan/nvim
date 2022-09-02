@@ -43,7 +43,7 @@ o.virtualedit = 'block'
 -- 行号边栏设置
 o.number = true
 o.numberwidth = 3
-o.signcolumn = "auto:3"
+o.signcolumn = "yes"
 o.relativenumber = false
 
 -- 编辑区域设置
@@ -102,6 +102,7 @@ o.startofline = true
 o.breakindent = true
 o.showbreak = '↳  '
 o.jumpoptions = 'view'
+o.conceallevel = 0                        -- so that `` is visible in markdown files
 o.shortmess:append "c"
 o.shortmess:append 'A'
 o.shortmess:append 'I'

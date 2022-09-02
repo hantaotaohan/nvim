@@ -135,6 +135,8 @@ keymap("v", "<LocalLeader>t", "<cmd>SymbolsOutline<CR><Esc>", opts)
 
 ---------------------------------- ToggleTerm ---------------------------------
 
+keymap("t", "<esc>", "<C-\\><C-n>", opts)
+
 keymap('n', '<LocalLeader>c', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
 keymap('i', '<LocalLeader>c', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
 keymap('v', '<LocalLeader>c', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
@@ -253,18 +255,12 @@ keymap("v", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
 
 ---------------------------------- Gitsigns -----------------------------------
 
-keymap("n", "<LocalLeader>gs", "<cmd>Gitsigns toggle_signs<CR>", opts)
-keymap("i", "<LocalLeader>gs", "<cmd>Gitsigns toggle_signs<CR>", opts)
-keymap("v", "<LocalLeader>gs", "<cmd>Gitsigns toggle_signs<CR>", opts)
-
-keymap("n", "<LocalLeader>gl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
-keymap("i", "<LocalLeader>gl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
-keymap("v", "<LocalLeader>gl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
-
-keymap("n", "<LocalLeader>gw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
-keymap("i", "<LocalLeader>gw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
-keymap("v", "<LocalLeader>gw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
-
-keymap("n", "<LocalLeader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
-keymap("i", "<LocalLeader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
-keymap("v", "<LocalLeader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
+keymap( "n", "<leader>gj", "<cmd>Gitsigns next_hunk<CR>" , opts)
+keymap( "n", "<leader>gk", "<cmd>Gitsigns prev_hunk<CR>" , opts)
+keymap( "n", "<leader>gl", "<cmd>Gitsigns blame_line<CR>" , opts)
+keymap( "n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>" , opts)
+keymap( "n", "<leader>gh", "<cmd>Gitsigns reset_hunk<CR>" , opts)
+keymap( "n", "<leader>gr", "<cmd>Gitsigns reset_buffer<CR>" , opts)
+keymap( "n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>" , opts)
+keymap( "n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>" , opts)
+keymap( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>" , opts)
