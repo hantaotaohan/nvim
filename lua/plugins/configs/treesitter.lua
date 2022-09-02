@@ -16,7 +16,7 @@ local options = {
 
 	ignore_install = { "c", "phpdoc", "tree-sitter-phpdoc" }, -- List of parsers to ignore installing
 	autopairs = { enable = true },
-	autotag = {enable = true},
+	autotag = {enable = true },
 
 	-- 启用代码高亮模块
 	highlight = {

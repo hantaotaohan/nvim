@@ -43,7 +43,7 @@ o.virtualedit = 'block'
 -- 行号边栏设置
 o.number = true
 o.numberwidth = 3
-o.signcolumn = "yes:3"
+o.signcolumn = "auto:3"
 o.relativenumber = false
 
 -- 编辑区域设置
@@ -85,7 +85,7 @@ o.showcmd = false
 o.showmatch = true
 
 -- 行为设置
-o.re = 1
+o.re = 2
 o.wrap = false
 o.title = true
 o.mouse = 'a'
@@ -96,8 +96,8 @@ o.winblend = 20
 o.lazyredraw = true
 o.visualbell = false
 o.errorbells = false
-o.splitbelow = false
-o.splitright = false
+o.splitbelow = true
+o.splitright = true
 o.startofline = true
 o.breakindent = true
 o.showbreak = '↳  '

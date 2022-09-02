@@ -128,18 +128,20 @@ local options = {
                 bookmark = "▐",
 
                 folder = {
-                    default = "",
-                    open = "",
-                    empty = "",
-                    empty_open = "",
-                    symlink = "",
-                    symlink_open = "",
+                    -- default = "",
+                    default = " ",
+                    open = " ",
+                    empty = " ",
+                    empty_open = " ",
+                    symlink = " ",
+                    symlink_open = " ",
                     arrow_open = "",
                     arrow_closed = "",
                 },
 
                 git = {
-                    unstaged = "⬝" ,
+                    -- unstaged = "⬝" ,
+                    unstaged = "▎" ,
                     staged = "✔",
                     unmerged = "",
                     renamed = "➜",

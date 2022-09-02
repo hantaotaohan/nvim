@@ -135,25 +135,25 @@ keymap("v", "<LocalLeader>t", "<cmd>SymbolsOutline<CR><Esc>", opts)
 
 ---------------------------------- ToggleTerm ---------------------------------
 
-keymap('n', '<LocalLeader>cc', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
-keymap('i', '<LocalLeader>cc', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
-keymap('v', '<LocalLeader>cc', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
-keymap('t', '<LocalLeader>cc', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>',opts)
+keymap('n', '<LocalLeader>c', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
+keymap('i', '<LocalLeader>c', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
+keymap('v', '<LocalLeader>c', '<CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>', opts)
+keymap('t', '<LocalLeader>c', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h size=10 direction=horizontal<CR>',opts)
 
-keymap('n', '<LocalLeader>cv', '<CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>', opts)
-keymap('i', '<LocalLeader>cv', '<CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>', opts)
-keymap('v', '<LocalLeader>cv', '<CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>', opts)
-keymap('t', '<LocalLeader>cv', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>',opts)
+keymap('n', '<Leader>cv', '<CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>', opts)
+keymap('i', '<Leader>cv', '<CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>', opts)
+keymap('v', '<Leader>cv', '<CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>', opts)
+keymap('t', '<Leader>cv', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h size=80 direction=vertical<CR>',opts)
 
-keymap('n', '<LocalLeader>ct', '<CMD>ToggleTerm dir=%:p:h direction=tab<CR>', opts)
-keymap('i', '<LocalLeader>ct', '<CMD>ToggleTerm dir=%:p:h direction=tab<CR>', opts)
-keymap('v', '<LocalLeader>ct', '<CMD>ToggleTerm dir=%:p:h direction=tab<CR>', opts)
-keymap('t', '<LocalLeader>ct', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h direction=tab<CR>',opts)
+keymap('n', '<Leader>ct', '<CMD>ToggleTerm dir=%:p:h direction=tab<CR>', opts)
+keymap('i', '<Leader>ct', '<CMD>ToggleTerm dir=%:p:h direction=tab<CR>', opts)
+keymap('v', '<Leader>ct', '<CMD>ToggleTerm dir=%:p:h direction=tab<CR>', opts)
+keymap('t', '<Leader>ct', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h direction=tab<CR>',opts)
 
-keymap('n', '<LocalLeader>cf', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
-keymap('i', '<LocalLeader>cf', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
-keymap('v', '<LocalLeader>cf', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
-keymap('t', '<LocalLeader>cf', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h direction=float<CR>',opts)
+keymap('n', '<Leader>cc', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
+keymap('i', '<Leader>cc', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
+keymap('v', '<Leader>cc', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
+keymap('t', '<Leader>cc', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h direction=float<CR>',opts)
 
 ---------------------------------- Telescope --------------------------------- 
 
@@ -162,9 +162,9 @@ keymap('n', '<LocalLeader>fa', '<CMD>Telescope find_files follow=true no_ignore=
 keymap('n', '<LocalLeader>fw', '<CMD>Telescope live_grep<CR>', opts)
 keymap('n', '<LocalLeader>fo', '<CMD>Telescope oldfiles<CR>', opts)
 keymap('n', '<LocalLeader>fh', '<CMD>Telescope keymaps <CR><CR>', opts)
-keymap('n', '<LocalLeader>cm', '<CMD>Telescope git_commits<CR>', opts)
-keymap('n', '<LocalLeader>gt', '<CMD>Telescope git_status<CR>', opts)
-keymap('n', '<LocalLeader>tt', '<CMD>Telescope colorscheme<CR>', opts)
+keymap('n', '<LocalLeader>fm', '<CMD>Telescope git_commits<CR>', opts)
+keymap('n', '<LocalLeader>ft', '<CMD>Telescope git_status<CR>', opts)
+keymap('n', '<LocalLeader>fc', '<CMD>Telescope colorscheme<CR>', opts)
 
 ----------------------------------- RunCode -----------------------------------
 
@@ -247,25 +247,24 @@ keymap("v", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
 
 ------------------------------ IndentBlankLine --------------------------------
 
-keymap("n", "<LocalLeader>tl", "<cmd>IndentBlanklineToggle<CR>", opts)
-keymap("i", "<LocalLeader>tl", "<cmd>IndentBlanklineToggle<CR>", opts)
-keymap("v", "<LocalLeader>tl", "<cmd>IndentBlanklineToggle<CR>", opts)
+keymap("n", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
+keymap("i", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
+keymap("v", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
 
 ---------------------------------- Gitsigns -----------------------------------
 
-keymap("n", "<LocalLeader>tgs", "<cmd>Gitsigns toggle_signs<CR>", opts)
-keymap("i", "<LocalLeader>tgs", "<cmd>Gitsigns toggle_signs<CR>", opts)
-keymap("v", "<LocalLeader>tgs", "<cmd>Gitsigns toggle_signs<CR>", opts)
+keymap("n", "<LocalLeader>gs", "<cmd>Gitsigns toggle_signs<CR>", opts)
+keymap("i", "<LocalLeader>gs", "<cmd>Gitsigns toggle_signs<CR>", opts)
+keymap("v", "<LocalLeader>gs", "<cmd>Gitsigns toggle_signs<CR>", opts)
 
-keymap("n", "<LocalLeader>tgl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
-keymap("i", "<LocalLeader>tgl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
-keymap("v", "<LocalLeader>tgl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
+keymap("n", "<LocalLeader>gl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
+keymap("i", "<LocalLeader>gl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
+keymap("v", "<LocalLeader>gl", "<cmd>Gitsigns toggle_linehl<CR>", opts)
 
-keymap("n", "<LocalLeader>tgw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
-keymap("i", "<LocalLeader>tgw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
-keymap("v", "<LocalLeader>tgw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
+keymap("n", "<LocalLeader>gw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
+keymap("i", "<LocalLeader>gw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
+keymap("v", "<LocalLeader>gw", "<cmd>Gitsigns toggle_word_diff<CR>", opts)
 
-keymap("n", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
-keymap("i", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
-keymap("v", "<LocalLeader>tgb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
-
+keymap("n", "<LocalLeader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
+keymap("i", "<LocalLeader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
+keymap("v", "<LocalLeader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)

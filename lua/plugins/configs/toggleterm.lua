@@ -6,15 +6,15 @@ end
 
 local options = {
 
-    size = function(term)
-        if term.direction == "horizontal" then
-            return 15
-        elseif term.direction == "vertical" then
-            return vim.o.columns * 0.3
-        end
-    end,
+    -- size = function(term)
+    --     if term.direction == "horizontal" then
+    --         return 15
+    --     elseif term.direction == "vertical" then
+    --         return vim.o.columns * 0.3
+    --     end
+    -- end,
 
-    shade_terminals = true,
+    shade_terminals = false,
     shading_factor = 1,
     start_in_insert = true,
 
