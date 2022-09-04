@@ -49,7 +49,7 @@ mason.setup {
 mason_lsp.setup {
 
     ensure_installed = {
-        "lua-language-server",
+        "sumneko_lua",
         "bash-language-server",
         "pyright",
         "rome",
@@ -57,7 +57,7 @@ mason_lsp.setup {
         "json-lsp",
     },
 
-    automatic_installation = true,
+    automatic_installation = false,
 }
 
 -------------------------------------------------------------------------------
