@@ -107,15 +107,8 @@ local options = {
         buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     },
 
-    extensions_list = { "themes", "terms" },
+    require('telescope').load_extension('projects')
 
 }
 
-require "telescope".setup(options)
-
--- load extensions
-pcall(function()
-    for _, ext in ipairs(options.extensions_list) do
-        telescope.load_extension(ext)
-    end
-end)
+telescope.setup(options)

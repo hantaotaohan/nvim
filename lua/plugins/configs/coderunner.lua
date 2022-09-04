@@ -6,7 +6,7 @@ end
 
 local options = {
 
-    mode = 'term',
+    mode = 'toggleterm',
     focus = true,
     startinsert = false,
 
@@ -26,32 +26,25 @@ local options = {
         blend = 0,
     },
 
-    filetype_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/code_runner.nvim/lua/code_runner/code_runner.json",
+    -- filetype_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/code_runner.nvim/lua/code_runner/code_runner.json",
 
     filetype = {
         java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
         python = "python3 -u",
+        bash = "bash $fileName",
         typescript = "deno run",
         rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt"
     },
 
-    project_path = vim.fn.stdpath("data")
-        .. "/site/pack/packer/start/code_runner.nvim/lua/code_runner/project_manager.json",
-
-    --    project = {
-    -- 	["~/deno/example"] = {
-    -- 		name = "ExapleDeno",
-    -- 		description = "Project with deno using other command",
-    -- 		file_name = "http/main.ts",
-    -- 		command = "deno run --allow-net"
-    -- 	},
-    -- 	["~/cpp/example"] = {
-    -- 		name = "ExapleCpp",
-    -- 		description = "Project with make file",
-    -- 		command = "make buid & cd buid/ & ./compiled_file"
-    -- 	}
-    -- },-- put here the commands by filetype
+    project = {
+        ["~/desktop/Database"] = {
+            name = "Django",
+            description = "Project With Django",
+            file_name = "manage.py",
+            command = "cd $dir && python3 manage.py runserver"
+        },
+    },
 
 }
 
-require "code_runner".setup(options)
+code_runner.setup(options)

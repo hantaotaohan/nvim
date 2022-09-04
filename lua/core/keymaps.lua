@@ -176,6 +176,10 @@ keymap('n', '<LocalLeader>rt', '<CMD>RunFile tab<CR>', opts)
 keymap('n', '<LocalLeader>rp', '<CMD>RunProject<CR>', opts)
 keymap('n', '<LocalLeader>rc', '<CMD>RunClose<CR>', opts)
 
+---------------------------------- Markdown -----------------------------------
+
+keymap('n', '<LocalLeader>rm', '<CMD>Glow!<CR>', opts)
+
 ----------------------- Navigate Buffers [ bufferline ] -----------------------
 
 keymap("n", "<LocalLeader><Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
