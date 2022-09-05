@@ -10,7 +10,7 @@ local options = {
     show_guides = true,
     auto_preview = false,
     position = 'right',
-    relative_width = false,
+    relative_width = true,
     border = 'single',
     width = 25,
     auto_close = true,
@@ -21,7 +21,7 @@ local options = {
     autofold_depth = nil,
     auto_unfold_hover = true,
     fold_markers = { '', '' },
-    wrap = true,
+    wrap = false,
 
     keymaps = { -- These keymaps can be a string or a table for multiple keys
         close = { "<Esc>", "<LoaclLeader>q" },

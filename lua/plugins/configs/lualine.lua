@@ -40,6 +40,19 @@ local function process_sections(sections)
 
 end
 
+local function toggleterm_statusline()
+	-- return "TERMINAL [" .. vim.b.toggle_number .. "]"
+	return "TERMINAL"
+end
+
+-- local toggleterm = process_sections  {
+local toggleterm = {
+    sections = {
+        lualine_a = { toggleterm_statusline },
+        lualine_b = { 'FugitiveHead' } },
+    filetypes = { 'toggleterm' }
+}
+
 local options = {
 
     options = {
@@ -195,23 +208,11 @@ local options = {
         lualine_z = {}
     },
 
-    extensions = {'quickfix', 'nvim-tree', 'fugitive', 'symbols-outline'},
+    extensions = { 'quickfix', 'nvim-tree', 'fugitive', 'symbols-outline', toggleterm },
 
 }
 
-local function toggleterm_statusline()
-	-- return "TERMINAL [" .. vim.b.toggle_number .. "]"
-	return "TERMINAL"
-end
-
--- local toggleterm = process_sections  {
-local toggleterm = {
-    sections = {
-        lualine_a = { toggleterm_statusline },
-        lualine_b = { 'FugitiveHead' } },
-    filetypes = { 'toggleterm' }
-}
 
 require "lualine".setup(options)
 
-require('lualine').setup { extensions = { toggleterm } }
+-- require('lualine').setup { extensions = { toggleterm } }
