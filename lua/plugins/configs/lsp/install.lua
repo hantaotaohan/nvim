@@ -50,7 +50,7 @@ mason_lsp.setup {
 
     ensure_installed = {
         "sumneko_lua",
-        "bash-language-server",
+        "bashls",
         "pyright",
         "rome",
         "djlint",
