@@ -65,7 +65,7 @@ local options = {
             button("o", "  Recent File  ", ":Telescope oldfiles<CR>"),
             button("w", "  Find Word  ", ":Telescope live_grep<CR>"),
             button("m", "  Bookmarks  ", ":Telescope marks<CR>"),
-            button("h", "  Themes  ", ":Telescope colorscheme<CR>"),
+            button("h", "  Themes  ", ":ChangeColorScheme<CR>"),
 
             button("e", "  New File  ", ":ene <BAR> startinsert <CR><Esc>"),
             button("v", "  Nvim Init  ", ":e $MYVIMRC | :cd %:p:h <CR>"),
@@ -99,3 +99,5 @@ alpha.setup {
     },
     opts = {position = "center"},
 }
+
+

@@ -212,7 +212,6 @@ local toggleterm = {
     filetypes = { 'toggleterm' }
 }
 
-require('lualine').setup { extensions = { toggleterm } }
-
 require "lualine".setup(options)
 
+require('lualine').setup { extensions = { toggleterm } }

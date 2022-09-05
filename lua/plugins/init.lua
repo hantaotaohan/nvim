@@ -40,10 +40,11 @@ local plugins = {
         "nvim-telescope/telescope.nvim",
         disable = false,
         branch = '0.1.x',
-        cmd = "Telescope",
+        -- cmd = "Telescope",
         requires = { {'nvim-lua/plenary.nvim'} },
         config = function()
             require "plugins.configs.telescope"
+            require("plugins.configs.changecolorscheme")
         end,
     },
 
@@ -67,6 +68,18 @@ local plugins = {
         config = function()
             require "plugins.configs.onedark"
         end,
+    },
+
+    ---------------------------------------------------------------------------
+
+    {
+        'shaunsingh/nord.nvim'
+    },
+
+    ---------------------------------------------------------------------------
+
+    {
+        'ellisonleao/gruvbox.nvim'
     },
 
     ---------------------------------------------------------------------------
