@@ -10,6 +10,7 @@ local options = {
 
     defaults = {
 
+    -- path_display = { 'smart'},
         sorting_strategy = "ascending",       -- escending (default) | ascending
         selection_strategy = "reset",         -- reset (default) | follow | row | closest | none
         scroll_strategy = "cycle",            -- cycle" (default) | limit
@@ -49,7 +50,7 @@ local options = {
 
         cycle_layout_list = { "horizontal", "vertical" },
         winblend = 20,
-        wrap_results = true,
+        wrap_results = false,
         prompt_prefix = "    ",
         -- prompt_prefix = "Search: ",
         selection_caret = "  ",
