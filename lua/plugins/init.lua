@@ -139,7 +139,6 @@ local plugins = {
         config = function()
             require "plugins.configs.toggleterm"
         end,
-
     },
 
     ---------------------------------------------------------------------------
@@ -152,8 +151,6 @@ local plugins = {
         config = function()
             require "plugins.configs.coderunner"
         end,
-
-
     },
 
     ---------------------------------------------------------------------------
@@ -169,7 +166,6 @@ local plugins = {
         config = function()
             require "plugins.configs.blankline"
         end,
-
     },
 
     ---------------------------------------------------------------------------
@@ -449,6 +445,15 @@ local plugins = {
         config = function()
             require "plugins.configs.glow"
         end,
+    },
+
+    ---------------------------------------------------------------------------
+    -- Git 插件
+    ---------------------------------------------------------------------------
+
+    {
+        "tpope/vim-fugitive",
+        disable = false,
     },
 
     ---------------------------------------------------------------------------
