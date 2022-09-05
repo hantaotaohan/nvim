@@ -167,6 +167,7 @@ keymap('n', '<LocalLeader>fh', '<CMD>Telescope keymaps <CR><CR>', opts)
 keymap('n', '<LocalLeader>fm', '<CMD>Telescope git_commits<CR>', opts)
 keymap('n', '<LocalLeader>ft', '<CMD>Telescope git_status<CR>', opts)
 keymap('n', '<LocalLeader>fc', '<CMD>Telescope colorscheme<CR>', opts)
+keymap('n', '<LocalLeader>fp', '<CMD>Telescope projects<CR>', opts)
 
 ----------------------------------- RunCode -----------------------------------
 
