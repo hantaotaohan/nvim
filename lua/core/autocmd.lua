@@ -27,6 +27,16 @@ autocmd("FileType", {
     command = "set showtabline=0 laststatus=0 cmdheight=0 | autocmd BufUnload <buffer> set showtabline=2 laststatus=2 cmdheight=1"
 })
 
+--------------------------- Disable Outline Signcolumn ------------------------
+
+augroup("Outline", {})
+
+autocmd("FileType", {
+	group = "Outline",
+	pattern = "Outline",
+    command = "set signcolumn=no | autocmd BufUnload <buffer> set signcolumn=yes"
+})
+
 ----------------------- Don't Auto Commenting New Lines -----------------------
 
 augroup("Comment", {})

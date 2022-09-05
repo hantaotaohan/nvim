@@ -195,7 +195,7 @@ local options = {
         lualine_z = {}
     },
 
-    extensions = {'quickfix', 'nvim-tree', 'toggleterm', 'symbols-outline'},
+    extensions = {'quickfix', 'nvim-tree', 'fugitive', 'symbols-outline'},
 
 }
 
@@ -212,6 +212,7 @@ local toggleterm = {
     filetypes = { 'toggleterm' }
 }
 
+require('lualine').setup { extensions = { toggleterm } }
+
 require "lualine".setup(options)
 
-require('lualine').setup { extensions = { toggleterm } }
