@@ -478,8 +478,16 @@ local plugins = {
         config = function()
             require "plugins.configs.fold"
         end
-    }
+    },
 
+
+    {
+        'nvim-pack/nvim-spectre',
+        disable = false,
+        config = function()
+            require "plugins.configs.spectre"
+        end
+    },
     ---------------------------------------------------------------------------
 }
 

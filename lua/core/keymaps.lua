@@ -269,3 +269,7 @@ keymap( "n", "<leader>gr", "<cmd>Gitsigns reset_buffer<CR>" , opts)
 keymap( "n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>" , opts)
 keymap( "n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>" , opts)
 keymap( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>" , opts)
+
+---------------------------------- Spectre ------------------------------------
+
+keymap( "n", "<LocalLeader>H", "<cmd>lua require('spectre').open()<CR>" , opts)
