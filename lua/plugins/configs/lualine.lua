@@ -49,7 +49,7 @@ end
 local toggleterm = {
     sections = {
         lualine_a = { toggleterm_statusline },
-        lualine_b = { 'FugitiveHead' } },
+        lualine_b = { {'FugitiveHead', icons_enabled = true, icon = '   ' } } },
     filetypes = { 'toggleterm' }
 }
 
