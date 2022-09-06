@@ -134,7 +134,7 @@ function NvimTreeHighlight()
 ------------------------------------------------------------------------------- 
 
 	highlight ("CMPPmenu"                          , "#ABB2BF"  , "#1E2227", nil, nil )
-	highlight ("CMPPmenuSel"                       , "#ABB2BF"  , "#282C34", nil, nil )
+	highlight ("CMPPmenuSel"                       , "#282C34"  , "#61AFEF", nil, nil )
 	highlight ("CmpItemAbbrDeprecated"             , "#282C34"  , nil ,nil  ,nil)
 	highlight ("CmpBorder"                         , "#565960"  , nil ,nil  ,nil)
 	highlight ("CmpDocBorder"                      , "#565960"  , nil ,nil  ,nil)
@@ -284,6 +284,13 @@ function NvimTreeHighlight()
     -- highlight("Folded                           ",         "#282C34",  "#80868F",  nil,        nil )
     -- highlight("FoldColumn                       ",         "#4E5666",  "#23272E",  nil,        nil )
     highlight("MarkSignHL                       ",         "#DCDCDC",  "#0366d6",  nil,        nil )
+
+------------------------------------------------------------------------------- 
+-- Rainbow
+------------------------------------------------------------------------------- 
+
+    highlight("rainbowcol1                       ",         "#E06C75",  nil,  nil,        nil )
+
 ------------------------------------------------------------------------------- 
 
 end
