@@ -9,7 +9,7 @@ local options = {
     keep_indentation = false,
     remove_fold_markers = true,
     process_comment_signs = false,
-    fill_char = '-',
+    fill_char = '━',
     sections = {
         left = {
             '', function() return string.rep(' FOLDED ' , vim.v.foldlevel) end, ' ██ ', 'content', '██  '
