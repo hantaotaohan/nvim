@@ -294,7 +294,7 @@ function NvimTreeHighlight()
 -- Rainbow
 ------------------------------------------------------------------------------- 
 
-    highlight("rainbowcol1                       ",         "#E06C75",  nil,  nil,        nil )
+    highlight("rainbowcol1                       ",         "#Abb2bF",  nil,  nil,        nil )
 
 ------------------------------------------------------------------------------- 
 

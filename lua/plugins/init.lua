@@ -44,7 +44,7 @@ local plugins = {
         requires = { {'nvim-lua/plenary.nvim'} },
         config = function()
             require "plugins.configs.telescope"
-            require("plugins.configs.changecolorscheme")
+            require "plugins.configs.changecolorscheme"
         end,
     },
 
