@@ -64,6 +64,7 @@ o.tabstop = 4
 o.shiftwidth = 4
 o.softtabstop = 4
 o.expandtab = true
+o.smarttab = true
 o.shiftround = true
 o.autoindent = true
 o.smartindent = true
@@ -75,6 +76,9 @@ o.smartcase = true
 o.infercase = true
 o.incsearch = true
 o.ignorecase = true
+o.inccommand = "nosplit"
+o.grepformat = "%f:%l:%c:%m"
+o.grepprg = "rg --hidden --vimgrep --smart-case --"
 
 -- 命令行区域设置
 o.ruler = true
@@ -89,6 +93,7 @@ o.re = 2
 o.wrap = false
 o.title = true
 o.mouse = 'a'
+o.magic = true
 o.history = 9000
 o.modeline = true
 o.autoread = true
@@ -101,8 +106,8 @@ o.splitright = true
 o.startofline = true
 o.breakindent = true
 o.showbreak = '↳  '
-o.jumpoptions = 'view'
-o.conceallevel = 0                        -- so that `` is visible in markdown files
+o.jumpoptions = 'view'         -- jumpoptions = "stack",
+o.conceallevel = 0             -- so that `` is visible in markdown files
 o.shortmess:append "c"
 o.shortmess:append 'A'
 o.shortmess:append 'I'
@@ -116,9 +121,12 @@ o.clipboard:append "unnamedplus"
 
 -- 差异对比设置
 o.diffopt:append 'vertical'
-o.diffopt:append 'algorithm:histogram'
+o.diffopt:append 'algorithm:patience'
 o.diffopt:append 'hiddenoff'
 o.diffopt:append 'indent-heuristic'
+o.diffopt:append 'filler'
+o.diffopt:append 'iwhite'
+o.diffopt:append 'internal'
 
 -- 标签页设置
 o.hidden = true
@@ -129,29 +137,38 @@ o.backup = false
 o.undofile = true
 o.swapfile = false
 o.undolevels = 10000
+o.undodir = vim_data_path .. "/undo"
 o.writebackup = false
 o.viewoptions:append "cursor"
 o.viewoptions:append "curdir"
 o.viewoptions:append "folds"
--- o.viewoptions:append "options"
--- o.viewoptions:append "localoptions"
 o.viewoptions:append "slash"
 o.viewoptions:append "unix"
-o.undodir = vim_data_path .. "/undo"
-
--- o.shada = "'200,<10000,s100,/10000,:1000,n~/.config/nvim/.shada"
+o.sessionoptions:append "curdir"
+o.sessionoptions:append "help"
+o.sessionoptions:append "tabpages"
+o.sessionoptions:append "winsize"
+o.wildignorecase = true
+o.wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**"
+o.shada = "!,'300,<50,@100,s10,h"
 o.shadafile = vim.fn.stdpath("data") .. "/shada/main.shada"
 
 -- 设置超时时间
+o.timeout = true
+o.ttimeout = true
 o.timeoutlen = 300
-o.ttimeoutlen = 10
+o.ttimeoutlen = 0
 o.updatetime = 100
 o.updatecount = 0
+o.redrawtime = 1500
 
 -- 补全设置
 o.pumheight = 10
 o.pumblend = 10
+o.previewheight = 12
 o.wildmenu = true
+o.complete = ".,w,b,k"
+o.completeopt = "menuone,noselect"
 
 -- 折叠设置
 o.foldlevel = 0
@@ -159,7 +176,9 @@ o.foldnestmax = 1
 o.foldenable = true
 o.foldcolumn = "1"
 o.foldmethod = "manual"
+o.foldlevelstart = 99
 o.foldtext='NeatFoldText()'
+o.foldopen:remove "hor"
 -- o.foldclose = "all"
 -- o.foldopen = "all"
 
@@ -182,6 +201,7 @@ vim.cmd [[
 ]]
 
 -- UI
+o.display = "lastline"
 
 o.fillchars:append("stl: ")
 o.fillchars:append("stlnc: ")

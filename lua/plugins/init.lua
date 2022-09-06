@@ -455,6 +455,7 @@ local plugins = {
         "ellisonleao/glow.nvim",
         disable = false,
         ft = {"markdown", "md"},
+        event = "BufReadPost",
         config = function()
             require "plugins.configs.glow"
         end,
@@ -475,6 +476,8 @@ local plugins = {
 
     {
         'anuvyklack/pretty-fold.nvim',
+        disable = false,
+        event = "BufReadPost",
         config = function()
             require "plugins.configs.fold"
         end
@@ -487,10 +490,37 @@ local plugins = {
     {
         'nvim-pack/nvim-spectre',
         disable = false,
+        event = "BufReadPost",
         config = function()
             require "plugins.configs.spectre"
         end
     },
+
+    ---------------------------------------------------------------------------
+    -- 匀速滚动
+    ---------------------------------------------------------------------------
+
+    {
+        'karb94/neoscroll.nvim',
+        disable = false,
+        event = "BufReadPost",
+        config = function()
+            require "plugins.configs.neoscroll"
+        end
+    },
+
+    ---------------------------------------------------------------------------
+    -- 多光标
+    ---------------------------------------------------------------------------
+
+    -- {
+    --     'terryma/vim-multiple-cursors',
+    --     disable = false,
+    --     event = "BufReadPost",
+    --     config = function()
+    --         require "plugins.configs.multiple-cursors"
+    --     end
+    -- },
 
     ---------------------------------------------------------------------------
 }

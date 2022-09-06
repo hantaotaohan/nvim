@@ -27,6 +27,8 @@ require ("core.function")
 
 keymap("n", "q", "<Nop>", opts)
 keymap("v", "q", "<Nop>", opts)
+keymap("n", "Q", "<Nop>", opts)
+keymap("v", "Q", "<Nop>", opts)
 
 keymap("n", "<C-f>", "<nop>", opts)
 keymap("n", "<C-b>", "<nop>", opts)
