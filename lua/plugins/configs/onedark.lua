@@ -276,6 +276,11 @@ function NvimTreeHighlight()
     -- highlight("CursorLineNr      ",         "#61AFEF",        "#282C34",        nil,        nil )
     -- highlight("Cursor            ",         "#282C34",        "#ABB2BF",        nil,        nil )
 
+    highlight("DiffDelete                       ",         "#282C34",  "#E06C75",  nil,        nil )
+    highlight("DiffAdd                          ",         "#282C34",  "#98C379",  nil,        nil )
+    highlight("DiffChange                       ",         "#282C34",  "#E5C07B",  nil,        nil )
+    highlight("DiffText                         ",         "#282C34",  "#E5C07B",  nil,        nil )
+
 ------------------------------------------------------------------------------- 
 -- Scrollbar
 ------------------------------------------------------------------------------- 
