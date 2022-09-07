@@ -7,58 +7,58 @@ end
 local M = {}
 
 M.base_30 = {
-  white = "#abb2bf",
-  darker_black = "#1b1f27",
-  black = "#1e222a", --  nvim bg
-  black2 = "#252931",
-  one_bg = "#282c34", -- real bg of onedark
-  one_bg2 = "#353b45",
-  one_bg3 = "#373b43",
-  grey = "#42464e",
-  grey_fg = "#565c64",
-  grey_fg2 = "#6f737b",
-  light_grey = "#6f737b",
-  red = "#e06c75",
-  baby_pink = "#DE8C92",
-  pink = "#ff75a0",
-  line = "#31353d", -- for lines like vertsplit
-  green = "#98c379",
-  vibrant_green = "#7eca9c",
-  nord_blue = "#81A1C1",
-  blue = "#61afef",
-  yellow = "#e7c787",
-  yellow_F = "#e2c08d",
-  -- yellow_G = "#746a5b",
-  yellow_G = "#b59c7a",
-  sun = "#EBCB8B",
-  purple = "#de98fd",
-  dark_purple = "#c882e7",
-  teal = "#519ABA",
-  orange = "#fca2aa",
-  cyan = "#a3b8ef",
-  statusline_bg = "#22262e",
-  lightbg = "#2d3139",
-  pmenu_bg = "#61afef",
-  folder_bg = "#61afef",
+    white = "#abb2bf",
+    darker_black = "#1b1f27",
+    black = "#1e222a", --  nvim bg
+    black2 = "#252931",
+    one_bg = "#282c34", -- real bg of onedark
+    one_bg2 = "#353b45",
+    one_bg3 = "#373b43",
+    grey = "#42464e",
+    grey_fg = "#565c64",
+    grey_fg2 = "#6f737b",
+    light_grey = "#6f737b",
+    red = "#e06c75",
+    baby_pink = "#DE8C92",
+    pink = "#ff75a0",
+    line = "#31353d", -- for lines like vertsplit
+    green = "#98c379",
+    vibrant_green = "#7eca9c",
+    nord_blue = "#81A1C1",
+    blue = "#61afef",
+    yellow = "#e7c787",
+    yellow_F = "#e2c08d",
+    -- yellow_G = "#746a5b",
+    yellow_G = "#b59c7a",
+    sun = "#EBCB8B",
+    purple = "#de98fd",
+    dark_purple = "#c882e7",
+    teal = "#519ABA",
+    orange = "#fca2aa",
+    cyan = "#a3b8ef",
+    statusline_bg = "#22262e",
+    lightbg = "#2d3139",
+    pmenu_bg = "#61afef",
+    folder_bg = "#61afef",
 }
 
 M.base_16 = {
-  base00 = "#1e222a",
-  base01 = "#353b45",
-  base02 = "#3e4451",
-  base03 = "#545862",
-  base04 = "#565c64",
-  base05 = "#abb2bf",
-  base06 = "#b6bdca",
-  base07 = "#c8ccd4",
-  base08 = "#e06c75",
-  base09 = "#d19a66",
-  base0A = "#e5c07b",
-  base0B = "#98c379",
-  base0C = "#56b6c2",
-  base0D = "#61afef",
-  base0E = "#c678dd",
-  base0F = "#be5046",
+    base00 = "#1e222a",
+    base01 = "#353b45",
+    base02 = "#3e4451",
+    base03 = "#545862",
+    base04 = "#565c64",
+    base05 = "#abb2bf",
+    base06 = "#b6bdca",
+    base07 = "#c8ccd4",
+    base08 = "#e06c75",
+    base09 = "#d19a66",
+    base0A = "#e5c07b",
+    base0B = "#98c379",
+    base0C = "#56b6c2",
+    base0D = "#61afef",
+    base0E = "#c678dd",
+    base0F = "#be5046",
 }
 
 local colors = M.base_30
@@ -267,56 +267,118 @@ function NvimTreeHighlight()
     highlight("TSConditional"                      ,"#BF68D9"             ,nil                  ,nil  ,nil                 )
 
 ------------------------------------------------------------------------------- 
+-- Syntax
+------------------------------------------------------------------------------- 
+
+    highlight("Boolean"                            ,theme.base09          ,nil                  ,nil  ,nil                 )
+    highlight("Character"                          ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("Conditional"                        ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("Constant"                           ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("Define"                             ,theme.base0E          ,nil                  ,nil  ,"none"              )
+    highlight("Delimiter"                          ,theme.base0F          ,nil                  ,nil  ,nil                 )
+    highlight("Float"                              ,theme.base09          ,nil                  ,nil  ,nil                 )
+    highlight("Variable"                           ,theme.base05          ,nil                  ,nil  ,nil                 )
+    highlight("Function"                           ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("Identifier"                         ,theme.base08          ,nil                  ,nil  ,"none"              )
+    highlight("Include"                            ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("Keyword"                            ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("Label"                              ,theme.base0A          ,nil                  ,nil  ,nil                 )
+    highlight("Number"                             ,theme.base09          ,nil                  ,nil  ,nil                 )
+    highlight("Operator"                           ,theme.base05          ,nil                  ,nil  ,"none"              )
+    highlight("PreProc"                            ,theme.base0A          ,nil                  ,nil  ,nil                 )
+    highlight("Repeat"                             ,theme.base0A          ,nil                  ,nil  ,nil                 )
+    highlight("Special"                            ,theme.base0C          ,nil                  ,nil  ,nil                 )
+    highlight("SpecialChar"                        ,theme.base0F          ,nil                  ,nil  ,nil                 )
+    highlight("Statement"                          ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("StorageClass"                       ,theme.base0A          ,nil                  ,nil  ,nil                 )
+    highlight("String"                             ,theme.base0B          ,nil                  ,nil  ,nil                 )
+    highlight("Structure"                          ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("Tag"                                ,theme.base0A          ,nil                  ,nil  ,nil                 )
+    highlight("Todo"                               ,theme.base0A          ,theme.base01         ,nil  ,nil                 )
+    highlight("Type"                               ,theme.base0A          ,nil                  ,nil  ,"none"              )
+    highlight("Typedef"                            ,theme.base0A          ,nil                  ,nil  ,nil                 )
+
+------------------------------------------------------------------------------- 
 -- IndenBlank
 ------------------------------------------------------------------------------- 
 
     -- highlight("IndentBlanklineChar"                , nil        ,nil  ,nil  ,nil)
     -- highlight("IndentBlanklineSpaceChar"           , nil        ,nil  ,nil  ,nil)
-    -- highlight("IndentBlanklineContextChar"         , nil        ,nil  ,nil  ,nil)
+    highlight("IndentBlanklineContextChar"         ,theme.base0E          ,nil                  ,nil  ,nil                 )
     -- highlight("IndentBlanklineContextStart"        , nil        ,nil  ,nil  ,nil)
 
 ------------------------------------------------------------------------------- 
 -- CMP
 ------------------------------------------------------------------------------- 
 
-	highlight ("CMPPmenu"                          , "#ABB2BF"  , "#1E2227", nil, nil )
-	highlight ("CMPPmenuSel"                       , "#282C34"  , "#61AFEF", nil, nil )
-	highlight ("CmpItemAbbrDeprecated"             , "#282C34"  , nil ,nil  ,nil)
-	highlight ("CmpBorder"                         , "#565960"  , nil ,nil  ,nil)
-	highlight ("CmpDocBorder"                      , "#565960"  , nil ,nil  ,nil)
-	highlight ("CmpItemAbbr"                       , "#ABB2BF"  , nil ,nil  ,nil)
+    highlight("CmpItemAbbr"                        ,colors.white          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemAbbrMatch"                   ,colors.blue           ,nil                  ,nil  ,"bold"              )
+    highlight("CmpItemKindConstant"                ,theme.base09          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindFunction"                ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindIdentifier"              ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindField"                   ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindVariable"                ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindSnippet"                 ,colors.red            ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindText"                    ,theme.base0B          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindStructure"               ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindType"                    ,theme.base0A          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindKeyword"                 ,theme.base07          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindMethod"                  ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindConstructor"             ,colors.blue           ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindFolder"                  ,theme.base07          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindModule"                  ,theme.base0A          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindProperty"                ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindUnit"                    ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindFile"                    ,theme.base07          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindColor"                   ,colors.red            ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindReference"               ,theme.base05          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindStruct"                  ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindOperator"                ,theme.base05          ,nil                  ,nil  ,nil                 )
+    highlight("CmpItemKindTypeParameter"           ,theme.base08          ,nil                  ,nil  ,nil                 )
 
-	highlight ("CmpItemAbbrMatch"                  , "#61AFEF"  ,nil  ,nil  ,'bold')
-	highlight ("CmpItemKindFile"                   , "#E5C07B"  ,nil  ,nil  ,nil)
-	highlight ("CmpItemKindConstructor"            , "#E5C07B"  ,nil  ,nil  ,nil)
-	highlight ("CmpItemAbbrMatchFuzzy"             , "#61AFEF"  ,nil  ,nil  ,nil)
-	-- light l(ue
-	highlight ("CmpItemKindVariable"               , "#C678DD"  ,nil  ,nil  ,nil)
-	highlight ("CmpItemKindInterface"              , "#9CDCFE"  ,nil  ,nil  ,nil)
-	highlight ("CmpItemKindText"                   , "#ABB2BF"  ,nil  ,nil  ,nil)
-	-- pink
-	highlight ("CmpItemKindFunction"               , "#C678DD"  ,nil  ,nil  ,nil)
-	highlight ("CmpItemKindMethod"                 , "#C678DD"  ,nil  ,nil  ,nil)
-	-- front
-	highlight ("CmpItemKindKeyword"                , "#D4D4D4"  ,nil  ,nil  ,nil)
-	highlight ("CmpItemKindProperty"               , "#D4D4D4"  ,nil  ,nil  ,nil)
-	highlight ("CmpItemKindUnit"                   , "#D4D4D4"  ,nil  ,nil  ,nil)
+	highlight ("CmPmenu"                           ,"#ABB2BF"             ,"#1E2227"            ,nil  ,nil                 )
+	highlight ("CMPPmenu"                          ,"#ABB2BF"             ,"#1E2227"            ,nil  ,nil                 )
+	highlight ("CMPPmenuSel"                       ,"#282C34"             ,"#61AFEF"            ,nil  ,nil                 )
+	highlight ("CmpItemAbbrDeprecated"             ,"#282C34"             ,nil                  ,nil  ,nil                 )
+	highlight ("CmpBorder"                         ,"#565960"             ,nil                  ,nil  ,nil                 )
+	highlight ("CmpDocBorder"                      ,"#565960"             ,nil                  ,nil  ,nil                 )
 
-	highlight ("CmpItemMenu"                       , "#E06C75"  ,nil)
+------------------------------------------------------------------------------- 
+-- Whichkey
+------------------------------------------------------------------------------- 
 
-	highlight ("CmpItemKindConstant     "          , "#d19a66"  ,nil)
-	highlight ("CmpItemKindIdentifier   "          , "#e06c75"  ,nil)
-	highlight ("CmpItemKindField        "          , "#e06c75"  ,nil)
-	highlight ("CmpItemKindSnippet      "          , "#E06C75"  ,nil)
-	highlight ("CmpItemKindStructure    "          , "#c678dd"  ,nil)
-	highlight ("CmpItemKindType         "          , "#e5c07b"  ,nil)
-	highlight ("CmpItemKindFolder       "          , "#c8ccd4"  ,nil)
-	highlight ("CmpItemKindModule       "          , "#e5c07b"  ,nil)
-	highlight ("CmpItemKindColor        "          , "#E06C75"  ,nil)
-	highlight ("CmpItemKindReference    "          , "#abb2bf"  ,nil)
-	highlight ("CmpItemKindStruct       "          , "#c678dd"  ,nil)
-	highlight ("CmpItemKindOperator     "          , "#abb2bf"  ,nil)
-	highlight ("CmpItemKindTypeParameter"          , "#E06C75"  ,nil)
+    highlight("WhichKey"                           ,colors.blue           ,nil                  ,nil  ,nil                 )
+    highlight("WhichKeySeparator"                  ,colors.light_grey     ,nil                  ,nil  ,nil                 )
+    highlight("WhichKeyDesc"                       ,colors.red            ,nil                  ,nil  ,nil                 )
+    highlight("WhichKeyGroup"                      ,colors.green          ,nil                  ,nil  ,nil                 )
+    highlight("WhichKeyValue"                      ,colors.green          ,nil                  ,nil  ,nil                 )
+
+------------------------------------------------------------------------------- 
+-- Git
+------------------------------------------------------------------------------- 
+
+    highlight("DiffAdd"                            ,colors.blue           ,nil                  ,nil  ,nil                 )
+    highlight("DiffAdded"                          ,colors.green          ,nil                  ,nil  ,nil                 )
+    highlight("DiffChange"                         ,colors.light_grey     ,nil                  ,nil  ,nil                 )
+    highlight("DiffChangeDelete"                   ,colors.red            ,nil                  ,nil  ,nil                 )
+    highlight("DiffModified"                       ,colors.orange         ,nil                  ,nil  ,nil                 )
+    highlight("DiffDelete"                         ,colors.red            ,nil                  ,nil  ,nil                 )
+    highlight("DiffRemoved"                        ,colors.red            ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitOverflow"                  ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitSummary"                   ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitComment"                   ,theme.base03          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitUntracked"                 ,theme.base03          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitDiscarded"                 ,theme.base03          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitSelected"                  ,theme.base03          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitHeader"                    ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitSelectedType"              ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitUnmergedType"              ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitDiscardedType"             ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitBranch"                    ,theme.base09          ,nil                  ,nil  ,"bold"              )
+    highlight("gitcommitUntrackedFile"             ,theme.base0A          ,nil                  ,nil  ,nil                 )
+    highlight("gitcommitUnmergedFile"              ,theme.base08          ,nil                  ,nil  ,"bold"              )
+    highlight("gitcommitDiscardedFile"             ,theme.base08          ,nil                  ,nil  ,"bold"              )
+    highlight("gitcommitSelectedFile"              ,theme.base0B          ,nil                  ,nil  ,"bold"              )
 
 ------------------------------------------------------------------------------- 
 -- lualine
@@ -422,10 +484,10 @@ function NvimTreeHighlight()
     -- highlight("CursorLineNr      ",         "#61AFEF",        "#282C34",        nil,        nil )
     -- highlight("Cursor            ",         "#282C34",        "#ABB2BF",        nil,        nil )
 
-    highlight("DiffDelete                       ",         "#282C34",  "#E06C75",  nil,        nil )
-    highlight("DiffAdd                          ",         "#282C34",  "#98C379",  nil,        nil )
-    highlight("DiffChange                       ",         "#282C34",  "#E5C07B",  nil,        nil )
-    highlight("DiffText                         ",         "#282C34",  "#E5C07B",  nil,        nil )
+    -- highlight("DiffDelete                       ",         "#282C34",  "#E06C75",  nil,        nil )
+    -- highlight("DiffAdd                          ",         "#282C34",  "#98C379",  nil,        nil )
+    -- highlight("DiffChange                       ",         "#282C34",  "#E5C07B",  nil,        nil )
+    -- highlight("DiffText                         ",         "#282C34",  "#E5C07B",  nil,        nil )
 
 ------------------------------------------------------------------------------- 
 -- Scrollbar
