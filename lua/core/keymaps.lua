@@ -121,6 +121,7 @@ keymap("n", "<F6>", "<cmd>ScrollbarToggle<cr>", opts)
 keymap("n", "<F7>", "<cmd>lua require('core.function').toggle_qf()<cr>", opts)
 keymap("n", "<F8>", "<cmd>lua require('core.function').toggle_colorcolumn()<cr>", opts)
 keymap("n", "<F9>", "<cmd>lua require('core.function').toggle_diagnostics()<cr>", opts)
+keymap("n", "<F10>", "<cmd>ColorizerToggle<CR>" , opts)
 
 
 ---------------------------------- Nvim-Tree ----------------------------------
@@ -275,3 +276,6 @@ keymap( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>" , opts)
 ---------------------------------- Spectre ------------------------------------
 
 keymap( "n", "<LocalLeader>H", "<cmd>lua require('spectre').open()<CR>" , opts)
+
+---------------------------------- Colorizer ------------------------------------
+

@@ -114,7 +114,7 @@ local plugins = {
         "kyazdani42/nvim-tree.lua",
         disable = false,
         -- ft = "alpha",
-        -- cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
         config = function()
             require "plugins.configs.nvim-tree"
         end,

@@ -4,6 +4,66 @@ if not present then
     return
 end
 
+local M = {}
+
+M.base_30 = {
+  white = "#abb2bf",
+  darker_black = "#1b1f27",
+  black = "#1e222a", --  nvim bg
+  black2 = "#252931",
+  one_bg = "#282c34", -- real bg of onedark
+  one_bg2 = "#353b45",
+  one_bg3 = "#373b43",
+  grey = "#42464e",
+  grey_fg = "#565c64",
+  grey_fg2 = "#6f737b",
+  light_grey = "#6f737b",
+  red = "#e06c75",
+  baby_pink = "#DE8C92",
+  pink = "#ff75a0",
+  line = "#31353d", -- for lines like vertsplit
+  green = "#98c379",
+  vibrant_green = "#7eca9c",
+  nord_blue = "#81A1C1",
+  blue = "#61afef",
+  yellow = "#e7c787",
+  yellow_F = "#e2c08d",
+  -- yellow_G = "#746a5b",
+  yellow_G = "#b59c7a",
+  sun = "#EBCB8B",
+  purple = "#de98fd",
+  dark_purple = "#c882e7",
+  teal = "#519ABA",
+  orange = "#fca2aa",
+  cyan = "#a3b8ef",
+  statusline_bg = "#22262e",
+  lightbg = "#2d3139",
+  pmenu_bg = "#61afef",
+  folder_bg = "#61afef",
+}
+
+M.base_16 = {
+  base00 = "#1e222a",
+  base01 = "#353b45",
+  base02 = "#3e4451",
+  base03 = "#545862",
+  base04 = "#565c64",
+  base05 = "#abb2bf",
+  base06 = "#b6bdca",
+  base07 = "#c8ccd4",
+  base08 = "#e06c75",
+  base09 = "#d19a66",
+  base0A = "#e5c07b",
+  base0B = "#98c379",
+  base0C = "#56b6c2",
+  base0D = "#61afef",
+  base0E = "#c678dd",
+  base0F = "#be5046",
+}
+
+local colors = M.base_30
+local theme = M.base_16
+
 local options = {
     -- Main options --
     style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
@@ -64,61 +124,147 @@ function NvimTreeHighlight()
 -- Nvim-tree
 ------------------------------------------------------------------------------- 
 
-    highlight("NvimTreeSymlink"                    , nil        ,nil  ,nil  ,nil)
-    highlight("NvimTreeFolderName"                 , nil        ,nil  ,nil  ,nil)
-    highlight("NvimTreeRootFolder"                 , nil        ,nil  ,nil  ,nil)
-    highlight("NvimTreeFolderIcon"                 , "#61AFEF"  ,nil  ,nil  ,nil)
-    highlight("NvimTreeFileIcon"                   , "#ABB2BF"  ,nil  ,nil  ,nil)
-    highlight("NvimTreeEmptyFolderName"            , "#535965"  ,nil  ,nil  ,nil)   -- Directory
-    highlight("NvimTreeOpenedFolderName"           , nil        ,nil  ,nil  ,nil)   -- Directory
-    highlight("NvimTreeExecFile"                   , nil        ,nil  ,nil  ,nil)
-    highlight("NvimTreeOpenedFile"                 , nil        ,nil  ,nil  ,nil)
-    highlight("NvimTreeSpecialFile"                , nil        ,nil  ,nil  ,nil)
-    highlight("NvimTreeImageFile"                  , nil        ,nil  ,nil  ,nil)
-    highlight("NvimTreeIndentMarker"               , "#535965"  ,nil  ,nil  ,nil)
+    highlight("NvimTreeSymlink"                    ,nil                   ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeNormalNC"                   ,nil                   ,colors.darker_black  ,nil  ,nil                 )
+    highlight("NvimTreeFolderName"                 ,colors.folder_bg      ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeRootFolder"                 ,colors.red            ,nil                  ,nil  ,"bold"              )
+    highlight("NvimTreeFolderIcon"                 ,colors.folder_bg      ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeFileIcon"                   ,"#ABB2BF"             ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeEmptyFolderName"            ,"#535965"             ,nil                  ,nil  ,nil                 )   -- Directory
+    highlight("NvimTreeOpenedFolderName"           ,colors.folder_bg      ,nil                  ,nil  ,nil                 )   -- Directory
+    highlight("NvimTreeExecFile"                   ,nil                   ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeOpenedFile"                 ,nil                   ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeSpecialFile"                ,colors.yellow         ,nil                  ,nil  ,"bold"              )
+    highlight("NvimTreeImageFile"                  ,nil                   ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeIndentMarker"               ,colors.grey_fg        ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeWindowPicker"               ,colors.red            ,colors.black2        ,nil  ,nil                 )
 
-    highlight("NvimTreeLspDiagnosticsError"        , nil        ,nil  ,nil  ,nil)   -- DiagnosticError 
-    highlight("NvimTreeLspDiagnosticsWarning"      , nil        ,nil  ,nil  ,nil)   -- DiagnosticWarn
-    highlight("NvimTreeLspDiagnosticsInformation"  , nil        ,nil  ,nil  ,nil)   -- DiagnosticInfo
-    highlight("NvimTreeLspDiagnosticsHint"         , nil        ,nil  ,nil  ,nil)   -- DiagnosticHint
+    highlight("NvimTreeLspDiagnosticsError"        ,nil                   ,nil                  ,nil  ,nil                 )   -- DiagnosticError 
+    highlight("NvimTreeLspDiagnosticsWarning"      ,nil                   ,nil                  ,nil  ,nil                 )   -- DiagnosticWarn
+    highlight("NvimTreeLspDiagnosticsInformation"  ,nil                   ,nil                  ,nil  ,nil                 )   -- DiagnosticInfo
+    highlight("NvimTreeLspDiagnosticsHint"         ,nil                   ,nil                  ,nil  ,nil                 )   -- DiagnosticHint
 
-    highlight("NvimTreeGitDirty"                   , "#B69E7B"  ,nil  ,nil  ,nil)
-    highlight("NvimTreeGitStaged"                  , "#C678DD"  ,nil  ,nil  ,nil)
-    highlight("NvimTreeGitMerge"                   , "#56B6C2"  ,nil  ,nil  ,nil)
-    highlight("NvimTreeGitRenamed"                 , "#61AFEF"  ,nil  ,nil  ,nil)
-    highlight("NvimTreeGitNew"                     , "#98C379"  ,nil  ,nil  ,nil)
-    highlight("NvimTreeGitDeleted"                 , "#E06C75"  ,nil  ,nil  ,nil)
-    highlight("NvimTreeGitIgnored"                 , "#535965"  ,nil  ,nil  ,nil)   -- Comment
+    highlight("NvimTreeGitDirty"                   ,colors.yellow_G       ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeGitStaged"                  ,"#C678DD"             ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeGitMerge"                   ,"#56B6C2"             ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeGitRenamed"                 ,"#61AFEF"             ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeGitNew"                     ,colors.green          ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeGitDeleted"                 ,colors.red            ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeGitIgnored"                 ,colors.light_grey     ,nil                  ,nil  ,nil                 )   -- Comment
 
     -- There are also links to normal bindings to style the tree itself.
 
-    -- highlight("NvimTreeNormal"                     , nil        ,nil  ,nil  ,nil) 
-    -- highlight("NvimTreeEndOfBuffer"                , nil        ,nil  ,nil  ,nil)   -- NonText
-    -- highlight("NvimTreeCursorLine"                 , nil        ,nil  ,nil  ,nil)   -- CursorLine
-    -- highlight("NvimTreeVertSplit"                  , nil        ,nil  ,nil  ,nil)   -- VertSplit
-    -- highlight("NvimTreeWinSeparator"               , nil        ,nil  ,nil  ,nil)   -- VertSplit
-    -- highlight("NvimTreeCursorColumn"               , nil        ,nil  ,nil  ,nil)   -- CursorColumn
+    highlight("NvimTreeNormal"                     ,nil                   ,colors.darker_black  ,nil  ,nil                 )
+    highlight("NvimTreeEndOfBuffer"                ,colors.darker_black   ,nil                  ,nil  ,nil                 )   -- NonText
+    highlight("NvimTreeCursorLine"                 ,nil                   ,colors.black2        ,nil  ,nil                 )   -- CursorLine
+    highlight("NvimTreeWinSeparator"               ,colors.darker_black   ,colors.darker_black  ,nil  ,nil                 )   -- VertSplit
+    -- highlight("NvimTreeVertSplit"                  ,nil                   ,nil                  ,nil  ,nil                 )   -- VertSplit
+    -- highlight("NvimTreeCursorColumn"               ,nil                   ,nil                  ,nil  ,nil                 )   -- CursorColumn
 
     -- There are also links for file highlight with git properties, linked to their Git equivalent:
 
-    -- highlight("NvimTreeFileDirty"                  , nil        ,nil  ,nil  ,nil)   -- NvimTreeGitDirty
-    -- highlight("NvimTreeFileStaged"                 , nil        ,nil  ,nil  ,nil)   -- NvimTreeGitStaged
-    -- highlight("NvimTreeFileMerge"                  , nil        ,nil  ,nil  ,nil)   -- NvimTreeGitMerge
-    -- highlight("NvimTreeFileRenamed"                , nil        ,nil  ,nil  ,nil)   -- NvimTreeGitRenamed
-    -- highlight("NvimTreeFileNew"                    , nil        ,nil  ,nil  ,nil)   -- NvimTreeGitNew
-    -- highlight("NvimTreeFileDeleted"                , nil        ,nil  ,nil  ,nil)   -- NvimTreeGitDeleted
-    -- highlight("NvimTreeFileIgnored"                , nil        ,nil  ,nil  ,nil)   -- NvimTreeGitIgnored
+    highlight("NvimTreeFileDirty"                  ,colors.yellow_F       ,nil                  ,nil  ,nil                 )   -- NvimTreeGitDirty
+    -- highlight("NvimTreeFileStaged"                 ,nil                   ,nil                  ,nil  ,nil                 )   -- NvimTreeGitStaged
+    -- highlight("NvimTreeFileMerge"                  ,nil                   ,nil                  ,nil  ,nil                 )   -- NvimTreeGitMerge
+    -- highlight("NvimTreeFileRenamed"                ,nil                   ,nil                  ,nil  ,nil                 )   -- NvimTreeGitRenamed
+    -- highlight("NvimTreeFileNew"                    ,nil                   ,nil                  ,nil  ,nil                 )   -- NvimTreeGitNew
+    -- highlight("NvimTreeFileDeleted"                ,nil                   ,nil                  ,nil  ,nil                 )   -- NvimTreeGitDeleted
+    -- highlight("NvimTreeFileIgnored"                ,nil                   ,nil                  ,nil  ,nil                 )   -- NvimTreeGitIgnored
 
     -- There are 2 highlight groups for the live filter feature
 
-    highlight("NvimTreeLiveFilterPrefix"           , "#C678DD"  ,nil  ,nil  ,nil)
-    highlight("NvimTreeLiveFilterValue"            , "#E06C75"  ,nil  ,nil  ,nil)
+    highlight("NvimTreeLiveFilterPrefix"           ,"#C678DD"             ,nil                  ,nil  ,nil                 )
+    highlight("NvimTreeLiveFilterValue"            ,"#E06C75"             ,nil                  ,nil  ,nil                 )
 
     -- Color of the bookmark icon
 
-    highlight("NvimTreeBookmark"                   , "#C678DD"  ,nil  ,nil  ,nil)
+    highlight("NvimTreeBookmark"                   ,"#C678DD"             ,nil                  ,nil  ,nil                 )
 
-    highlight("NvimTreeIndentMarker"               , "#4F5767"  ,nil  ,nil  ,nil)
+    highlight("NvimTreeIndentMarker"               ,"#4F5767"             ,nil                  ,nil  ,nil                 )
+
+------------------------------------------------------------------------------- 
+-- Devicons
+------------------------------------------------------------------------------- 
+
+    highlight("DevIconDefault"                     , colors.red           ,nil                  ,nil  ,nil                 )
+    highlight("DevIconc"                           , colors.blue          ,nil                  ,nil  ,nil                 )
+    highlight("DevIconcss"                         , colors.blue          ,nil                  ,nil  ,nil                 )
+    highlight("DevIcondeb"                         , colors.cyan          ,nil                  ,nil  ,nil                 )
+    highlight("DevIconDockerfile"                  , colors.cyan          ,nil                  ,nil  ,nil                 )
+    highlight("DevIconhtml"                        , colors.baby_pink     ,nil                  ,nil  ,nil                 )
+    highlight("DevIconjpeg"                        , colors.dark_purple   ,nil                  ,nil  ,nil                 )
+    highlight("DevIconjpg"                         , colors.dark_purple   ,nil                  ,nil  ,nil                 )
+    highlight("DevIconjs"                          , colors.sun           ,nil                  ,nil  ,nil                 )
+    highlight("DevIconkt"                          , colors.orange        ,nil                  ,nil  ,nil                 )
+    highlight("DevIconlock"                        , colors.red           ,nil                  ,nil  ,nil                 )
+    highlight("DevIconlua"                         , colors.blue          ,nil                  ,nil  ,nil                 )
+    highlight("DevIconmp3"                         , colors.white         ,nil                  ,nil  ,nil                 )
+    highlight("DevIconmp4"                         , colors.white         ,nil                  ,nil  ,nil                 )
+    highlight("DevIconout"                         , colors.white         ,nil                  ,nil  ,nil                 )
+    highlight("DevIconpng"                         , colors.dark_purple   ,nil                  ,nil  ,nil                 )
+    highlight("DevIconpy"                          , colors.cyan          ,nil                  ,nil  ,nil                 )
+    highlight("DevIcontoml"                        , colors.blue          ,nil                  ,nil  ,nil                 )
+    highlight("DevIconts"                          , colors.teal          ,nil                  ,nil  ,nil                 )
+    highlight("DevIconttf"                         , colors.white         ,nil                  ,nil  ,nil                 )
+    highlight("DevIconrb"                          , colors.pink          ,nil                  ,nil  ,nil                 )
+    highlight("DevIconrpm"                         , colors.orange        ,nil                  ,nil  ,nil                 )
+    highlight("DevIconvue"                         , colors.vibrant_green ,nil                  ,nil  ,nil                 )
+    highlight("DevIconwoff"                        , colors.white         ,nil                  ,nil  ,nil                 )
+    highlight("DevIconwoff2"                       , colors.white         ,nil                  ,nil  ,nil                 )
+    highlight("DevIconxz"                          , colors.sun           ,nil                  ,nil  ,nil                 )
+    highlight("DevIconzip"                         , colors.sun           ,nil                  ,nil  ,nil                 )
+    highlight("DevIconZig"                         , colors.orange        ,nil                  ,nil  ,nil                 )
+
+------------------------------------------------------------------------------- 
+-- TreeSitter
+------------------------------------------------------------------------------- 
+
+    highlight("TSAnnotation"                       ,theme.base0F          ,nil                  ,nil  ,nil                 )
+    highlight("TSAttribute"                        ,theme.base0A          ,nil                  ,nil  ,nil                 )
+    highlight("TSTagAttribute"                     ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSCharacter"                        ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSConstructor"                      ,theme.base0C          ,nil                  ,nil  ,nil                 )
+    highlight("TSConstBuiltin"                     ,theme.base09          ,nil                  ,nil  ,nil                 )
+    highlight("TSConstMacro"                       ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSError"                            ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSException"                        ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSFloat"                            ,theme.base09          ,nil                  ,nil  ,nil                 )
+    highlight("TSKeyword"                          ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("TSKeywordFunction"                  ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("TSKeywordReturn"                    ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("TSFunction"                         ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("TSFuncBuiltin"                      ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("TSFuncMacro"                        ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSKeywordOperator"                  ,theme.base0E          ,nil                  ,nil  ,nil                 )
+    highlight("TSMethod"                           ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("TSNamespace"                        ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSNone"                             ,theme.base05          ,nil                  ,nil  ,nil                 )
+    highlight("TSParameter"                        ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSParameterReference"               ,theme.base05          ,nil                  ,nil  ,nil                 )
+    highlight("TSPunctBracket"                     ,theme.base0F          ,nil                  ,nil  ,nil                 )
+    highlight("TSPunctDelimiter"                   ,theme.base0F          ,nil                  ,nil  ,nil                 )
+    highlight("TSPunctSpecial"                     ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSStringRegex"                      ,theme.base0C          ,nil                  ,nil  ,nil                 )
+    highlight("TSStringEscape"                     ,theme.base0C          ,nil                  ,nil  ,nil                 )
+    highlight("TSSymbol"                           ,theme.base0B          ,nil                  ,nil  ,nil                 )
+    highlight("TSTagDelimiter"                     ,theme.base0F          ,nil                  ,nil  ,nil                 )
+    highlight("TSText"                             ,theme.base05          ,nil                  ,nil  ,nil                 )
+    highlight("TSStrong"                           ,nil                   ,nil                  ,nil  ,"bold"              )
+    highlight("TSEmphasis"                         ,theme.base09          ,nil                  ,nil  ,nil                 )
+    highlight("TSStrike"                           ,theme.base00          ,nil                  ,nil  ,"strikethrough"     )
+    highlight("TSLiteral"                          ,theme.base09          ,nil                  ,nil  ,nil                 )
+    highlight("TSURI"                              ,theme.base09          ,nil                  ,nil  ,"underline"         )
+    highlight("TSTypeBuiltin"                      ,theme.base0A          ,nil                  ,nil  ,nil                 )
+    highlight("TSVariableBuiltin"                  ,theme.base09          ,nil                  ,nil  ,nil                 )
+    highlight("TSVariable"                         ,theme.base05          ,nil                  ,nil  ,nil                 )
+    highlight("TSDefinition"                       ,nil                   ,nil                  ,nil  ,"underline"         )
+    highlight("TSDefinitionUsage"                  ,nil                   ,nil                  ,nil  ,"underline"         )
+    highlight("TSCurrentScope"                     ,nil                   ,nil                  ,nil  ,"bold"              )
+    highlight("luaTSField"                         ,theme.base0D          ,nil                  ,nil  ,nil                 )
+    highlight("TSFieldKey"                         ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSProperty"                         ,theme.base08          ,nil                  ,nil  ,nil                 )
+    highlight("TSInclude"                          ,"#BF68D9"             ,nil                  ,nil  ,nil                 )
+    highlight("TSConditional"                      ,"#BF68D9"             ,nil                  ,nil  ,nil                 )
 
 ------------------------------------------------------------------------------- 
 -- IndenBlank

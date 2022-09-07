@@ -59,7 +59,7 @@ local options = {
         -- background            = { fg = '#606B70', bg = None },
 
         fill                  = {  bg = '#1E2227' },
-        background            = {  bg = none },
+        -- background            = {  bg = nil },
 
         -- close_button          = { fg = '#606B70', bg = '#1E2227' },
         -- close_button_visible  = { fg = '#606B70', bg = '#1E2227' },
