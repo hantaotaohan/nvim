@@ -55,4 +55,4 @@ local options = {
 
 }
 
-require "gitsigns".setup(options)
+gitsigns.setup(options)

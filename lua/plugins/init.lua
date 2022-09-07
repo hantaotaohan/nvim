@@ -12,6 +12,16 @@ local plugins = {
     },
 
     ---------------------------------------------------------------------------
+    -- 模糊搜索插件依赖项
+    ---------------------------------------------------------------------------
+
+    {
+        "nvim-lua/plenary.nvim",
+        disable = false,
+        module = "plenary",
+    },
+
+    ---------------------------------------------------------------------------
     -- 插件管理器 --
     ---------------------------------------------------------------------------
 
@@ -25,23 +35,14 @@ local plugins = {
     },
 
     ---------------------------------------------------------------------------
-    -- 模糊搜索插件依赖项
-    ---------------------------------------------------------------------------
-    {
-        "nvim-lua/plenary.nvim",
-        disable = false,
-        module = "plenary",
-    },
-
-    ---------------------------------------------------------------------------
     -- 模糊搜索插件
     ---------------------------------------------------------------------------
     {
         "nvim-telescope/telescope.nvim",
         disable = false,
-        branch = '0.1.x',
-        -- cmd = "Telescope",
-        requires = { {'nvim-lua/plenary.nvim'} },
+        branch = "0.1.x",
+        cmd = { "Telescope", "ChangeColorScheme" },
+        requires = { 'nvim-lua/plenary.nvim' },
         config = function()
             require "plugins.configs.telescope"
             require "core.themes"
@@ -54,6 +55,7 @@ local plugins = {
     {
 		"ahmedkhalf/project.nvim",
         disable = false,
+        requires = { "telescope.nvim" },
         config = function()
             require "plugins.configs.project"
         end,
@@ -157,6 +159,7 @@ local plugins = {
     ---------------------------------------------------------------------------
     -- 代码运行插件
     ---------------------------------------------------------------------------
+
     {
         'CRAG666/code_runner.nvim',
         disable = false,
@@ -197,13 +200,36 @@ local plugins = {
     {
         'lewis6991/gitsigns.nvim',
         disable = false,
-        ft = "gitcommit",
-		setup = function()
-			require("core.lazyload").gitsigns()
-		end,
+        after = "alpha-nvim",
+		-- setup = function()
+		-- 	require("core.lazyload").gitsigns()
+		-- end,
         config = function()
-            require('gitsigns').setup()
+            require "plugins.configs.gitsigns"
         end,
+    },
+
+
+    ---------------------------------------------------------------------------
+    -- 滚动条插件
+    ---------------------------------------------------------------------------
+
+    {
+        "petertriho/nvim-scrollbar",
+        disable = false,
+        after = "gitsigns.nvim",
+        config = function()
+            require "plugins.configs.scrollbar"
+        end,
+    },
+
+    ---------------------------------------------------------------------------
+    -- Git 插件
+    ---------------------------------------------------------------------------
+
+    {
+        "tpope/vim-fugitive",
+        disable = false,
     },
 
     ---------------------------------------------------------------------------
@@ -343,6 +369,7 @@ local plugins = {
     ---------------------------------------------------------------------------
     -- 自动补全括号
     ---------------------------------------------------------------------------
+
     {
         "windwp/nvim-autopairs",
         disable = false,
@@ -355,6 +382,7 @@ local plugins = {
     ---------------------------------------------------------------------------
     -- 欢迎页
     ---------------------------------------------------------------------------
+
     {
         "goolord/alpha-nvim",
         disable = false,
@@ -363,6 +391,7 @@ local plugins = {
             require "plugins.configs.alpha"
         end,
     },
+
     ---------------------------------------------------------------------------
     -- 快速修改匹配括号
     ---------------------------------------------------------------------------
@@ -386,18 +415,6 @@ local plugins = {
     --         require "plugins.configs.remember"
     --     end,
     -- },
-
-    ---------------------------------------------------------------------------
-    -- 滚动条插件
-    ---------------------------------------------------------------------------
-
-    {
-        "petertriho/nvim-scrollbar",
-        disable = false,
-        config = function()
-            require "plugins.configs.scrollbar"
-        end,
-    },
 
     ---------------------------------------------------------------------------
     -- 书签插件
@@ -439,13 +456,17 @@ local plugins = {
     -- 颜色插件
     ---------------------------------------------------------------------------
 
-    -- {
-    --     "norcalli/nvim-colorizer.lua",
-    --     disable = false,
-    --     config = function()
-    --         require "plugins.configs.colorizer"
-    --     end,
-    -- },
+    {
+        "norcalli/nvim-colorizer.lua",
+        disable = false,
+        opt = true,
+        setup = function()
+            require("core.lazyload").on_file_open "nvim-colorizer.lua"
+        end,
+        config = function()
+            require "plugins.configs.colorizer"
+        end,
+    },
 
     ---------------------------------------------------------------------------
     -- Markdown 插件
@@ -459,15 +480,6 @@ local plugins = {
         config = function()
             require "plugins.configs.glow"
         end,
-    },
-
-    ---------------------------------------------------------------------------
-    -- Git 插件
-    ---------------------------------------------------------------------------
-
-    {
-        "tpope/vim-fugitive",
-        disable = false,
     },
 
     ---------------------------------------------------------------------------
