@@ -237,7 +237,10 @@ keymap("t", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, tr
 ------------------------------------- LSP -------------------------------------
 
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
-keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", bufopts)
+-- keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", bufopts)
+keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', opts)
+keymap('n', '<F2>', '<cmd>lua require("renamer").rename()<cr>', opts)
+keymap('v', '<F2>', '<cmd>lua require("renamer").rename()<cr>', opts)
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", bufopts)
 keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)

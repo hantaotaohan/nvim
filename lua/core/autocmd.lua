@@ -41,10 +41,11 @@ autocmd("FileType", {
 
 augroup("Comment", {})
 
-autocmd("BufEnter", {
+autocmd("FileType", {
 	group = "Comment",
-    pattern = "*",
-    command = "set fo-=c fo-=r fo-=o"
+    command = "set formatoptions-=cro",
+    -- pattern = "*",
+    -- command = "set fo-=c fo-=r fo-=o"
 })
 
 ----------------------------- Auto Exit Nvim-Tree -----------------------------
