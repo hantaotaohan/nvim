@@ -263,8 +263,8 @@ keymap("v", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
 
 ---------------------------------- Gitsigns -----------------------------------
 
-keymap( "n", "<leader>gj", "<cmd>Gitsigns next_hunk<CR>" , opts)
-keymap( "n", "<leader>gk", "<cmd>Gitsigns prev_hunk<CR>" , opts)
+keymap( "n", "]c", "<cmd>Gitsigns next_hunk<CR>" , opts)
+keymap( "n", "[c", "<cmd>Gitsigns prev_hunk<CR>" , opts)
 keymap( "n", "<leader>gl", "<cmd>Gitsigns blame_line<CR>" , opts)
 keymap( "n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>" , opts)
 keymap( "n", "<leader>gh", "<cmd>Gitsigns reset_hunk<CR>" , opts)
