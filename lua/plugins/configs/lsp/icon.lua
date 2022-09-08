@@ -42,142 +42,142 @@ M.lspkind = {
 
 M.devicons = {
     default_icon = {
-        icon = "",
+        icon = " ",
         name = "Default",
     },
 
     c = {
-        icon = "",
+        icon = " ",
         name = "c",
     },
 
     css = {
-        icon = "",
+        icon = " ",
         name = "css",
     },
 
     deb = {
-        icon = "",
+        icon = " ",
         name = "deb",
     },
 
     Dockerfile = {
-        icon = "",
+        icon = " ",
         name = "Dockerfile",
     },
 
     html = {
-        icon = "",
+        icon = " ",
         name = "html",
     },
 
     jpeg = {
-        icon = "",
+        icon = " ",
         name = "jpeg",
     },
 
     jpg = {
-        icon = "",
+        icon = " ",
         name = "jpg",
     },
 
     js = {
-        icon = "",
+        icon = " ",
         name = "js",
     },
 
     kt = {
-        icon = "󱈙",
+        icon = "󱈙 ",
         name = "kt",
     },
 
     lock = {
-        icon = "",
+        icon = " ",
         name = "lock",
     },
 
     lua = {
-        icon = "",
+        icon = " ",
         name = "lua",
     },
 
     mp3 = {
-        icon = "",
+        icon = " ",
         name = "mp3",
     },
 
     mp4 = {
-        icon = "",
+        icon = " ",
         name = "mp4",
     },
 
     out = {
-        icon = "",
+        icon = " ",
         name = "out",
     },
 
     png = {
-        icon = "",
+        icon = " ",
         name = "png",
     },
 
     py = {
-        icon = "",
+        icon = " ",
         name = "py",
     },
 
     ["robots.txt"] = {
-        icon = "ﮧ",
+        icon = "ﮧ ",
         name = "robots",
     },
 
     toml = {
-        icon = "",
+        icon = " ",
         name = "toml",
     },
 
     ts = {
-        icon = "ﯤ",
+        icon = "ﯤ ",
         name = "ts",
     },
 
     ttf = {
-        icon = "",
+        icon = " ",
         name = "TrueTypeFont",
     },
 
     rb = {
-        icon = "",
+        icon = " ",
         name = "rb",
     },
 
     rpm = {
-        icon = "",
+        icon = " ",
         name = "rpm",
     },
 
     vue = {
-        icon = "﵂",
+        icon = "﵂ ",
         name = "vue",
     },
 
     woff = {
-        icon = "",
+        icon = " ",
         name = "WebOpenFontFormat",
     },
 
     woff2 = {
-        icon = "",
+        icon = " ",
         name = "WebOpenFontFormat2",
     },
 
     xz = {
-        icon = "",
+        icon = " ",
         name = "xz",
     },
 
     zip = {
-        icon = "",
+        icon = " ",
         name = "zip",
     },
 }
