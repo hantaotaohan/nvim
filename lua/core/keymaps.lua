@@ -37,50 +37,68 @@ keymap("n", "<C-b>", "<nop>", opts)
                               -- Start Keymaps --
 -------------------------------------------------------------------------------
 
+-------------------------------------------------------------------------------
 ---------------------- Remap Leader And LocalLeader Key -----------------------
+-------------------------------------------------------------------------------
 
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ";"
 
+-------------------------------------------------------------------------------
 ------------------------------ Mapping for paste ------------------------------
+-------------------------------------------------------------------------------
 
 keymap("x", "p", '"_dP', opts)
 
+-------------------------------------------------------------------------------
 ------------------------------- Completion Menu -------------------------------
+-------------------------------------------------------------------------------
 
 vim.cmd [[ cnoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>" ]]
 vim.cmd [[ cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>" ]]
 
+-------------------------------------------------------------------------------
 -------------------------------- No Highlight ---------------------------------
+-------------------------------------------------------------------------------
 
 -- keymap("n", "<Space>", "<cmd>noh<CR>", opts)
 -- keymap("v", "<Space>", "<cmd>noh<CR>", opts)
 
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 
+-------------------------------------------------------------------------------
 -------------------------------- ChangeList -----------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "g;", "2g;", opts)
 keymap("n", "g,", "2g,", opts)
 
+-------------------------------------------------------------------------------
 ----------------------------- Move Selected Line ------------------------------
+-------------------------------------------------------------------------------
 
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
+-------------------------------------------------------------------------------
 --------------------------------- Quick Save ----------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>w", "<cmd>w<CR>", opts)
 keymap("i", "<LocalLeader>w", "<cmd>w<CR>", opts)
 keymap("v", "<LocalLeader>w", "<cmd>w<CR>", opts)
 
+-------------------------------------------------------------------------------
 ---------------------------- Quick Quit [ Sayonara ]---------------------------
+-------------------------------------------------------------------------------
 
 keymap('n', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
 keymap('i', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
 keymap('v', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
 
+-------------------------------------------------------------------------------
 ------------------------------ Navigation Window ------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -102,14 +120,18 @@ keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", opts)
 keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", opts)
 keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", opts)
 
+-------------------------------------------------------------------------------
 -------------------------------- Resize Windows -------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+-------------------------------------------------------------------------------
 --------------------------------- Indent Mode ---------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", ">", ">>", opts)
 keymap("n", "<", "<<", opts)
@@ -117,7 +139,9 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 keymap("i", "<S-Tab>", "<C-d>", opts)
 
----------------------------- Toggle System Tools -------------------------------
+-------------------------------------------------------------------------------
+---------------------------- Toggle System Tools ------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "<F3>", "<cmd>lua require('core.function').toggle_number()<cr>", opts)
 keymap("n", "<F4>", "<cmd>lua require('core.function').toggle_column()<cr>", opts)
@@ -129,19 +153,25 @@ keymap("n", "<F9>", "<cmd>lua require('core.function').toggle_diagnostics()<cr>"
 keymap("n", "<F10>", "<cmd>ColorizerToggle<CR>" , opts)
 
 
+-------------------------------------------------------------------------------
 ---------------------------------- Nvim-Tree ----------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR>", opts)
 keymap("i", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
 keymap("v", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
 
+-------------------------------------------------------------------------------
 ------------------------------- NvimTreeToggle --------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>t", "<cmd>SymbolsOutline<CR>", opts)
 keymap("i", "<LocalLeader>t", "<cmd>SymbolsOutline<CR><Esc>", opts)
 keymap("v", "<LocalLeader>t", "<cmd>SymbolsOutline<CR><Esc>", opts)
 
+-------------------------------------------------------------------------------
 ---------------------------------- ToggleTerm ---------------------------------
+-------------------------------------------------------------------------------
 
 keymap("t", "<esc>", "<C-\\><C-n>", opts)
 
@@ -165,7 +195,9 @@ keymap('i', '<Leader>cc', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
 keymap('v', '<Leader>cc', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
 keymap('t', '<Leader>cc', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h direction=float<CR>',opts)
 
----------------------------------- Telescope --------------------------------- 
+-------------------------------------------------------------------------------
+----------------------------------- Telescope --------------------------------- 
+-------------------------------------------------------------------------------
 
 keymap('n', '<LocalLeader>ff', '<CMD>Telescope find_files <CR>', opts)
 keymap('n', '<LocalLeader>fa', '<CMD>Telescope find_files follow=true no_ignore=true hidden=true<CR>', opts)
@@ -177,7 +209,9 @@ keymap('n', '<LocalLeader>ft', '<CMD>Telescope git_status<CR>', opts)
 keymap('n', '<LocalLeader>fc', '<CMD>Telescope colorscheme<CR>', opts)
 keymap('n', '<LocalLeader>fp', '<CMD>Telescope projects<CR>', opts)
 
+-------------------------------------------------------------------------------
 ----------------------------------- RunCode -----------------------------------
+-------------------------------------------------------------------------------
 
 keymap('n', '<LocalLeader>rr', '<CMD>RunFile<CR>', opts)
 keymap('n', '<LocalLeader>rc', '<CMD>RunCode<CR>', opts)
@@ -185,11 +219,15 @@ keymap('n', '<LocalLeader>rt', '<CMD>RunFile tab<CR>', opts)
 keymap('n', '<LocalLeader>rp', '<CMD>RunProject<CR>', opts)
 keymap('n', '<LocalLeader>rc', '<CMD>RunClose<CR>', opts)
 
+-------------------------------------------------------------------------------
 ---------------------------------- Markdown -----------------------------------
+-------------------------------------------------------------------------------
 
 keymap('n', '<LocalLeader>rm', '<CMD>Glow!<CR>', opts)
 
+-------------------------------------------------------------------------------
 ----------------------- Navigate Buffers [ bufferline ] -----------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader><Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
 keymap("n", "<LocalLeader><S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
@@ -239,7 +277,9 @@ keymap("t", "<LocalLeader>7", "<cmd>lua require('bufferline').go_to_buffer(7, tr
 keymap("t", "<LocalLeader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", opts)
 keymap("t", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", opts)
 
+-------------------------------------------------------------------------------
 ------------------------------------- LSP -------------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
 -- keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", bufopts)
@@ -257,19 +297,25 @@ keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", bufopts)
 keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", bufopts)
 keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", bufopts)
 
+-------------------------------------------------------------------------------
 ------------------------------------ Alpha ------------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
 keymap("i", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
 keymap("v", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
 
+-------------------------------------------------------------------------------
 ------------------------------ IndentBlankLine --------------------------------
+-------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
 keymap("i", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
 keymap("v", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
 
+-------------------------------------------------------------------------------
 ---------------------------------- Gitsigns -----------------------------------
+-------------------------------------------------------------------------------
 
 keymap( "n", "]c", "<cmd>Gitsigns next_hunk<CR>" , opts)
 keymap( "n", "[c", "<cmd>Gitsigns prev_hunk<CR>" , opts)
@@ -281,9 +327,33 @@ keymap( "n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>" , opts)
 keymap( "n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>" , opts)
 keymap( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>" , opts)
 
+-------------------------------------------------------------------------------
 ---------------------------------- Spectre ------------------------------------
+-------------------------------------------------------------------------------
 
 keymap( "n", "<LocalLeader>H", "<cmd>lua require('spectre').open()<CR>" , opts)
 
----------------------------------- Colorizer ------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------- Telekasten -----------------------------------
+-------------------------------------------------------------------------------
 
+keymap("n", "<LocalLeader>wp", ":lua require('telekasten').panel()<CR>", opts)
+keymap("n", "<LocalLeader>wf", ":lua require('telekasten').find_notes()<CR>", opts)
+keymap("n", "<LocalLeader>wd", ":lua require('telekasten').find_daily_notes()<CR>", opts)
+keymap("n", "<LocalLeader>ws", ":lua require('telekasten').search_notes()<CR>", opts)
+keymap("n", "<LocalLeader>wz", ":lua require('telekasten').follow_link()<CR>", opts)
+keymap("n", "<LocalLeader>ww", ":lua require('telekasten').goto_today()<CR>", opts)
+keymap("n", "<LocalLeader>wn", ":lua require('telekasten').new_note()<CR>", opts)
+keymap("n", "<LocalLeader>wy", ":lua require('telekasten').yank_notelink()<CR>", opts)
+keymap("n", "<LocalLeader>wi", ":lua require('telekasten').paste_img_and_link()<CR>", opts)
+keymap("n", "<LocalLeader>wt", ":lua require('telekasten').toggle_todo()<CR>", opts)
+keymap("i", "<LocalLeader>wt", "<cmd>:lua require('telekasten').toggle_todo({ i=true })<CR>", opts)
+keymap("n", "<LocalLeader>wb", ":lua require('telekasten').show_backlinks()<CR>", opts)
+keymap("n", "<LocalLeader>wI", ":lua require('telekasten').insert_img_link({ i=true })<CR>", opts)
+keymap("n", "<LocalLeader>wa", ":lua require('telekasten').show_tags()<CR>", opts)
+keymap("n", "<LocalLeader>#", ":lua require('telekasten').show_tags()<CR>", opts)
+keymap("i", "<LocalLeader>#", "<cmd>:lua require('telekasten').show_tags({i = true})<CR>", opts)
+keymap("n", "<LocalLeader>wr", ":lua require('telekasten').rename_note()<CR>", opts)
+keymap("i", "<LocalLeader>[", "<cmd>:lua require('telekasten').insert_link({ i=true })<CR>", opts)
+
+-------------------------------------------------------------------------------

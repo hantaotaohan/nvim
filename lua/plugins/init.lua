@@ -538,12 +538,13 @@ local plugins = {
 
     {
         'filipdutescu/renamer.nvim',
+        disable = false,
         branch = 'master',
         requires = {'nvim-lua/plenary.nvim'},
         config = function()
             require "plugins.configs.renamer"
         end,
-    }
+    },
 
     ---------------------------------------------------------------------------
     -- 多光标
@@ -557,6 +558,25 @@ local plugins = {
     --         require "plugins.configs.multiple-cursors"
     --     end
     -- },
+
+    ---------------------------------------------------------------------------
+    -- 笔记应用
+    ---------------------------------------------------------------------------
+
+    {
+        'renerocksai/telekasten.nvim',
+        disable = false,
+        after = "telescope.nvim",
+        event = "BufReadPost",
+        -- ft = { 'markdown' },
+        requires = {
+            'nvim-telescope/telescope.nvim',
+            'nvim-lua/plenary.nvim'
+        },
+        config = function()
+            require "plugins.configs.telekasten"
+        end
+    },
 
     ---------------------------------------------------------------------------
 }
