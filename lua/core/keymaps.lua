@@ -58,6 +58,11 @@ vim.cmd [[ cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>" ]]
 
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 
+-------------------------------- ChangeList -----------------------------------
+
+keymap("n", "g;", "2g;", opts)
+keymap("n", "g,", "2g,", opts)
+
 ----------------------------- Move Selected Line ------------------------------
 
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
