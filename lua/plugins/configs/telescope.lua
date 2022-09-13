@@ -108,7 +108,8 @@ local options = {
         buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     },
 
-    require('telescope').load_extension('projects')
+    require('telescope').load_extension('projects'),
+    require('telescope').load_extension('vimwiki')
 
 }
 

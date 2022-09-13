@@ -54,4 +54,4 @@ require "core.autocmd"
                                -- LSP Install  --
 -------------------------------------------------------------------------------
 
-require "plugins.configs.lsp.install"
+-- require "plugins.configs.lsp.install"

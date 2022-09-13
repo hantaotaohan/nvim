@@ -37,9 +37,9 @@ mason.setup {
 
     max_concurrent_installers = 10,
 
---     github = {
---        download_url_template = "https://hub.fastgit.xyz/%s/releases/download/%s/%s",
---     },
+    -- github = {
+    --    download_url_template = "https://ghproxy.com/https://github.com/%s/releases/download/%s/%s",
+    -- },
 }
 
 -------------------------------------------------------------------------------
@@ -124,6 +124,20 @@ lspconfig.bashls.setup {
     capabilities = M.capabilities,
     settings = require('plugins.configs.lsp.config.bashls').settings
 }
+
+-- lspconfig.marksman.setup {
+--     on_attach = M.on_attach,
+--     capabilities = M.capabilities,
+-- 			settings = {
+-- 				filetypes = { "markdown", "vimwiki" },
+-- 			},
+-- }
+require'lspconfig'.marksman.setup{
+	filetypes = { "markdown", "vimwiki" },
+}
+-- require'lspconfig'.ltex.setup{
+-- 	filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "vimwiki" },
+-- }
 
 -------------------------------------------------------------------------------
 -- LSP UI

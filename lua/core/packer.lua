@@ -5,7 +5,8 @@ M.options = {
     compile_on_sync = true,
     git = {
         depth = 1,
-        clone_timeout = 60
+        clone_timeout = 600,
+        -- default_url_format = 'https://ghproxy.com/https://github.com/%s'
         -- default_url_format = 'https://hub.fastgit.xyz/%s'
     },
     display = {

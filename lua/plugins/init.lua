@@ -305,7 +305,16 @@ local plugins = {
 
     { 'williamboman/mason-lspconfig.nvim' },
 
-    { "neovim/nvim-lspconfig" },
+    {
+        "neovim/nvim-lspconfig",
+        opt = true,
+        setup = function()
+            require("core.lazyload").on_file_open "nvim-lspconfig"
+        end,
+        config = function()
+            require "plugins.configs.lsp.install"
+        end,
+    },
 
     ---------------------------------------------------------------------------
     -- Load Luasnips + CMP Related In Insert Mode Only
@@ -562,20 +571,22 @@ local plugins = {
     ---------------------------------------------------------------------------
     -- 笔记应用
     ---------------------------------------------------------------------------
+    {
+        'vimwiki/vimwiki',
+        disable = false,
+        branch = 'dev',
+        config = function()
+            require "plugins.configs.vimwiki".setup()
+        end
+    },
 
     {
-        'renerocksai/telekasten.nvim',
+        'ElPiloto/telescope-vimwiki.nvim',
         disable = false,
-        after = "telescope.nvim",
-        event = "BufReadPost",
-        -- ft = { 'markdown' },
         requires = {
             'nvim-telescope/telescope.nvim',
-            'nvim-lua/plenary.nvim'
+            'vimwiki/vimwiki'
         },
-        config = function()
-            require "plugins.configs.telekasten"
-        end
     },
 
     ---------------------------------------------------------------------------
