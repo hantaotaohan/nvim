@@ -482,13 +482,33 @@ function NvimTreeHighlight()
     -- highlight("IncSearch                        ",         "#282C34",  "#E06C75",  nil,        nil )
     -- highlight("Folded                           ",         "#282C34",  "#80868F",  nil,        nil )
     -- highlight("FoldColumn                       ",         "#4E5666",  "#23272E",  nil,        nil )
-    highlight("MarkSignHL"                         ,"#DCDCDC"             ,"#0366d6"            ,nil                       ,nil               )
+    highlight("MarkSignHL"                         ,"#DCDCDC"             ,"#0366d6"            ,nil                      ,nil                )
 
     ------------------------------------------------------------------------------- 
     -- Rainbow
     ------------------------------------------------------------------------------- 
 
-    highlight("rainbowcol1",         "#Abb2bF",  nil,  nil,        nil )
+    highlight("rainbowcol1"                        ,"#Abb2bF"             ,nil                  ,nil                      ,nil                )
+
+    ------------------------------------------------------------------------------- 
+    -- VimWiki
+    ------------------------------------------------------------------------------- 
+
+    highlight("VimwikiHeader1"                     ,"#e5c07b"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiHeader2"                     ,"#98c379"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiHeader3"                     ,"#c678dd"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiHeader4"                     ,"#8096BF"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiHeader5"                     ,"#8096BF"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiHeader6"                     ,"#8096BF"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiH1Folding"                   ,"#e5c07b"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiH2Folding"                   ,"#98c379"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiH3Folding"                   ,"#c678dd"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiH4Folding"                   ,"#8096BF"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiH5Folding"                   ,"#8096BF"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiH6Folding"                   ,"#8096BF"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiLink"                        ,"#61afef"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiLink"                        ,"#61afef"             ,nil                  ,nil                      ,nil                )
+    highlight("VimwikiBold"                        ,"#E06C75"             ,nil                  ,"bold"                   ,"bold"             )
 
     ------------------------------------------------------------------------------- 
 

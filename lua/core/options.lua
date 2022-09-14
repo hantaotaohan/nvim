@@ -107,7 +107,7 @@ o.startofline = true
 o.breakindent = true
 o.showbreak = '↳  '
 o.jumpoptions = 'view'         -- jumpoptions = "stack",
-o.conceallevel = 0             -- so that `` is visible in markdown files
+o.conceallevel = 2             -- so that `` is visible in markdown files
 o.shortmess:append "c"
 o.shortmess:append 'A'
 o.shortmess:append 'I'
