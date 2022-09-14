@@ -307,10 +307,6 @@ local plugins = {
 
     {
         "neovim/nvim-lspconfig",
-        opt = true,
-        setup = function()
-            require("core.lazyload").on_file_open "nvim-lspconfig"
-        end,
         config = function()
             require "plugins.configs.lsp.install"
         end,
