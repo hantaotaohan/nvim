@@ -202,7 +202,7 @@ keymap('t', '<Leader>cc', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h direction=float<
 keymap('n', '<LocalLeader>ff', '<CMD>Telescope find_files <CR>', opts)
 keymap('n', '<LocalLeader>fa', '<CMD>Telescope find_files follow=true no_ignore=true hidden=true<CR>', opts)
 keymap('n', '<LocalLeader>fw', '<CMD>Telescope live_grep<CR>', opts)
-keymap('n', '<LocalLeader>fo', '<CMD>Telescope oldfiles<CR>', opts)
+keymap('n', '<LocalLeader>fo', '<CMD>Telescope oldfiles sort_mru=true<CR>', opts)
 keymap('n', '<LocalLeader>fh', '<CMD>Telescope keymaps <CR><CR>', opts)
 keymap('n', '<LocalLeader>fm', '<CMD>Telescope git_commits<CR>', opts)
 keymap('n', '<LocalLeader>ft', '<CMD>Telescope git_status<CR>', opts)
@@ -334,26 +334,8 @@ keymap( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>" , opts)
 keymap( "n", "<LocalLeader>H", "<cmd>lua require('spectre').open()<CR>" , opts)
 
 -------------------------------------------------------------------------------
--------------------------------- Telekasten -----------------------------------
+---------------------------------- VimWiki ------------------------------------
 -------------------------------------------------------------------------------
 
-keymap("n", "<LocalLeader>wp", ":lua require('telekasten').panel()<CR>", opts)
-keymap("n", "<LocalLeader>wf", ":lua require('telekasten').find_notes()<CR>", opts)
-keymap("n", "<LocalLeader>wd", ":lua require('telekasten').find_daily_notes()<CR>", opts)
-keymap("n", "<LocalLeader>ws", ":lua require('telekasten').search_notes()<CR>", opts)
-keymap("n", "<LocalLeader>wz", ":lua require('telekasten').follow_link()<CR>", opts)
-keymap("n", "<LocalLeader>ww", ":lua require('telekasten').goto_today()<CR>", opts)
-keymap("n", "<LocalLeader>wn", ":lua require('telekasten').new_note()<CR>", opts)
-keymap("n", "<LocalLeader>wy", ":lua require('telekasten').yank_notelink()<CR>", opts)
-keymap("n", "<LocalLeader>wi", ":lua require('telekasten').paste_img_and_link()<CR>", opts)
-keymap("n", "<LocalLeader>wt", ":lua require('telekasten').toggle_todo()<CR>", opts)
-keymap("i", "<LocalLeader>wt", "<cmd>:lua require('telekasten').toggle_todo({ i=true })<CR>", opts)
-keymap("n", "<LocalLeader>wb", ":lua require('telekasten').show_backlinks()<CR>", opts)
-keymap("n", "<LocalLeader>wI", ":lua require('telekasten').insert_img_link({ i=true })<CR>", opts)
-keymap("n", "<LocalLeader>wa", ":lua require('telekasten').show_tags()<CR>", opts)
-keymap("n", "<LocalLeader>#", ":lua require('telekasten').show_tags()<CR>", opts)
-keymap("i", "<LocalLeader>#", "<cmd>:lua require('telekasten').show_tags({i = true})<CR>", opts)
-keymap("n", "<LocalLeader>wr", ":lua require('telekasten').rename_note()<CR>", opts)
-keymap("i", "<LocalLeader>[", "<cmd>:lua require('telekasten').insert_link({ i=true })<CR>", opts)
 
 -------------------------------------------------------------------------------

@@ -62,7 +62,7 @@ local options = {
         val = {
 
             button("f", "  Find File  ", ":Telescope find_files<CR>"),
-            button("o", "  Recent File  ", ":Telescope oldfiles<CR>"),
+            button("o", "  Recent File  ", ":Telescope oldfiles sort_mru=true<CR>"),
             button("w", "  Find Word  ", ":Telescope live_grep<CR>"),
             button("m", "  Bookmarks  ", ":Telescope marks<CR>"),
             button("h", "  Themes  ", ":ChangeColorScheme<CR>"),

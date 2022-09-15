@@ -109,7 +109,8 @@ local options = {
     },
 
     require('telescope').load_extension('projects'),
-    require('telescope').load_extension('vimwiki')
+    require('telescope').load_extension('vimwiki'),
+    require('telescope').load_extension('fzf')
 
 }
 
