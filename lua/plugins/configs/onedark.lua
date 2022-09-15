@@ -474,6 +474,7 @@ function NvimTreeHighlight()
     highlight("PackerOutput"                       ,colors.red            ,nil                  ,nil                      ,nil                )
     highlight("PackerStatus"                       ,colors.blue           ,nil                  ,nil                      ,nil                )
     highlight("PackerHash"                         ,colors.blue           ,nil                  ,nil                      ,nil                )
+    highlight("QuickFixLine"                       ,colors.one_bg         ,colors.blue          ,nil                      ,nil                )
 
     ------------------------------------------------------------------------------- 
     -- Scrollbar

@@ -16,10 +16,30 @@
 -------------------------------------------------------------------------------
 
 local opts = { noremap = true, silent = true }
-local bufopts = { noremap=true, silent=true, buffer=bufnr }
 local keymap = vim.api.nvim_set_keymap
 
 require ("core.function")
+
+-------------------------------------------------------------------------------
+                              -- Start Keymaps --
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+---------------------- Remap Leader And LocalLeader Key -----------------------
+-------------------------------------------------------------------------------
+
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = ";"
+
+-------------------------------------------------------------------------------
+------------------------------- Completion Menu -------------------------------
+-------------------------------------------------------------------------------
+
+vim.cmd [[ cnoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>" ]]
+vim.cmd [[ cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>" ]]
+
+vim.cmd [[ autocmd FileType qf nnoremap <silent><Down> :lnext<CR> ]]
+vim.cmd [[ autocmd FileType qf nnoremap <silent><Up> :lprevious<CR> ]]
 
 -------------------------------------------------------------------------------
                              -- Disable Keymaps --
@@ -34,35 +54,17 @@ keymap("n", "<C-f>", "<nop>", opts)
 keymap("n", "<C-b>", "<nop>", opts)
 
 -------------------------------------------------------------------------------
-                              -- Start Keymaps --
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------------------
----------------------- Remap Leader And LocalLeader Key -----------------------
--------------------------------------------------------------------------------
-
-vim.g.mapleader = "\\"
-vim.g.maplocalleader = ";"
-
--------------------------------------------------------------------------------
 ------------------------------ Mapping for paste ------------------------------
 -------------------------------------------------------------------------------
 
 keymap("x", "p", '"_dP', opts)
 
 -------------------------------------------------------------------------------
-------------------------------- Completion Menu -------------------------------
--------------------------------------------------------------------------------
-
-vim.cmd [[ cnoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>" ]]
-vim.cmd [[ cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>" ]]
-
--------------------------------------------------------------------------------
 -------------------------------- No Highlight ---------------------------------
 -------------------------------------------------------------------------------
 
--- keymap("n", "<Space>", "<cmd>noh<CR>", opts)
--- keymap("v", "<Space>", "<cmd>noh<CR>", opts)
+-- keymap("n", "<Space>", "<CMD>noh<CR>", opts)
+-- keymap("v", "<Space>", "<CMD>noh<CR>", opts)
 
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 
@@ -84,9 +86,9 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 --------------------------------- Quick Save ----------------------------------
 -------------------------------------------------------------------------------
 
-keymap("n", "<LocalLeader>w", "<cmd>w<CR>", opts)
-keymap("i", "<LocalLeader>w", "<cmd>w<CR>", opts)
-keymap("v", "<LocalLeader>w", "<cmd>w<CR>", opts)
+keymap("n", "<LocalLeader>w", "<CMD>w<CR>", opts)
+keymap("i", "<LocalLeader>w", "<CMD>w<CR>", opts)
+keymap("v", "<LocalLeader>w", "<CMD>w<CR>", opts)
 
 -------------------------------------------------------------------------------
 ---------------------------- Quick Quit [ Sayonara ]---------------------------
@@ -143,31 +145,31 @@ keymap("i", "<S-Tab>", "<C-d>", opts)
 ---------------------------- Toggle System Tools ------------------------------
 -------------------------------------------------------------------------------
 
-keymap("n", "<F3>", "<cmd>lua require('core.function').toggle_number()<cr>", opts)
-keymap("n", "<F4>", "<cmd>lua require('core.function').toggle_column()<cr>", opts)
-keymap("n", "<F5>", "<cmd>lua require('core.function').toggle_syntax()<cr>", opts)
-keymap("n", "<F6>", "<cmd>ScrollbarToggle<cr>", opts)
-keymap("n", "<F7>", "<cmd>lua require('core.function').toggle_qf()<cr>", opts)
-keymap("n", "<F8>", "<cmd>lua require('core.function').toggle_colorcolumn()<cr>", opts)
-keymap("n", "<F9>", "<cmd>lua require('core.function').toggle_diagnostics()<cr>", opts)
-keymap("n", "<F10>", "<cmd>ColorizerToggle<CR>" , opts)
+keymap("n", "<F3>", "<CMD>lua require('core.function').toggle_number()<CR>", opts)
+keymap("n", "<F4>", "<CMD>lua require('core.function').toggle_column()<CR>", opts)
+keymap("n", "<F5>", "<CMD>lua require('core.function').toggle_syntax()<CR>", opts)
+keymap("n", "<F6>", "<CMD>ScrollbarToggle<CR>", opts)
+keymap("n", "<F7>", "<CMD>lua require('core.function').toggle_qf()<CR>", opts)
+keymap("n", "<F8>", "<CMD>lua require('core.function').toggle_colorcolumn()<CR>", opts)
+keymap("n", "<F9>", "<CMD>lua require('core.function').toggle_diagnostics()<CR>", opts)
+keymap("n", "<F10>", "<CMD>ColorizerToggle<CR>" , opts)
 
 
 -------------------------------------------------------------------------------
 ---------------------------------- Nvim-Tree ----------------------------------
 -------------------------------------------------------------------------------
 
-keymap("n", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR>", opts)
-keymap("i", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
-keymap("v", "<LocalLeader>e", "<cmd>NvimTreeToggle<CR><Esc>", opts)
+keymap("n", "<LocalLeader>e", "<CMD>NvimTreeToggle<CR>", opts)
+keymap("i", "<LocalLeader>e", "<CMD>NvimTreeToggle<CR><Esc>", opts)
+keymap("v", "<LocalLeader>e", "<CMD>NvimTreeToggle<CR><Esc>", opts)
 
 -------------------------------------------------------------------------------
 ------------------------------- NvimTreeToggle --------------------------------
 -------------------------------------------------------------------------------
 
-keymap("n", "<LocalLeader>t", "<cmd>SymbolsOutline<CR>", opts)
-keymap("i", "<LocalLeader>t", "<cmd>SymbolsOutline<CR><Esc>", opts)
-keymap("v", "<LocalLeader>t", "<cmd>SymbolsOutline<CR><Esc>", opts)
+keymap("n", "<LocalLeader>t", "<CMD>SymbolsOutline<CR>", opts)
+keymap("i", "<LocalLeader>t", "<CMD>SymbolsOutline<CR><Esc>", opts)
+keymap("v", "<LocalLeader>t", "<CMD>SymbolsOutline<CR><Esc>", opts)
 
 -------------------------------------------------------------------------------
 ---------------------------------- ToggleTerm ---------------------------------
@@ -229,122 +231,146 @@ keymap('n', '<LocalLeader>rm', '<CMD>Glow!<CR>', opts)
 ----------------------- Navigate Buffers [ bufferline ] -----------------------
 -------------------------------------------------------------------------------
 
-keymap("n", "<LocalLeader><Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
-keymap("n", "<LocalLeader><S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
-keymap("n", "<LocalLeader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", opts)
-keymap("n", "<LocalLeader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", opts)
-keymap("n", "<LocalLeader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", opts)
-keymap("n", "<LocalLeader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", opts)
-keymap("n", "<LocalLeader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", opts)
-keymap("n", "<LocalLeader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", opts)
-keymap("n", "<LocalLeader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", opts)
-keymap("n", "<LocalLeader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", opts)
-keymap("n", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", opts)
+keymap("n", "<LocalLeader><Tab>", "<CMD>BufferLineCycleNext<CR>", opts)
+keymap("n", "<LocalLeader><S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
+keymap("n", "<LocalLeader>1", "<CMD>BufferLineGoToBuffer 1<CR>", opts)
+keymap("n", "<LocalLeader>2", "<CMD>BufferLineGoToBuffer 2<CR>", opts)
+keymap("n", "<LocalLeader>3", "<CMD>BufferLineGoToBuffer 3<CR>", opts)
+keymap("n", "<LocalLeader>4", "<CMD>BufferLineGoToBuffer 4<CR>", opts)
+keymap("n", "<LocalLeader>5", "<CMD>BufferLineGoToBuffer 5<CR>", opts)
+keymap("n", "<LocalLeader>6", "<CMD>BufferLineGoToBuffer 6<CR>", opts)
+keymap("n", "<LocalLeader>7", "<CMD>BufferLineGoToBuffer 7<CR>", opts)
+keymap("n", "<LocalLeader>8", "<CMD>BufferLineGoToBuffer 8<CR>", opts)
+keymap("n", "<LocalLeader>9", "<CMD>BufferLineGoToBuffer 9<CR>", opts)
 
-keymap("i", "<LocalLeader><Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
-keymap("i", "<LocalLeader><S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
-keymap("i", "<LocalLeader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", opts)
-keymap("i", "<LocalLeader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", opts)
-keymap("i", "<LocalLeader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", opts)
-keymap("i", "<LocalLeader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", opts)
-keymap("i", "<LocalLeader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", opts)
-keymap("i", "<LocalLeader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", opts)
-keymap("i", "<LocalLeader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", opts)
-keymap("i", "<LocalLeader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", opts)
-keymap("i", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", opts)
+keymap("i", "<LocalLeader><Tab>", "<CMD>BufferLineCycleNext<CR>", opts)
+keymap("i", "<LocalLeader><S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
+keymap("i", "<LocalLeader>1", "<CMD>BufferLineGoToBuffer 1<CR>", opts)
+keymap("i", "<LocalLeader>2", "<CMD>BufferLineGoToBuffer 2<CR>", opts)
+keymap("i", "<LocalLeader>3", "<CMD>BufferLineGoToBuffer 3<CR>", opts)
+keymap("i", "<LocalLeader>4", "<CMD>BufferLineGoToBuffer 4<CR>", opts)
+keymap("i", "<LocalLeader>5", "<CMD>BufferLineGoToBuffer 5<CR>", opts)
+keymap("i", "<LocalLeader>6", "<CMD>BufferLineGoToBuffer 6<CR>", opts)
+keymap("i", "<LocalLeader>7", "<CMD>BufferLineGoToBuffer 7<CR>", opts)
+keymap("i", "<LocalLeader>8", "<CMD>BufferLineGoToBuffer 8<CR>", opts)
+keymap("i", "<LocalLeader>9", "<CMD>BufferLineGoToBuffer 9<CR>", opts)
 
-keymap("v", "<LocalLeader><Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
-keymap("v", "<LocalLeader><S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
-keymap("v", "<LocalLeader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", opts)
-keymap("v", "<LocalLeader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", opts)
-keymap("v", "<LocalLeader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", opts)
-keymap("v", "<LocalLeader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", opts)
-keymap("v", "<LocalLeader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", opts)
-keymap("v", "<LocalLeader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", opts)
-keymap("v", "<LocalLeader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", opts)
-keymap("v", "<LocalLeader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", opts)
-keymap("v", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", opts)
+keymap("v", "<LocalLeader><Tab>", "<CMD>BufferLineCycleNext<CR>", opts)
+keymap("v", "<LocalLeader><S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
+keymap("v", "<LocalLeader>1", "<CMD>BufferLineGoToBuffer 1<CR>", opts)
+keymap("v", "<LocalLeader>2", "<CMD>BufferLineGoToBuffer 2<CR>", opts)
+keymap("v", "<LocalLeader>3", "<CMD>BufferLineGoToBuffer 3<CR>", opts)
+keymap("v", "<LocalLeader>4", "<CMD>BufferLineGoToBuffer 4<CR>", opts)
+keymap("v", "<LocalLeader>5", "<CMD>BufferLineGoToBuffer 5<CR>", opts)
+keymap("v", "<LocalLeader>6", "<CMD>BufferLineGoToBuffer 6<CR>", opts)
+keymap("v", "<LocalLeader>7", "<CMD>BufferLineGoToBuffer 7<CR>", opts)
+keymap("v", "<LocalLeader>8", "<CMD>BufferLineGoToBuffer 8<CR>", opts)
+keymap("v", "<LocalLeader>9", "<CMD>BufferLineGoToBuffer 9<CR>", opts)
 
-keymap("t", "<LocalLeader><Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
-keymap("t", "<LocalLeader><S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
-keymap("t", "<LocalLeader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", opts)
-keymap("t", "<LocalLeader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", opts)
-keymap("t", "<LocalLeader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<cr>", opts)
-keymap("t", "<LocalLeader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<cr>", opts)
-keymap("t", "<LocalLeader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<cr>", opts)
-keymap("t", "<LocalLeader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<cr>", opts)
-keymap("t", "<LocalLeader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<cr>", opts)
-keymap("t", "<LocalLeader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<cr>", opts)
-keymap("t", "<LocalLeader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", opts)
+keymap("t", "<LocalLeader><Tab>", "<CMD>BufferLineCycleNext<CR>", opts)
+keymap("t", "<LocalLeader><S-Tab>", "<CMD>BufferLineCyclePrev<CR>", opts)
+keymap("t", "<LocalLeader>1", "<CMD>BufferLineGoToBuffer 1<CR>", opts)
+keymap("t", "<LocalLeader>2", "<CMD>BufferLineGoToBuffer 2<CR>", opts)
+keymap("t", "<LocalLeader>3", "<CMD>BufferLineGoToBuffer 3<CR>", opts)
+keymap("t", "<LocalLeader>4", "<CMD>BufferLineGoToBuffer 4<CR>", opts)
+keymap("t", "<LocalLeader>5", "<CMD>BufferLineGoToBuffer 5<CR>", opts)
+keymap("t", "<LocalLeader>6", "<CMD>BufferLineGoToBuffer 6<CR>", opts)
+keymap("t", "<LocalLeader>7", "<CMD>BufferLineGoToBuffer 7<CR>", opts)
+keymap("t", "<LocalLeader>8", "<CMD>BufferLineGoToBuffer 8<CR>", opts)
+keymap("t", "<LocalLeader>9", "<CMD>BufferLineGoToBuffer 9<CR>", opts)
 
 -------------------------------------------------------------------------------
 ------------------------------------- LSP -------------------------------------
 -------------------------------------------------------------------------------
 
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
--- keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", bufopts)
-keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', opts)
-keymap('n', '<F2>', '<cmd>lua require("renamer").rename()<cr>', opts)
-keymap('v', '<F2>', '<cmd>lua require("renamer").rename()<cr>', opts)
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", bufopts)
-keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
-keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
-keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", bufopts)
-keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
-keymap("v", "<leader>cf", "<cmd>'<.'>lua vim.lsp.buf.range_formatting()<CR>", bufopts)
-keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", bufopts)
-keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", bufopts)
-keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", bufopts)
-keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", bufopts)
+keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
+-- keymap("n", "<F2>", "<CMD>lua vim.lsp.buf.rename()<CR>", bufopts)
+keymap('i', '<F2>', '<CMD>lua require("renamer").rename()<CR>', opts)
+keymap('n', '<F2>', '<CMD>lua require("renamer").rename()<CR>', opts)
+keymap('v', '<F2>', '<CMD>lua require("renamer").rename()<CR>', opts)
+keymap("n", "gr", "<CMD>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", opts)
+keymap("n", "<C-Space>", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("v", "<leader>ca", "<CMD>'<,'>lua vim.lsp.buf.range_code_action()<CR>", opts)
+keymap("n", "<leader>cf", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", opts)
+keymap("v", "<leader>cf", "<CMD>'<.'>lua vim.lsp.buf.range_formatting()<CR>", opts)
+keymap("n", "<leader>cl", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", opts)
+keymap("n", "L", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
+keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", opts)
+keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", opts)
 
 -------------------------------------------------------------------------------
 ------------------------------------ Alpha ------------------------------------
 -------------------------------------------------------------------------------
 
-keymap("n", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
-keymap("i", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
-keymap("v", "<LocalLeader>s", "<cmd>Alpha<CR>", opts)
+keymap("n", "<LocalLeader>s", "<CMD>Alpha<CR>", opts)
+keymap("i", "<LocalLeader>s", "<CMD>Alpha<CR>", opts)
+keymap("v", "<LocalLeader>s", "<CMD>Alpha<CR>", opts)
 
 -------------------------------------------------------------------------------
 ------------------------------ IndentBlankLine --------------------------------
 -------------------------------------------------------------------------------
 
-keymap("n", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
-keymap("i", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
-keymap("v", "<LocalLeader>l", "<cmd>IndentBlanklineToggle<CR>", opts)
+keymap("n", "<LocalLeader>l", "<CMD>IndentBlanklineToggle<CR>", opts)
+keymap("i", "<LocalLeader>l", "<CMD>IndentBlanklineToggle<CR>", opts)
+keymap("v", "<LocalLeader>l", "<CMD>IndentBlanklineToggle<CR>", opts)
 
 -------------------------------------------------------------------------------
 ---------------------------------- Gitsigns -----------------------------------
 -------------------------------------------------------------------------------
 
-keymap( "n", "]c", "<cmd>Gitsigns next_hunk<CR>" , opts)
-keymap( "n", "[c", "<cmd>Gitsigns prev_hunk<CR>" , opts)
-keymap( "n", "<leader>gl", "<cmd>Gitsigns blame_line<CR>" , opts)
-keymap( "n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>" , opts)
-keymap( "n", "<leader>gh", "<cmd>Gitsigns reset_hunk<CR>" , opts)
-keymap( "n", "<leader>gr", "<cmd>Gitsigns reset_buffer<CR>" , opts)
-keymap( "n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>" , opts)
-keymap( "n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>" , opts)
-keymap( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>" , opts)
+keymap( "n", "]c", "<CMD>Gitsigns next_hunk<CR>" , opts)
+keymap( "n", "[c", "<CMD>Gitsigns prev_hunk<CR>" , opts)
+keymap( "n", "<leader>gl", "<CMD>Gitsigns blame_line<CR>" , opts)
+keymap( "n", "<leader>gp", "<CMD>Gitsigns preview_hunk<CR>" , opts)
+keymap( "n", "<leader>gh", "<CMD>Gitsigns reset_hunk<CR>" , opts)
+keymap( "n", "<leader>gr", "<CMD>Gitsigns reset_buffer<CR>" , opts)
+keymap( "n", "<leader>gs", "<CMD>Gitsigns stage_hunk<CR>" , opts)
+keymap( "n", "<leader>gu", "<CMD>Gitsigns undo_stage_hunk<CR>" , opts)
+keymap( "n", "<leader>gd", "<CMD>Gitsigns diffthis<CR>" , opts)
 
 -------------------------------------------------------------------------------
 ---------------------------------- Spectre ------------------------------------
 -------------------------------------------------------------------------------
 
-keymap( "n", "<LocalLeader>H", "<cmd>lua require('spectre').open()<CR>" , opts)
+keymap( "n", "<LocalLeader>H", "<CMD>lua require('spectre').open()<CR>" , opts)
 
 -------------------------------------------------------------------------------
 ---------------------------------- VimWiki ------------------------------------
 -------------------------------------------------------------------------------
 
-keymap( "i", "[[", "<cmd>Telescope vimwiki link<CR>" , opts)
-keymap( "i", "((", "<cmd>Telescope vimwiki live_grep<CR>" , opts)
+keymap( "n", "<Leader>ww", "<CMD>VimwikiIndex<CR>" , opts)
+keymap( "n", "<Leader>wi", "<CMD>VimwikiDiaryIndex<CR>" , opts)
+keymap( "n", "<Leader>w<Leader>w", "<CMD>VimwikiMakeDiaryNote<CR>" , opts)
+keymap( "n", "<Leader>wd", "<CMD>VimwikiDeleteFile<CR>" , opts)
+keymap( "n", "<Leader>wr", "<CMD>VimwikiRenameFile<CR>" , opts)
+keymap( "n", "<Leader>wb", "<CMD>VimwikiBacklinks<CR>" , opts)
+keymap( "n", "<Leader>wa", "<CMD>VimwikiTable<CR>" , opts)
+keymap( "n", "<Leader>wl", "<CMD>VimwikiGenerateLinks<CR>" , opts)
+keymap( "n", "<Leader>wL", "<CMD>VimwikiDiaryGenerateLinks<CR>" , opts)
+keymap( "n", "<Leader>wb", "<CMD>VimwikiBacklinks<CR>" , opts)
+keymap( "n", "<Leader>wt", "<CMD>VimwikiTOC<CR>" , opts)
+keymap( "n", "<Leader>w<CR>", "<CMD>VimwikiVSplitLink<CR>" , opts)
+-- keymap( "i", "[[", "<CMD>Telescope vimwiki link<CR>" , opts)
+-- keymap( "i", "((", "<CMD>Telescope vimwiki live_grep<CR>" , opts)
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'vimwiki.markdown',
+    desc = 'Add vimwiki mappings',
+    callback = function()
+        vim.keymap.set('i', '[[', '<CMD>Telescope vimwiki link<CR>', {buffer=true})
+        vim.keymap.set('i', '((', "<CMD>Telescope vimwiki live_grep<CR>", {buffer=true})
+        vim.keymap.set('i', '<LocalLeader><CR>', "<ESC><CMD>VimwikiReturn 2 2<CR>", {buffer=true})
+    end,
+})
+
 
 -------------------------------------------------------------------------------
 ------------------------------- Commant - Box ---------------------------------
 -------------------------------------------------------------------------------
 
-keymap( "n", "<LocalLeader>gcc", "<cmd>CBccbox<CR>" , opts)
-keymap( "n", "<LocalLeader>gcc", "<cmd>CBccbox<CR>" , opts)
+keymap( "n", "<LocalLeader>gcc", "<CMD>CBccbox<CR>" , opts)
+keymap( "n", "<LocalLeader>gcc", "<CMD>CBccbox<CR>" , opts)
+keymap( "n", "<LocalLeader>gch", "<CMD>CBline(5)<CR>" , opts)
 
 -------------------------------------------------------------------------------
