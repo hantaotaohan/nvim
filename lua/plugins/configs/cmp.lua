@@ -114,6 +114,3 @@ local options = {
 }
 
 require "cmp".setup(options)
-
-
-
