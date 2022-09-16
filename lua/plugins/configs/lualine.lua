@@ -97,7 +97,7 @@ local options = {
         -- lualine_b = {'branch', 'diff', 'diagnostics'},
         -- lualine_c = {'filename', '%r'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
+        -- lualine_y = {'progress'},
         lualine_z = {'location'},
 
         lualine_b = {
@@ -127,7 +127,7 @@ local options = {
                 color = { fg = colors.red, bg = colors.black_1 }
             },
 
-            "diagnostics"
+            -- "diagnostics"
         },
 
         lualine_c = {
@@ -152,7 +152,23 @@ local options = {
                     newfile = '[New]'     -- Text to show for new created file before first writting
                 },
             },
-        }
+        },
+
+         lualine_y = {
+            {
+                "diagnostics",
+                sources = nil,
+                -- sections = { "error", "warn" }, -- info hint
+                icons_enabled = true,
+
+                symbols = { error = "  ", warn = "  ", hint = "  ", info = "  " },
+                -- symbols = { error = " ", warn = "ﴞ ", info = " ", hint = "ﯧ " },
+                color = { fg = colors.black_1, bg = colors.black_1 },
+                colored = true, -- Displays diagnostics status in color if set to true.
+                update_in_insert = false, -- Update diagnostics in insert mode.
+                always_visible = false, -- Show diagnostics even if there are none.
+            },
+        },
     },
 
     inactive_sections = process_sections {

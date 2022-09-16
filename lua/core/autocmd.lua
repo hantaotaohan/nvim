@@ -27,6 +27,17 @@ autocmd("FileType", {
     command = "set showtabline=0 laststatus=0 cmdheight=0 | autocmd BufUnload <buffer> set showtabline=2 laststatus=2 cmdheight=1"
 })
 
+-- autocmd("FileType", {
+--     group = "Alpha",
+-- 	pattern = "alpha",
+--     callback = function()
+--         vim.api.nvim_set_keymap('n', 'o', '<nop>', { noremap = true, silent = true })
+--         vim.api.nvim_set_keymap('n', 'i', '<nop>', { noremap = true, silent = true })
+--         vim.api.nvim_set_keymap('n', 'c', '<nop>', { noremap = true, silent = true })
+--         vim.api.nvim_set_keymap('n', 'v', '<nop>', { noremap = true, silent = true })
+--         vim.api.nvim_set_keymap('n', 'a', '<nop>', { noremap = true, silent = true })
+--     end
+-- })
 --------------------------- Disable Outline Signcolumn ------------------------
 
 augroup("Outline", {})

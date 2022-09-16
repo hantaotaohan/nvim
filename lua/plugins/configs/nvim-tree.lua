@@ -39,6 +39,7 @@ local options = {
         signcolumn = "yes",
 
         mappings = {
+
             custom_only = true,
 
             list = {
