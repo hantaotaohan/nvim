@@ -48,6 +48,16 @@ autocmd("FileType", {
     command = "set signcolumn=no | autocmd BufUnload <buffer> set signcolumn=yes"
 })
 
+
+autocmd("BufEnter", {
+	group = "Outline",
+	pattern = "*",
+    callback = function()
+        local layout = vim.api.nvim_call_function("winlayout", {})
+        if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "Outline" and layout[3] == nil then vim.cmd("quit") end
+    end,
+})
+
 ----------------------- Don't Auto Commenting New Lines -----------------------
 
 augroup("Comment", {})
@@ -106,4 +116,15 @@ autocmd("BufWinEnter", {
 	group = "AutoSaveFolds",
 	pattern = "*",
 	command = "silent! loadview"
+})
+
+autocmd("BufReadPost", {
+	group = "AutoSaveFolds",
+    pattern = "*",
+    callback = function()
+        if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
+            vim.fn.setpos(".", vim.fn.getpos("'\""))
+            vim.cmd("silent! foldopen")
+        end
+    end,
 })
