@@ -7,6 +7,7 @@ end
 local colors = {
     black = '#282C34',
     black_1 = '#30363f',
+    black_2 = '#3E4452',
     red = '#E06c75',
 }
 
@@ -163,7 +164,7 @@ local options = {
 
                 symbols = { error = "  ", warn = "  ", hint = "  ", info = "  " },
                 -- symbols = { error = " ", warn = "ﴞ ", info = " ", hint = "ﯧ " },
-                color = { fg = colors.black_1, bg = colors.black_1 },
+                color = { fg = colors.black_2, bg = colors.black_2 },
                 colored = true, -- Displays diagnostics status in color if set to true.
                 update_in_insert = false, -- Update diagnostics in insert mode.
                 always_visible = false, -- Show diagnostics even if there are none.
