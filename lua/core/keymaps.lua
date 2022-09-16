@@ -15,8 +15,8 @@
                           -- Shorten Function Name --
 -------------------------------------------------------------------------------
 
-local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
 require ("core.function")
 
@@ -54,36 +54,33 @@ keymap("n", "<C-f>", "<nop>", opts)
 keymap("n", "<C-b>", "<nop>", opts)
 
 -------------------------------------------------------------------------------
------------------------------- Mapping for paste ------------------------------
+                            -- Mapping for paste --                            
 -------------------------------------------------------------------------------
 
 keymap("x", "p", '"_dP', opts)
 
 -------------------------------------------------------------------------------
--------------------------------- No Highlight ---------------------------------
+                              -- No Highlight --                               
 -------------------------------------------------------------------------------
-
--- keymap("n", "<Space>", "<CMD>noh<CR>", opts)
--- keymap("v", "<Space>", "<CMD>noh<CR>", opts)
 
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 
 -------------------------------------------------------------------------------
--------------------------------- ChangeList -----------------------------------
+                              -- ChangeList --                                 
 -------------------------------------------------------------------------------
 
 keymap("n", "g;", "2g;", opts)
 keymap("n", "g,", "2g,", opts)
 
 -------------------------------------------------------------------------------
------------------------------ Move Selected Line ------------------------------
+                           -- Move Selected Line --                            
 -------------------------------------------------------------------------------
 
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -------------------------------------------------------------------------------
---------------------------------- Quick Save ----------------------------------
+                               -- Quick Save --                                
 -------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>w", "<CMD>w<CR>", opts)
@@ -91,7 +88,7 @@ keymap("i", "<LocalLeader>w", "<CMD>w<CR>", opts)
 keymap("v", "<LocalLeader>w", "<CMD>w<CR>", opts)
 
 -------------------------------------------------------------------------------
----------------------------- Quick Quit [ Sayonara ]---------------------------
+                          -- Quick Quit [ Sayonara ] --                        
 -------------------------------------------------------------------------------
 
 keymap('n', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
@@ -99,7 +96,7 @@ keymap('i', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
 keymap('v', '<LocalLeader>q', '<CMD>Sayonara<CR>', opts)
 
 -------------------------------------------------------------------------------
------------------------------- Navigation Window ------------------------------
+                            -- Navigation Window --                            
 -------------------------------------------------------------------------------
 
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -123,7 +120,7 @@ keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", opts)
 keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", opts)
 
 -------------------------------------------------------------------------------
--------------------------------- Resize Windows -------------------------------
+                              -- Resize Windows --                             
 -------------------------------------------------------------------------------
 
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -132,7 +129,7 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -------------------------------------------------------------------------------
---------------------------------- Indent Mode ---------------------------------
+                               -- Indent Mode --                               
 -------------------------------------------------------------------------------
 
 keymap("n", ">", ">>", opts)
@@ -142,7 +139,7 @@ keymap("v", ">", ">gv", opts)
 keymap("i", "<S-Tab>", "<C-d>", opts)
 
 -------------------------------------------------------------------------------
----------------------------- Toggle System Tools ------------------------------
+                          -- Toggle System Tools --                            
 -------------------------------------------------------------------------------
 
 keymap("n", "<F3>", "<CMD>lua require('core.function').toggle_number()<CR>", opts)
@@ -156,7 +153,7 @@ keymap("n", "<F10>", "<CMD>ColorizerToggle<CR>" , opts)
 
 
 -------------------------------------------------------------------------------
----------------------------------- Nvim-Tree ----------------------------------
+                                -- Nvim-Tree --                                
 -------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>e", "<CMD>NvimTreeToggle<CR>", opts)
@@ -164,7 +161,7 @@ keymap("i", "<LocalLeader>e", "<CMD>NvimTreeToggle<CR><Esc>", opts)
 keymap("v", "<LocalLeader>e", "<CMD>NvimTreeToggle<CR><Esc>", opts)
 
 -------------------------------------------------------------------------------
-------------------------------- NvimTreeToggle --------------------------------
+                             -- NvimTreeToggle --                              
 -------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>t", "<CMD>SymbolsOutline<CR>", opts)
@@ -172,7 +169,7 @@ keymap("i", "<LocalLeader>t", "<CMD>SymbolsOutline<CR><Esc>", opts)
 keymap("v", "<LocalLeader>t", "<CMD>SymbolsOutline<CR><Esc>", opts)
 
 -------------------------------------------------------------------------------
----------------------------------- ToggleTerm ---------------------------------
+                                -- ToggleTerm --                               
 -------------------------------------------------------------------------------
 
 keymap("t", "<esc>", "<C-\\><C-n>", opts)
@@ -198,7 +195,7 @@ keymap('v', '<Leader>cc', '<CMD>ToggleTerm dir=%:p:h direction=float<CR>', opts)
 keymap('t', '<Leader>cc', '<C-\\><C-n><CMD>ToggleTerm dir=%:p:h direction=float<CR>',opts)
 
 -------------------------------------------------------------------------------
------------------------------------ Telescope --------------------------------- 
+                                 -- Telescope --                                
 -------------------------------------------------------------------------------
 
 keymap('n', '<LocalLeader>ff', '<CMD>Telescope find_files <CR>', opts)
@@ -212,7 +209,7 @@ keymap('n', '<LocalLeader>fc', '<CMD>Telescope colorscheme<CR>', opts)
 keymap('n', '<LocalLeader>fp', '<CMD>Telescope projects<CR>', opts)
 
 -------------------------------------------------------------------------------
------------------------------------ RunCode -----------------------------------
+                                 -- RunCode --                                 
 -------------------------------------------------------------------------------
 
 keymap('n', '<LocalLeader>rr', '<CMD>RunFile<CR>', opts)
@@ -222,13 +219,13 @@ keymap('n', '<LocalLeader>rp', '<CMD>RunProject<CR>', opts)
 keymap('n', '<LocalLeader>rc', '<CMD>RunClose<CR>', opts)
 
 -------------------------------------------------------------------------------
----------------------------------- Markdown -----------------------------------
+                                -- Markdown --                                 
 -------------------------------------------------------------------------------
 
 keymap('n', '<LocalLeader>rm', '<CMD>Glow!<CR>', opts)
 
 -------------------------------------------------------------------------------
------------------------ Navigate Buffers [ bufferline ] -----------------------
+                     -- Navigate Buffers [ bufferline ] --                     
 -------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader><Tab>", "<CMD>BufferLineCycleNext<CR>", opts)
@@ -280,7 +277,7 @@ keymap("t", "<LocalLeader>8", "<CMD>BufferLineGoToBuffer 8<CR>", opts)
 keymap("t", "<LocalLeader>9", "<CMD>BufferLineGoToBuffer 9<CR>", opts)
 
 -------------------------------------------------------------------------------
-------------------------------------- LSP -------------------------------------
+                                   -- LSP --                                   
 -------------------------------------------------------------------------------
 
 keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
@@ -300,7 +297,7 @@ keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'round
 keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", opts)
 
 -------------------------------------------------------------------------------
------------------------------------- Alpha ------------------------------------
+                                  -- Alpha --                                  
 -------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>s", "<CMD>Alpha<CR>", opts)
@@ -308,7 +305,7 @@ keymap("i", "<LocalLeader>s", "<CMD>Alpha<CR>", opts)
 keymap("v", "<LocalLeader>s", "<CMD>Alpha<CR>", opts)
 
 -------------------------------------------------------------------------------
------------------------------- IndentBlankLine --------------------------------
+                            -- IndentBlankLine --                              
 -------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>l", "<CMD>IndentBlanklineToggle<CR>", opts)
@@ -316,7 +313,7 @@ keymap("i", "<LocalLeader>l", "<CMD>IndentBlanklineToggle<CR>", opts)
 keymap("v", "<LocalLeader>l", "<CMD>IndentBlanklineToggle<CR>", opts)
 
 -------------------------------------------------------------------------------
----------------------------------- Gitsigns -----------------------------------
+                                -- Gitsigns --                                 
 -------------------------------------------------------------------------------
 
 keymap( "n", "]c", "<CMD>Gitsigns next_hunk<CR>" , opts)
@@ -330,13 +327,13 @@ keymap( "n", "<leader>gu", "<CMD>Gitsigns undo_stage_hunk<CR>" , opts)
 keymap( "n", "<leader>gd", "<CMD>Gitsigns diffthis<CR>" , opts)
 
 -------------------------------------------------------------------------------
----------------------------------- Spectre ------------------------------------
+                                -- Spectre --                                  
 -------------------------------------------------------------------------------
 
 keymap( "n", "<LocalLeader>H", "<CMD>lua require('spectre').open()<CR>" , opts)
 
 -------------------------------------------------------------------------------
----------------------------------- VimWiki ------------------------------------
+                                -- VimWiki --                                  
 -------------------------------------------------------------------------------
 
 keymap( "n", "<Leader>ww", "<CMD>VimwikiIndex<CR>" , opts)
@@ -351,22 +348,20 @@ keymap( "n", "<Leader>wL", "<CMD>VimwikiDiaryGenerateLinks<CR>" , opts)
 keymap( "n", "<Leader>wb", "<CMD>VimwikiBacklinks<CR>" , opts)
 keymap( "n", "<Leader>wt", "<CMD>VimwikiTOC<CR>" , opts)
 keymap( "n", "<Leader>w<CR>", "<CMD>VimwikiVSplitLink<CR>" , opts)
--- keymap( "i", "[[", "<CMD>Telescope vimwiki link<CR>" , opts)
--- keymap( "i", "((", "<CMD>Telescope vimwiki live_grep<CR>" , opts)
 
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'vimwiki.markdown',
-    desc = 'Add vimwiki mappings',
+local wiki = vim.api.nvim_create_augroup("wiki", { clear = true })
+vim.api.nvim_create_autocmd("Filetype", {
+    pattern = { "vimwiki.markdown" },
     callback = function()
-        vim.keymap.set('i', '[[', '<CMD>Telescope vimwiki link<CR>', {buffer=true})
-        vim.keymap.set('i', '((', "<CMD>Telescope vimwiki live_grep<CR>", {buffer=true})
-        vim.keymap.set('i', '<LocalLeader><CR>', "<ESC><CMD>VimwikiReturn 2 2<CR>", {buffer=true})
+        vim.keymap.set('i', '[[', '<CMD>Telescope vimwiki link<CR>', { remap = true, buffer=true })
+        vim.keymap.set('i', '((', "<CMD>Telescope vimwiki live_grep<CR>", { remap = true, buffer=true })
+        vim.keymap.set('i', '<LocalLeader><CR>', "<ESC><CMD>VimwikiReturn 2 2<CR>", { remap = true, buffer=true })
     end,
+    group = wiki,
 })
 
-
 -------------------------------------------------------------------------------
-------------------------------- Commant - Box ---------------------------------
+                             -- Commant - Box --                               
 -------------------------------------------------------------------------------
 
 keymap( "n", "<LocalLeader>gcc", "<CMD>CBccbox<CR>" , opts)
