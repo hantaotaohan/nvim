@@ -73,9 +73,13 @@ function M.setup()
     vim.g.vimwiki_markdown_header_style = 2                                   -- 生成标题后换行数量
     vim.g.vimwiki_filetypes = { 'markdown' }
 
-    -- vim.cmd('filetype plugin indent on')
+    vim.cmd('filetype plugin indent on')
     -- vim.cmd[[autocmd FileType vimwiki setlocal filetype=vimwiki.markdown]]
 
+    vim.cmd[[
+    autocmd FileType vimwiki.markdown syntax region VimwikiBlockquote start=/^\s*>/ end="$"
+    autocmd FileType vimwiki.markdown highlight VimwikiBlockquote  cterm=bold guibg=#23272E  guifg=#545965 
+    ]]
 end
 
 return M
