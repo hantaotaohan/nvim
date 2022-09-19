@@ -608,7 +608,33 @@ local plugins = {
         },
     },
 
-    { 'michal-h21/vimwiki-sync' }
+    { 'michal-h21/vimwiki-sync' },
+
+    ---------------------------------------------------------------------------
+    -- 输入法切换
+    ---------------------------------------------------------------------------
+
+    {
+        'meijieru/imtoggle.nvim',
+        disable = false,
+        config = function()
+            require("imtoggle").setup()
+        end
+    },
+
+    ---------------------------------------------------------------------------
+    -- 中文格式化
+    ---------------------------------------------------------------------------
+
+    {
+        'hotoo/pangu.vim',
+        disable = false,
+        -- ft = {'vimwiki','markdown','vimwiki.markdown'},
+        config = function()
+            require "plugins.configs.other".pangu()
+        end
+    },
+
     ---------------------------------------------------------------------------
 }
 

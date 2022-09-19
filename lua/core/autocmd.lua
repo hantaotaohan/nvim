@@ -65,8 +65,19 @@ augroup("Comment", {})
 autocmd("FileType", {
 	group = "Comment",
     command = "set formatoptions-=cro",
-    -- pattern = "*",
+    pattern = "*",
     -- command = "set fo-=c fo-=r fo-=o"
+})
+
+----------------------- Markdown FormatOptoions -----------------------
+
+augroup("Markdown", {})
+
+autocmd("FileType", {
+	group = "Markdown",
+    command = "set formatoptions-=crol formatoptions+=tmM",
+    pattern = "vimwiki.markdown",
+    -- command = "set fo-=c fo-=r fo-=o fo-=l fo+=t fo+=m fo+=M"
 })
 
 ----------------------------- Auto Exit Nvim-Tree -----------------------------
