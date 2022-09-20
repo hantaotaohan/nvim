@@ -69,7 +69,7 @@ local plugins = {
         disable = false,
         requires = { "telescope.nvim" },
         config = function()
-            require "plugins.configs.project"
+            require "plugins.configs.other".project()
         end,
     },
 
@@ -132,7 +132,7 @@ local plugins = {
         -- ft = "alpha",
         cmd = { "NvimTreeToggle", "NvimTreeFocus" },
         config = function()
-            require "plugins.configs.nvim-tree"
+            require "plugins.configs.nvimtree"
         end,
     },
 
@@ -145,7 +145,7 @@ local plugins = {
         disable = false,
         module = "nvim-web-devicons",
         config = function()
-            require("plugins.configs.devicons").devicons()
+            require "plugins.configs.other".devicons()
         end,
     },
 
@@ -158,7 +158,7 @@ local plugins = {
         disable = false,
         after = "nvim-lspconfig",
         config = function()
-            require "plugins.configs.symbols-outline"
+            require "plugins.configs.outline"
         end,
     },
 
@@ -199,7 +199,7 @@ local plugins = {
             require("core.lazyload").on_file_open "indent-blankline.nvim"
         end,
         config = function()
-            require "plugins.configs.blankline"
+            require "plugins.configs.other".blankline()
         end,
     },
 
@@ -237,7 +237,7 @@ local plugins = {
         disable = false,
         after = "gitsigns.nvim",
         config = function()
-            require "plugins.configs.scrollbar"
+            require "plugins.configs.other".scrollbar()
         end,
     },
 
@@ -258,9 +258,9 @@ local plugins = {
         "numToStr/Comment.nvim",
         disable = false,
 		module = "Comment",
-		keys = { "gc", "gb" },
+		keys = { "gcc", "gb" },
         config = function()
-            require "plugins.configs.comment"
+            require "plugins.configs.other".comment()
         end,
     },
 
@@ -272,7 +272,7 @@ local plugins = {
         "LudoPinelli/comment-box.nvim",
         disable = false,
         config = function()
-            require "plugins.configs.comment-box"
+            require "plugins.configs.other".commentbox()
         end,
     },
 
@@ -366,7 +366,7 @@ local plugins = {
         wants = "friendly-snippets",
         after = "nvim-cmp",
         config = function()
-            require("plugins.configs.luasnip")
+            require "plugins.configs.other".luasnip()
         end,
     },
 
@@ -413,7 +413,7 @@ local plugins = {
         disable = false,
         after = "nvim-cmp",
         config = function()
-            require("plugins.configs.autopairs")
+            require("plugins.configs.other").autopairs()
         end,
     },
 
@@ -462,7 +462,7 @@ local plugins = {
         "chentoast/marks.nvim",
         disable = false,
         config = function()
-            require "plugins.configs.marks"
+            require "plugins.configs.other".marks()
         end,
     },
 
@@ -474,7 +474,7 @@ local plugins = {
         "aserowy/tmux.nvim",
         disable = false,
         config = function()
-            require "plugins.configs.tmux"
+            require "plugins.configs.other".tmux()
         end,
     },
 
@@ -486,7 +486,7 @@ local plugins = {
     --     "folke/zen-mode.nvim",
     --     disable = false,
     --     config = function()
-    --         require "plugins.configs.zen-mode"
+    --         require "plugins.configs.other".zen-mode()
     --     end,
     -- },
 
@@ -502,7 +502,7 @@ local plugins = {
             require("core.lazyload").on_file_open "nvim-colorizer.lua"
         end,
         config = function()
-            require "plugins.configs.colorizer"
+            require "plugins.configs.other".colorizer()
         end,
     },
 
@@ -516,7 +516,7 @@ local plugins = {
         ft = {"markdown", "md"},
         event = "BufReadPost",
         config = function()
-            require "plugins.configs.glow"
+            require "plugins.configs.other".glow()
         end,
     },
 
@@ -529,7 +529,7 @@ local plugins = {
         disable = false,
         event = "BufReadPost",
         config = function()
-            require "plugins.configs.fold"
+            require "plugins.configs.other".fold()
         end
     },
 
@@ -555,7 +555,7 @@ local plugins = {
         disable = false,
         event = "BufReadPost",
         config = function()
-            require "plugins.configs.neoscroll"
+            require "plugins.configs.other".neoscroll()
         end
     },
 
@@ -569,7 +569,7 @@ local plugins = {
         branch = 'master',
         requires = {'nvim-lua/plenary.nvim'},
         config = function()
-            require "plugins.configs.renamer"
+            require "plugins.configs.other".renamer()
         end,
     },
 

@@ -365,7 +365,7 @@ vim.api.nvim_create_autocmd("Filetype", {
 -------------------------------------------------------------------------------
 
 keymap( "n", "<LocalLeader>gcc", "<CMD>CBccbox<CR>" , opts)
-keymap( "n", "<LocalLeader>gcc", "<CMD>CBccbox<CR>" , opts)
+keymap( "v", "<LocalLeader>gcc", "<CMD>CBccbox<CR>" , opts)
 keymap( "n", "<LocalLeader>gch", "<CMD>CBline(5)<CR>" , opts)
 
 -------------------------------------------------------------------------------
