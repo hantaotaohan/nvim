@@ -5,7 +5,11 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
--------------------------- Dont List Quickfix Buffers -------------------------
+
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                               Quickfix                               │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
 
 augroup("QuickDisplay", {})
 
@@ -17,7 +21,9 @@ autocmd("FileType", {
     end,
 })
 
-------------- Disable Statusline or Tabline or Cmdline In Dashboard -----------
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                                Alpha                                 │
+--   ╰──────────────────────────────────────────────────────────────────────╯
 
 augroup("Alpha", {})
 
@@ -27,18 +33,10 @@ autocmd("FileType", {
     command = "set showtabline=0 laststatus=0 cmdheight=0 | autocmd BufUnload <buffer> set showtabline=2 laststatus=2 cmdheight=1"
 })
 
--- autocmd("FileType", {
---     group = "Alpha",
--- 	pattern = "alpha",
---     callback = function()
---         vim.api.nvim_set_keymap('n', 'o', '<nop>', { noremap = true, silent = true })
---         vim.api.nvim_set_keymap('n', 'i', '<nop>', { noremap = true, silent = true })
---         vim.api.nvim_set_keymap('n', 'c', '<nop>', { noremap = true, silent = true })
---         vim.api.nvim_set_keymap('n', 'v', '<nop>', { noremap = true, silent = true })
---         vim.api.nvim_set_keymap('n', 'a', '<nop>', { noremap = true, silent = true })
---     end
--- })
---------------------------- Disable Outline Signcolumn ------------------------
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                               Outline                                │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
 
 augroup("Outline", {})
 
@@ -58,7 +56,9 @@ autocmd("BufEnter", {
     end,
 })
 
------------------------ Don't Auto Commenting New Lines -----------------------
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                              Commenting                              │
+--   ╰──────────────────────────────────────────────────────────────────────╯
 
 augroup("Comment", {})
 
@@ -69,30 +69,36 @@ autocmd("FileType", {
     -- command = "set fo-=c fo-=r fo-=o"
 })
 
------------------------ Markdown FormatOptoions -----------------------
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                               Markdown                               │
+--   ╰──────────────────────────────────────────────────────────────────────╯
 
 augroup("Markdown", {})
 
 autocmd("FileType", {
 	group = "Markdown",
-    command = "set formatoptions-=crol formatoptions+=tmM",
     pattern = "vimwiki.markdown",
+    command = "set formatoptions-=crol formatoptions+=tmM wrap | if FileType != 'vimwiki.markdown' | set formatoptions-=crotmM formatoptions+=l nowrap | endif",
     -- command = "set fo-=c fo-=r fo-=o fo-=l fo+=t fo+=m fo+=M"
 })
 
------------------------------ Auto Exit Nvim-Tree -----------------------------
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                              Nvim-Tree                               │
+--   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("NvimTreeClose", {})
+augroup("NvimTree", {})
 
 autocmd("BufEnter", {
-	group = "NvimTreeClose",
+	group = "NvimTree",
     callback = function()
         local layout = vim.api.nvim_call_function("winlayout", {})
         if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("quit") end
     end
 })
 
------------------------------------ WSL Yank ----------------------------------
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                               WSL Yank                               │
+--   ╰──────────────────────────────────────────────────────────────────────╯
 
 augroup("WslYank", {})
 
@@ -102,7 +108,9 @@ autocmd("TextYankPost", {
     command = "if v:event.operator ==# 'y' | call system('/mnt/c/Windows/System32/clip.exe', @0) | endif"
 })
 
--------------------------------- Yank highlight -------------------------------
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                            Yank highlight                            │
+--   ╰──────────────────────────────────────────────────────────────────────╯
 
 augroup("YankHeight", {})
 
@@ -113,7 +121,9 @@ autocmd("TextYankPost", {
     end
 })
 
------------------------------- Save Cursor Postion ----------------------------
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                         Save Cursor Postion                          │
+--   ╰──────────────────────────────────────────────────────────────────────╯
 
 augroup("AutoSaveFolds", {})
 
