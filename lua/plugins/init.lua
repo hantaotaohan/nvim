@@ -183,7 +183,7 @@ local plugins = {
         disable = false,
         requires = 'nvim-lua/plenary.nvim',
         config = function()
-            require "plugins.configs.coderunner"
+            require "plugins.configs.runner"
         end,
     },
 
@@ -542,7 +542,7 @@ local plugins = {
         disable = false,
         event = "BufReadPost",
         config = function()
-            require "plugins.configs.spectre"
+            require "plugins.configs.other".spectre()
         end
     },
 
