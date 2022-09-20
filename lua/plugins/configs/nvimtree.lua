@@ -273,4 +273,4 @@ local options = {
     },
 }
 
-require "nvim-tree".setup(options)
+nvim_tree.setup(options)

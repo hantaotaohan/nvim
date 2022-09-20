@@ -33,23 +33,30 @@ local options = {
     window = {
 
         completion = {
+
             border = border "CmpBorder",
             winhighlight = "Normal:CmpPmenu,CursorLine:CmpPmenuSel,Search:None",
+
         },
 
         documentation = {
+
             border = border "CmpDocBorder",
+
         },
 
     },
 
     snippet = {
+
         expand = function(args)
             require("luasnip").lsp_expand(args.body)
         end,
+
     },
 
     formatting = {
+
         format = function(_, vim_item)
 
             local icons = require("plugins.configs.lsp.icon").lspkind
@@ -59,6 +66,7 @@ local options = {
             -- vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
             -- return vim_item
         end,
+
     },
 
     mapping = {

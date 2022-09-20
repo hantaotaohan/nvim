@@ -88,4 +88,4 @@ local options = {
     },
 }
 
-require "bufferline".setup(options)
+bufferline.setup(options)
