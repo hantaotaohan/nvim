@@ -31,7 +31,11 @@ local options = {
         toggle_preview = "p",
         rename_symbol = "r",
         code_actions = "a",
-    },
+        fold = "h",
+        unfold = "l",
+        fold_all = "H",
+        unfold_all = "L",
+        fold_reset = "R",},
 
     lsp_blacklist = {},
     symbol_blacklist = {},

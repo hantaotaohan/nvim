@@ -426,7 +426,7 @@ local plugins = {
         disable = false,
         after = "onedark.nvim",
         config = function()
-            require "plugins.configs.alpha"
+            require "plugins.configs.alpha".config()
         end,
     },
 
