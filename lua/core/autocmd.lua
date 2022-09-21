@@ -78,7 +78,7 @@ augroup("Markdown", {})
 autocmd("FileType", {
 	group = "Markdown",
     pattern = "vimwiki.markdown",
-    command = "set formatoptions-=crol formatoptions+=tmM wrap | if FileType != 'vimwiki.markdown' | set formatoptions-=crotmM formatoptions+=l nowrap | endif",
+    command = "if FileType != 'vimwiki.markdown' | set formatoptions-=crotmM formatoptions+=l nowrap | else set formatoptions-=crol formatoptions+=tmM wrap | endif",
     -- command = "set fo-=c fo-=r fo-=o fo-=l fo+=t fo+=m fo+=M"
 })
 

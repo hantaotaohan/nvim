@@ -132,9 +132,11 @@ lspconfig.bashls.setup {
 -- 				filetypes = { "markdown", "vimwiki" },
 -- 			},
 -- }
-require'lspconfig'.marksman.setup{
-	filetypes = { "markdown", "vimwiki" },
-}
+
+-- require'lspconfig'.marksman.setup{
+-- 	filetypes = { "markdown", "vimwiki" },
+-- }
+
 -- require'lspconfig'.ltex.setup{
 -- 	filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "vimwiki" },
 -- }
