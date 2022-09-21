@@ -23,7 +23,7 @@ autocmd("FileType", {
 --   │                                Alpha                                 │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("Alpha", {})
+augroup("Alpha", { clear = true })
 
 autocmd("FileType", {
 	group = "Alpha",
@@ -36,7 +36,7 @@ autocmd("FileType", {
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
 
-augroup("Outline", {})
+augroup("Outline", { clear = true })
 
 autocmd("FileType", {
 	group = "Outline",
@@ -58,12 +58,23 @@ autocmd("BufEnter", {
 --   │                              Commenting                              │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("Comment", {})
+augroup("Comment", { clear = true })
 
 autocmd("FileType", {
 	group = "Comment",
-    command = "set formatoptions-=cro",
     pattern = "*",
+    callback = function()
+      vim.opt_local.formatoptions:remove("a")
+      vim.opt_local.formatoptions:remove("l")
+      vim.opt_local.formatoptions:remove("m")
+      vim.opt_local.formatoptions:remove("M")
+      vim.opt_local.formatoptions:remove("t")
+      vim.opt_local.formatoptions:remove("c")
+      vim.opt_local.formatoptions:remove("r")
+      vim.opt_local.formatoptions:remove("o")
+      vim.opt_local.wrap = true
+    end
+    -- command = "set formatoptions-=cro",
     -- command = "set fo-=c fo-=r fo-=o"
 })
 
@@ -71,16 +82,17 @@ autocmd("FileType", {
 --   │                               Markdown                               │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("Markdown", {})
+augroup("Markdown", { clear = true })
 
 autocmd("FileType", {
 	group = "Markdown",
-    pattern = "vimwiki.markdown",
+    pattern = "*.markdown",
     callback = function()
       vim.opt_local.formatoptions:append("a")
       vim.opt_local.formatoptions:append("l")
       vim.opt_local.formatoptions:append("m")
       vim.opt_local.formatoptions:append("M")
+      vim.opt_local.formatoptions:remove("t")
       vim.opt_local.wrap = true
     end
 })
@@ -89,7 +101,7 @@ autocmd("FileType", {
 --   │                              Nvim-Tree                               │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("NvimTree", {})
+augroup("NvimTree", { clear = true })
 
 autocmd("BufEnter", {
 	group = "NvimTree",
@@ -103,7 +115,7 @@ autocmd("BufEnter", {
 --   │                               WSL Yank                               │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("WslYank", {})
+augroup("WslYank", { clear = true })
 
 autocmd("TextYankPost", {
 	group = "WslYank",
@@ -115,7 +127,7 @@ autocmd("TextYankPost", {
 --   │                            Yank highlight                            │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("YankHeight", {})
+augroup("YankHeight", { clear = true })
 
 autocmd("TextYankPost", {
 	group = "YankHeight",
@@ -128,7 +140,7 @@ autocmd("TextYankPost", {
 --   │                         Save Cursor Postion                          │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("AutoSaveFolds", {})
+augroup("AutoSaveFolds", { clear = true })
 
 autocmd("BufWinLeave,BufLeave,BufWritePost,BufHidden,QuitPre",{
 	group = "AutoSaveFolds",
