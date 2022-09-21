@@ -90,7 +90,7 @@ o.showmatch = true
 
 -- 行为设置
 o.re = 2
-o.wrap = true
+o.wrap = false
 o.textwidth=79
 o.title = true
 o.mouse = 'a'

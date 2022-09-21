@@ -5,11 +5,9 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-
 --   ╭──────────────────────────────────────────────────────────────────────╮
 --   │                               Quickfix                               │
 --   ╰──────────────────────────────────────────────────────────────────────╯
-
 
 augroup("QuickDisplay", {})
 
@@ -83,9 +81,8 @@ autocmd("FileType", {
       vim.opt_local.formatoptions:append("l")
       vim.opt_local.formatoptions:append("m")
       vim.opt_local.formatoptions:append("M")
+      vim.opt_local.wrap = true
     end
-    -- command = "if FileType != 'vimwiki.markdown' | set formatoptions-=cro nowrap | else | set formatoptions+=ltmM | set formatoptions+=mM | set wrap | endif",
-    -- command = "set fo-=c fo-=r fo-=o fo-=l fo+=t fo+=m fo+=M"
 })
 
 --   ╭──────────────────────────────────────────────────────────────────────╮
