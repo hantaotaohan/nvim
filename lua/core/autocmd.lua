@@ -78,7 +78,13 @@ augroup("Markdown", {})
 autocmd("FileType", {
 	group = "Markdown",
     pattern = "vimwiki.markdown",
-    command = "if FileType != 'vimwiki.markdown' | set formatoptions-=crotmM formatoptions+=l nowrap | else set formatoptions-=crol formatoptions+=tmM wrap | endif",
+    callback = function()
+      vim.opt_local.formatoptions:append("a")
+      vim.opt_local.formatoptions:append("l")
+      vim.opt_local.formatoptions:append("m")
+      vim.opt_local.formatoptions:append("M")
+    end
+    -- command = "if FileType != 'vimwiki.markdown' | set formatoptions-=cro nowrap | else | set formatoptions+=ltmM | set formatoptions+=mM | set wrap | endif",
     -- command = "set fo-=c fo-=r fo-=o fo-=l fo+=t fo+=m fo+=M"
 })
 
