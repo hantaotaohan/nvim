@@ -602,10 +602,6 @@ local plugins = {
     {
         'ElPiloto/telescope-vimwiki.nvim',
         disable = false,
-        requires = {
-            'nvim-telescope/telescope.nvim',
-            'vimwiki/vimwiki'
-        },
     },
 
     { 'michal-h21/vimwiki-sync' },
@@ -614,13 +610,13 @@ local plugins = {
     -- 输入法切换
     ---------------------------------------------------------------------------
 
-    {
-        'meijieru/imtoggle.nvim',
-        disable = false,
-        config = function()
-            require("imtoggle").setup()
-        end
-    },
+    -- {
+    --     'meijieru/imtoggle.nvim',
+    --     disable = false,
+    --     config = function()
+    --         require("imtoggle").setup()
+    --     end
+    -- },
 
     ---------------------------------------------------------------------------
     -- 中文格式化
@@ -629,7 +625,7 @@ local plugins = {
     {
         'hotoo/pangu.vim',
         disable = false,
-        -- ft = {'vimwiki','markdown','vimwiki.markdown'},
+        ft = {'vimwiki','markdown','vimwiki.markdown'},
         config = function()
             require "plugins.configs.other".pangu()
         end

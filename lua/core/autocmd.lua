@@ -72,7 +72,7 @@ autocmd("FileType", {
       vim.opt_local.formatoptions:remove("c")
       vim.opt_local.formatoptions:remove("r")
       vim.opt_local.formatoptions:remove("o")
-      vim.opt_local.wrap = true
+      vim.opt_local.wrap = false
     end
     -- command = "set formatoptions-=cro",
     -- command = "set fo-=c fo-=r fo-=o"
@@ -88,11 +88,9 @@ autocmd("FileType", {
 	group = "Markdown",
     pattern = "*.markdown",
     callback = function()
-      vim.opt_local.formatoptions:append("a")
       vim.opt_local.formatoptions:append("l")
       vim.opt_local.formatoptions:append("m")
       vim.opt_local.formatoptions:append("M")
-      vim.opt_local.formatoptions:remove("t")
       vim.opt_local.wrap = true
     end
 })
