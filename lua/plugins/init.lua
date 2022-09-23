@@ -604,7 +604,7 @@ local plugins = {
         disable = false,
     },
 
-    { 'michal-h21/vimwiki-sync' },
+    { 'hantaotaohan/vimwiki-sync' },
 
     ---------------------------------------------------------------------------
     -- 输入法切换
