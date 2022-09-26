@@ -41,7 +41,7 @@ o.sidescrolloff = 2
 o.virtualedit = 'block'
 
 -- 行号边栏设置
-o.number = true
+o.number = false
 o.relativenumber = true
 o.numberwidth = 3
 o.signcolumn = "yes"

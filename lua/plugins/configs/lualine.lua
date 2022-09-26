@@ -162,7 +162,7 @@ local options = {
                 -- sections = { "error", "warn" }, -- info hint
                 icons_enabled = true,
 
-                symbols = { error = "  ", warn = "  ", hint = "  ", info = "  " },
+                symbols = { error = "  ", warn = "   ", hint = "  ", info = "  " },
                 -- symbols = { error = " ", warn = "ﴞ ", info = " ", hint = "ﯧ " },
                 color = { fg = colors.black_2, bg = colors.black_2 },
                 colored = true, -- Displays diagnostics status in color if set to true.
