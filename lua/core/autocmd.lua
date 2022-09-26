@@ -162,3 +162,27 @@ autocmd("BufReadPost", {
         end
     end,
 })
+
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                               Terminal                               │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
+augroup("Terminal", { clear = true })
+
+autocmd("TermOpen",{
+	group = "Terminal",
+	pattern = "*",
+	command = "startinsert"
+})
+
+autocmd("TermOpen", {
+	group = "Terminal",
+	pattern = "*",
+	command = "set nonumber"
+})
+
+autocmd("BufEnter,BufWinEnter,WinEnter", {
+	group = "Terminal",
+	pattern = "term://*",
+	command = "startinsert"
+})

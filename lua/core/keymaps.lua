@@ -292,7 +292,7 @@ keymap("v", "<leader>ca", "<CMD>'<,'>lua vim.lsp.buf.range_code_action()<CR>", o
 keymap("n", "<leader>cf", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", opts)
 keymap("v", "<leader>cf", "<CMD>'<.'>lua vim.lsp.buf.range_formatting()<CR>", opts)
 keymap("n", "<leader>cl", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", opts)
-keymap("n", "L", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
+-- keymap("n", "L", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", opts)
 keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", opts)
 

@@ -36,8 +36,8 @@ o.fileencoding = "utf-8"
 
 -- 光标设置
 o.whichwrap = ""
-o.scrolloff = 8
-o.sidescrolloff = 8
+o.scrolloff = 2
+o.sidescrolloff = 2
 o.virtualedit = 'block'
 
 -- 行号边栏设置
