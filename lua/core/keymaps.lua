@@ -143,6 +143,7 @@ keymap("i", "<S-Tab>", "<C-d>", opts)
 -------------------------------------------------------------------------------
 
 keymap("n", "<F3>", "<CMD>lua require('core.function').toggle_number()<CR>", opts)
+keymap("n", "<LocalLeader><F3>", "<CMD>lua require('core.function').toggle_renumber()<CR>", opts)
 keymap("n", "<F4>", "<CMD>lua require('core.function').toggle_column()<CR>", opts)
 keymap("n", "<F5>", "<CMD>lua require('core.function').toggle_syntax()<CR>", opts)
 keymap("n", "<F6>", "<CMD>ScrollbarToggle<CR>", opts)

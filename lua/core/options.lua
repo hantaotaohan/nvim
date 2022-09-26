@@ -42,9 +42,9 @@ o.virtualedit = 'block'
 
 -- 行号边栏设置
 o.number = true
+o.relativenumber = true
 o.numberwidth = 3
 o.signcolumn = "yes"
-o.relativenumber = false
 
 -- 编辑区域设置
 o.list = false
