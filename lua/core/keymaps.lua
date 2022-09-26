@@ -162,7 +162,7 @@ keymap("i", "<LocalLeader>e", "<CMD>NvimTreeToggle<CR><Esc>", opts)
 keymap("v", "<LocalLeader>e", "<CMD>NvimTreeToggle<CR><Esc>", opts)
 
 -------------------------------------------------------------------------------
-                             -- NvimTreeToggle --                              
+                             -- SymbolsOutline --                              
 -------------------------------------------------------------------------------
 
 keymap("n", "<LocalLeader>t", "<CMD>SymbolsOutline<CR>", opts)
