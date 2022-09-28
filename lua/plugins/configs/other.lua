@@ -30,13 +30,27 @@ local M = {}
 -- end
 
 --   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                           Input IMG Toggle                           │
+--   │              https://github.com/keaising/im-select.nvim              │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
+M.asyncrun = function()
+
+    vim.g.asyncrun_open = 6
+    -- vim.g.asyncrun_status = "stopped"
+    vim.g.asyncrun_status = ""
+    vim.g.asyncrun_rootmarks = { "pom.xml", ".git", ".svn", ".root", ".project", ".hg" }
+
+end
+
+--   ╭──────────────────────────────────────────────────────────────────────╮
 --   │                       Format Markdown Chinese                        │
 --   │                  https://github.com/hotoo/pangu.vim                  │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
 M.pangu = function()
 
-    vim.cmd [[ let g:pangu_rule_date = 1 ]]
+    vim.g.pangu_rule_date = 1
     vim.cmd [[ autocmd BufLeave *.md if &ft == 'vimwiki.markdown' | PanguAll]]
 
 end

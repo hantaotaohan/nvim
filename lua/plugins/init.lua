@@ -599,12 +599,30 @@ local plugins = {
         end
     },
 
+    ---------------------------------------------------------------------------
+
     {
         'ElPiloto/telescope-vimwiki.nvim',
         disable = false,
     },
 
-    { 'hantaotaohan/vimwiki-sync' },
+    ---------------------------------------------------------------------------
+
+    {
+        'hantaotaohan/vimwiki-sync',
+        disable = false,
+    },
+
+    ---------------------------------------------------------------------------
+
+    {
+        'skywind3000/asyncrun.vim',
+        disable = false,
+        config = function()
+            require "plugins.configs.other".asyncrun()
+        end
+
+    },
 
     ---------------------------------------------------------------------------
     -- 输入法切换

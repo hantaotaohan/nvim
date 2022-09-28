@@ -186,3 +186,16 @@ autocmd("BufEnter,BufWinEnter,WinEnter", {
 	pattern = "term://*",
 	command = "startinsert"
 })
+
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                               AsyncRun                               │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
+augroup("Asyncrun", { clear = true })
+
+autocmd("BufLeave",{
+	group = "Asyncrun",
+	pattern = "*",
+	command = "let g:asyncrun_status='stopped'"
+})
+
