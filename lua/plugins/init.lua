@@ -284,7 +284,7 @@ local plugins = {
         "folke/which-key.nvim",
         disable = false,
         module = "which-key",
-        keys = "<localleader>",
+        keys = "<leader>",
         config = function()
             require "plugins.configs.whichkey"
         end,
