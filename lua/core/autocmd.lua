@@ -205,21 +205,21 @@ autocmd("BufLeave",{
 
 augroup("Vimwiki", { clear = true })
 
-autocmd({"BufEnter"},{
+autocmd({"BufRead"},{
 	group = "Vimwiki",
-	pattern = "*/vimwiki/**.md",
-	command = "AsyncRun -open=0 -cwd=<root> -post=checktime git pull "
+	pattern = {"*/vimwiki/index.md", "*/vimwiki/diary/**.md"},
+	command = "AsyncRun -post=checktime -silent -cwd=<root> git reset --hard ; git pull"
 })
 
 autocmd("BufWritePost",{
 	group = "Vimwiki",
 	pattern = "*/vimwiki/**.md",
-    command = "AsyncRun -open=0 -cwd=<root> git add --all ; git commit -m '" .. vim.fn.strftime("%Y-%m-%d %H:%M:%S") .. "'"
+    command = "AsyncRun -silent -cwd=<root> git add --all ; git commit -m '" .. vim.fn.strftime("%Y-%m-%d %H:%M:%S") .. "'"
 })
 
 autocmd("VimLeave",{
     group = "Vimwiki",
     pattern = "*",
-    command = "AsyncRun -cwd=~/vimwiki -pos=term -mode=hide git push "
+    command = "AsyncRun -cwd=~/vimwiki -mode=hide git push"
 })
 
