@@ -157,7 +157,7 @@ o.shadafile = vim.fn.stdpath("data") .. "/shada/main.shada"
 -- 设置超时时间
 o.timeout = true
 o.ttimeout = true
-o.timeoutlen = 300
+o.timeoutlen = 500
 o.ttimeoutlen = 0
 o.updatetime = 100
 o.updatecount = 0

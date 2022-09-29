@@ -199,3 +199,27 @@ autocmd("BufLeave",{
 	command = "let g:asyncrun_status='stopped'"
 })
 
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                               Vimwiki                                │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
+augroup("Vimwiki", { clear = true })
+
+autocmd({"BufEnter"},{
+	group = "Vimwiki",
+	pattern = "*/vimwiki/**.md",
+	command = "AsyncRun -open=0 -cwd=<root> -post=checktime git pull "
+})
+
+autocmd("BufWritePost",{
+	group = "Vimwiki",
+	pattern = "*/vimwiki/**.md",
+    command = "AsyncRun -open=0 -cwd=<root> git add --all ; git commit -m '" .. vim.fn.strftime("%Y-%m-%d %H:%M:%S") .. "'"
+})
+
+autocmd("VimLeave",{
+    group = "Vimwiki",
+    pattern = "*",
+    command = "AsyncRun -cwd=~/vimwiki -pos=term -mode=hide git push "
+})
+
