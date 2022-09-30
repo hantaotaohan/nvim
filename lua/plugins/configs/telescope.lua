@@ -10,7 +10,7 @@ local options = {
 
     defaults = {
 
-    -- path_display = { 'smart'},
+        -- path_display = { 'smart'},
         sorting_strategy = "ascending",       -- escending (default) | ascending
         selection_strategy = "reset",         -- reset (default) | follow | row | closest | none
         scroll_strategy = "cycle",            -- cycle" (default) | limit
@@ -106,11 +106,20 @@ local options = {
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         path_display = { "truncate" },
         buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-    },
 
-    require('telescope').load_extension('projects'),
-    require('telescope').load_extension('vimwiki'),
-    require('telescope').load_extension('fzf')
+        pickers = {
+            buffers = {
+                ignore_current_buffer = true,
+                sort_mru = true,
+                sort_lastused = true,
+            },
+        },
+
+        require('telescope').load_extension('projects'),
+        require('telescope').load_extension('vimwiki'),
+        require('telescope').load_extension('fzf')
+
+    }
 
 }
 
