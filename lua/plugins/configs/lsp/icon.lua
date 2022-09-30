@@ -102,7 +102,7 @@ M.devicons = {
     },
 
     md = {
-        icon = " ",
+        icon = " ",
         name = "md",
     },
 
