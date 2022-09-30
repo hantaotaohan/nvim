@@ -89,7 +89,7 @@ o.showcmd = false
 o.showmatch = true
 
 -- 行为设置
-o.re = 2
+o.regexpengine = 0
 o.wrap = false
 o.textwidth=79
 o.title = true
@@ -109,6 +109,11 @@ o.breakindent = true
 o.showbreak = '↳  '
 o.jumpoptions = 'view'         -- jumpoptions = "stack",
 o.conceallevel = 2             -- so that `` is visible in markdown files
+o.iskeyword:append "_"
+o.iskeyword:append "$"
+o.iskeyword:append "@"
+o.iskeyword:append "%"
+o.iskeyword:append "#"
 o.shortmess:append "c"
 o.shortmess:append 'A'
 o.shortmess:append 'I'
