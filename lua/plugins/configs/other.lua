@@ -1189,5 +1189,33 @@ M.spectre = function()
 
 end
 
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                              Dim Windows                             │
+--   │                 https://github.com/sunjon/Shade.nvim                 │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
+M.shade = function()
+
+    local present, shade = pcall(require, "shade")
+
+    if not present then
+        return
+    end
+
+    local options = {
+
+        overlay_opacity = 50,
+        opacity_step = 1,
+        keys = {
+            brightness_up    = '<C-Up>',
+            brightness_down  = '<C-Down>',
+            toggle           = '<Leader>s',
+        }
+    }
+
+    shade.setup(options)
+
+end
+
 ----------------------------------------------------------------------------
 return M

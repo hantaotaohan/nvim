@@ -653,6 +653,13 @@ local plugins = {
         end
     },
 
+    {
+        'sunjon/shade.nvim',
+        disable = false,
+        config = function()
+            require "plugins.configs.other".shade()
+        end
+    },
     ---------------------------------------------------------------------------
 }
 
