@@ -36,15 +36,15 @@ o.fileencoding = "utf-8"
 
 -- 光标设置
 o.whichwrap = ""
-o.scrolloff = 8
-o.sidescrolloff = 8
+o.scrolloff = 2
+o.sidescrolloff = 2
 o.virtualedit = 'block'
 
 -- 行号边栏设置
-o.number = true
+o.number = false
+o.relativenumber = true
 o.numberwidth = 3
 o.signcolumn = "yes"
-o.relativenumber = false
 
 -- 编辑区域设置
 o.list = false
@@ -89,8 +89,8 @@ o.showcmd = false
 o.showmatch = true
 
 -- 行为设置
-o.re = 2
-o.wrap = true
+o.regexpengine = 0
+o.wrap = false
 o.textwidth=79
 o.title = true
 o.mouse = 'a'
@@ -109,6 +109,11 @@ o.breakindent = true
 o.showbreak = '↳  '
 o.jumpoptions = 'view'         -- jumpoptions = "stack",
 o.conceallevel = 2             -- so that `` is visible in markdown files
+o.iskeyword:append "_"
+o.iskeyword:append "$"
+o.iskeyword:append "@"
+o.iskeyword:append "%"
+o.iskeyword:append "#"
 o.shortmess:append "c"
 o.shortmess:append 'A'
 o.shortmess:append 'I'
@@ -157,7 +162,7 @@ o.shadafile = vim.fn.stdpath("data") .. "/shada/main.shada"
 -- 设置超时时间
 o.timeout = true
 o.ttimeout = true
-o.timeoutlen = 300
+o.timeoutlen = 500
 o.ttimeoutlen = 0
 o.updatetime = 100
 o.updatecount = 0

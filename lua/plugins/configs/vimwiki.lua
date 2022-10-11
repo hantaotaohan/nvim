@@ -52,7 +52,8 @@ function M.setup()
         [".wiki"] = "markdown"
     }
 
-    vim.g.vimwiki_global_ext = 1
+    vim.g.vimwiki_list_ignore_newline = 0
+    vim.g.vimwiki_global_ext = 0
     vim.g.vimwiki_hl_headers = 1
     vim.g.vimwiki_hl_cb_checked = 2
     vim.g.vimwiki_folding = 'custom'                                  -- 启用折叠
@@ -62,7 +63,6 @@ function M.setup()
     vim.g.vimwiki_use_mouse = 0
     vim.g.vimwiki_conceallevel = 2                                    -- 隐藏标记
     vim.g.vimwiki_conceal_pre = 0                                     -- 隐藏内嵌头标记
-    vim.g.vimwiki_markdown_link_ext = 1
     vim.g.vimwiki_list_margin = 0                                     -- 列表左侧边距 
     vim.g.diary_header = "Diary"                                      -- 日记主文件标题
     vim.g.vimwiki_toc_header = "Contents"                             -- 主文件标题
@@ -73,6 +73,9 @@ function M.setup()
     vim.g.vimwiki_tags_header = 'Generierte Tags'
     vim.g.vimwiki_tags_header_level = 5
     vim.g.vimwiki_markdown_header_style = 2                           -- 生成标题后换行数量
+    -- vim.g.vimwiki_listsyms = '✗○◐●✓'
+    -- vim.g.vimwiki_bullet_types = {'•', '•', '→', "◉", "○", "✸", "✿" }
+    vim.g.vimwiki_cycle_bullets = 1
     vim.g.vimwiki_filetypes = { 'markdown' }
 
     vim.cmd('filetype plugin indent on')

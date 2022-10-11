@@ -5,11 +5,9 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-
 --   ╭──────────────────────────────────────────────────────────────────────╮
 --   │                               Quickfix                               │
 --   ╰──────────────────────────────────────────────────────────────────────╯
-
 
 augroup("QuickDisplay", {})
 
@@ -25,7 +23,7 @@ autocmd("FileType", {
 --   │                                Alpha                                 │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("Alpha", {})
+augroup("Alpha", { clear = true })
 
 autocmd("FileType", {
 	group = "Alpha",
@@ -38,7 +36,7 @@ autocmd("FileType", {
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
 
-augroup("Outline", {})
+augroup("Outline", { clear = true })
 
 autocmd("FileType", {
 	group = "Outline",
@@ -60,12 +58,23 @@ autocmd("BufEnter", {
 --   │                              Commenting                              │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("Comment", {})
+augroup("Comment", { clear = true })
 
 autocmd("FileType", {
 	group = "Comment",
-    command = "set formatoptions-=cro",
     pattern = "*",
+    callback = function()
+      vim.opt_local.formatoptions:remove("a")
+      vim.opt_local.formatoptions:remove("l")
+      vim.opt_local.formatoptions:remove("m")
+      vim.opt_local.formatoptions:remove("M")
+      vim.opt_local.formatoptions:remove("t")
+      vim.opt_local.formatoptions:remove("c")
+      vim.opt_local.formatoptions:remove("r")
+      vim.opt_local.formatoptions:remove("o")
+      vim.opt_local.wrap = false
+    end
+    -- command = "set formatoptions-=cro",
     -- command = "set fo-=c fo-=r fo-=o"
 })
 
@@ -73,30 +82,28 @@ autocmd("FileType", {
 --   │                               Markdown                               │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("Markdown", {})
+augroup("Markdown", { clear = true })
 
 autocmd("FileType", {
 	group = "Markdown",
-    pattern = "vimwiki.markdown",
+    pattern = "*.markdown",
     callback = function()
-      vim.opt_local.formatoptions:append("a")
       vim.opt_local.formatoptions:append("l")
       vim.opt_local.formatoptions:append("m")
       vim.opt_local.formatoptions:append("M")
+      vim.opt_local.wrap = true
     end
-    -- command = "if FileType != 'vimwiki.markdown' | set formatoptions-=cro nowrap | else | set formatoptions+=ltmM | set formatoptions+=mM | set wrap | endif",
-    -- command = "set fo-=c fo-=r fo-=o fo-=l fo+=t fo+=m fo+=M"
 })
 
 --   ╭──────────────────────────────────────────────────────────────────────╮
 --   │                              Nvim-Tree                               │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("NvimTree", {})
+-- augroup("NvimTree", { clear = true })
 
 autocmd("BufEnter", {
-	group = "NvimTree",
-    callback = function()
+	-- group = "NvimTree",
+   	callback = function()
         local layout = vim.api.nvim_call_function("winlayout", {})
         if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("quit") end
     end
@@ -106,7 +113,7 @@ autocmd("BufEnter", {
 --   │                               WSL Yank                               │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("WslYank", {})
+augroup("WslYank", { clear = true })
 
 autocmd("TextYankPost", {
 	group = "WslYank",
@@ -118,7 +125,7 @@ autocmd("TextYankPost", {
 --   │                            Yank highlight                            │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("YankHeight", {})
+augroup("YankHeight", { clear = true })
 
 autocmd("TextYankPost", {
 	group = "YankHeight",
@@ -131,7 +138,7 @@ autocmd("TextYankPost", {
 --   │                         Save Cursor Postion                          │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-augroup("AutoSaveFolds", {})
+augroup("AutoSaveFolds", { clear = true })
 
 autocmd("BufWinLeave,BufLeave,BufWritePost,BufHidden,QuitPre",{
 	group = "AutoSaveFolds",
@@ -155,3 +162,64 @@ autocmd("BufReadPost", {
         end
     end,
 })
+
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                               Terminal                               │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
+augroup("Terminal", { clear = true })
+
+autocmd("TermOpen",{
+	group = "Terminal",
+	pattern = "*",
+	command = "startinsert"
+})
+
+autocmd("TermOpen", {
+	group = "Terminal",
+	pattern = "*",
+	command = "set nonumber"
+})
+
+autocmd("BufEnter,BufWinEnter,WinEnter", {
+	group = "Terminal",
+	pattern = "term://*",
+	command = "startinsert"
+})
+
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                               AsyncRun                               │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
+augroup("Asyncrun", { clear = true })
+
+autocmd("BufLeave",{
+	group = "Asyncrun",
+	pattern = "*",
+	command = "let g:asyncrun_status='stopped'"
+})
+
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                               Vimwiki                                │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
+augroup("Vimwiki", { clear = true })
+
+autocmd({"BufRead"},{
+	group = "Vimwiki",
+	pattern = {"*/vimwiki/index.md", "*/vimwiki/diary/**.md"},
+	command = "AsyncRun -post=checktime -silent -cwd=<root> git reset --hard ; git pull"
+})
+
+autocmd("BufWritePost",{
+	group = "Vimwiki",
+	pattern = "*/vimwiki/**.md",
+    command = "AsyncRun -silent -cwd=<root> git add --all ; git commit -m '" .. vim.fn.strftime("%Y-%m-%d %H:%M:%S") .. "'"
+})
+
+autocmd("VimLeave",{
+    group = "Vimwiki",
+    pattern = "*",
+    command = "AsyncRun -cwd=~/vimwiki -mode=hide git push"
+})
+

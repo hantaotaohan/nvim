@@ -72,19 +72,29 @@ end
 -------------------------------------------------------------------------------
 
 M.toggle_number = function ()
-    if vim.opt.number._value == true then
+    if vim.api.nvim_win_get_option(0, "relativenumber") == true then
         vim.opt.number = false
+        vim.opt.rnu = false
     else
-        vim.opt.number = true
+        vim.opt.rnu = true
     end
 end
 
+M.toggle_renumber = function ()
+    if vim.api.nvim_win_get_option(0, "number") == true then
+        vim.opt.rnu = true
+        vim.opt.number = false
+    else
+        vim.opt.number = true
+        vim.opt.rnu = false
+    end
+end
 -------------------------------------------------------------------------------
 -- Toggle NumberColumn And Sigcolumn
 -------------------------------------------------------------------------------
 
 M.toggle_column = function ()
-    if vim.opt.signcolumn._value == "yes" then
+    if vim.api.nvim_win_get_option(0, "relativenumber") == 'yes' then
         vim.opt.signcolumn = "no"
     else
         vim.opt.signcolumn = "yes"

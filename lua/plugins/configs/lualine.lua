@@ -11,6 +11,37 @@ local colors = {
     red = '#E06c75',
 }
 
+local vim = vim
+local AsyncRunStatus = require('lualine.component'):extend()
+
+function AsyncRunStatus:init(options)
+    AsyncRunStatus.super.init(self, options)
+end
+
+function AsyncRunStatus:update_status()
+    local async_status = vim.g.asyncrun_status
+    local async_status_old = ""
+
+    if async_status == "running" then
+        async_status = "   "
+    elseif async_status == "success" then
+        async_status = "   "
+    elseif async_status == "failure" then
+        async_status = "  "
+    elseif async_status == "stopped" then
+        async_status = ""
+    end
+
+    if  (async_status ~= async_status_old) then
+        async_status_old = async_status
+    end
+
+
+    return async_status
+end
+
+---------------------------------------------------------------------------------
+
 local empty = require('lualine.component'):extend()
 
 function empty:draw(default_highlight)
@@ -128,6 +159,10 @@ local options = {
                 color = { fg = colors.red, bg = colors.black_1 }
             },
 
+            {
+                AsyncRunStatus,
+                color = { fg = colors.red, bg = colors.black_1 },
+            },
             -- "diagnostics"
         },
 
@@ -162,13 +197,14 @@ local options = {
                 -- sections = { "error", "warn" }, -- info hint
                 icons_enabled = true,
 
-                symbols = { error = "  ", warn = "  ", hint = "  ", info = "  " },
+                symbols = { error = "  ", warn = "   ", hint = "  ", info = "  " },
                 -- symbols = { error = " ", warn = "ﴞ ", info = " ", hint = "ﯧ " },
                 color = { fg = colors.black_2, bg = colors.black_2 },
                 colored = true, -- Displays diagnostics status in color if set to true.
                 update_in_insert = false, -- Update diagnostics in insert mode.
                 always_visible = false, -- Show diagnostics even if there are none.
             },
+            'progress'
         },
     },
 

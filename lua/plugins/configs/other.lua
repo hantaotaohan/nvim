@@ -5,27 +5,41 @@ local M = {}
 --   │              https://github.com/keaising/im-select.nvim              │
 --   ╰──────────────────────────────────────────────────────────────────────╯
 
-M.imselect = function()
+-- M.imselect = function()
+--
+--     local present, im_select = pcall(require, "im_select")
+--
+--     if not present then
+--         return
+--     end
+--
+--     local options = {
+--
+--         -- IM will be set to `default_im_select` in `normal` mode(`EnterVim` or `InsertLeave`)
+--         -- For Windows, default: "1003", aka: English US Keyboard
+--         -- You can use `im-select` in cli to get the IM name of you preferred
+--         default_im_select  = "1033",
+--
+--         -- Set to 1 if you don't want restore IM status when `InsertEnter`
+--         disable_auto_restore = 0,
+--
+--     }
+--
+--     im_select.setup(options)
+--
+-- end
 
-    local present, im_select = pcall(require, "im_select")
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                           Input IMG Toggle                           │
+--   │              https://github.com/keaising/im-select.nvim              │
+--   ╰──────────────────────────────────────────────────────────────────────╯
 
-    if not present then
-        return
-    end
+M.asyncrun = function()
 
-    local options = {
-
-        -- IM will be set to `default_im_select` in `normal` mode(`EnterVim` or `InsertLeave`)
-        -- For Windows, default: "1003", aka: English US Keyboard
-        -- You can use `im-select` in cli to get the IM name of you preferred
-        default_im_select  = "1033",
-
-        -- Set to 1 if you don't want restore IM status when `InsertEnter`
-        disable_auto_restore = 0,
-
-    }
-
-    im_select.setup(options)
+    vim.g.asyncrun_open = 6
+    -- vim.g.asyncrun_status = "stopped"
+    vim.g.asyncrun_status = ""
+    vim.g.asyncrun_rootmarks = { "pom.xml", ".git", ".svn", ".root", ".project", ".hg" }
 
 end
 
@@ -36,8 +50,8 @@ end
 
 M.pangu = function()
 
-    vim.cmd [[ let g:pangu_rule_date = 1 ]]
-    vim.cmd [[ autocmd BufWritePre *.md if &ft == 'vimwiki.markdown' | PanguAll]]
+    vim.g.pangu_rule_date = 1
+    -- vim.cmd [[ autocmd BufLeave *.md if &ft == 'vimwiki.markdown' | PanguAll]]
 
 end
 
@@ -1172,6 +1186,34 @@ M.spectre = function()
     }
 
     spectre.setup(options)
+
+end
+
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                              Dim Windows                             │
+--   │                 https://github.com/sunjon/Shade.nvim                 │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
+M.shade = function()
+
+    local present, shade = pcall(require, "shade")
+
+    if not present then
+        return
+    end
+
+    local options = {
+
+        overlay_opacity = 50,
+        opacity_step = 1,
+        keys = {
+            brightness_up    = '<C-Up>',
+            brightness_down  = '<C-Down>',
+            toggle           = '<Leader>s',
+        }
+    }
+
+    shade.setup(options)
 
 end
 

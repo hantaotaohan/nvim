@@ -101,6 +101,11 @@ M.devicons = {
         name = "lua",
     },
 
+    md = {
+        icon = " ",
+        name = "md",
+    },
+
     mp3 = {
         icon = " ",
         name = "mp3",

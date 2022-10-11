@@ -284,7 +284,7 @@ local plugins = {
         "folke/which-key.nvim",
         disable = false,
         module = "which-key",
-        keys = "<localleader>",
+        keys = "<leader>",
         config = function()
             require "plugins.configs.whichkey"
         end,
@@ -552,7 +552,7 @@ local plugins = {
 
     {
         'karb94/neoscroll.nvim',
-        disable = false,
+        disable = true,
         event = "BufReadPost",
         config = function()
             require "plugins.configs.other".neoscroll()
@@ -599,28 +599,46 @@ local plugins = {
         end
     },
 
+    ---------------------------------------------------------------------------
+
     {
         'ElPiloto/telescope-vimwiki.nvim',
         disable = false,
-        requires = {
-            'nvim-telescope/telescope.nvim',
-            'vimwiki/vimwiki'
-        },
     },
 
-    { 'michal-h21/vimwiki-sync' },
+    ---------------------------------------------------------------------------
 
+    -- {
+    --     'hantaotaohan/vimwiki-sync',
+    --     disable = false,
+    -- },
+
+    ---------------------------------------------------------------------------
+
+    {
+        'skywind3000/asyncrun.vim',
+        disable = false,
+        config = function()
+            require "plugins.configs.other".asyncrun()
+        end
+
+    },
+
+    {
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    },
     ---------------------------------------------------------------------------
     -- 输入法切换
     ---------------------------------------------------------------------------
 
-    {
-        'meijieru/imtoggle.nvim',
-        disable = false,
-        config = function()
-            require("imtoggle").setup()
-        end
-    },
+    -- {
+    --     'meijieru/imtoggle.nvim',
+    --     disable = false,
+    --     config = function()
+    --         require("imtoggle").setup()
+    --     end
+    -- },
 
     ---------------------------------------------------------------------------
     -- 中文格式化
@@ -629,12 +647,19 @@ local plugins = {
     {
         'hotoo/pangu.vim',
         disable = false,
-        -- ft = {'vimwiki','markdown','vimwiki.markdown'},
+        ft = {'vimwiki','markdown','vimwiki.markdown'},
         config = function()
             require "plugins.configs.other".pangu()
         end
     },
 
+    {
+        'sunjon/shade.nvim',
+        disable = false,
+        config = function()
+            require "plugins.configs.other".shade()
+        end
+    },
     ---------------------------------------------------------------------------
 }
 
