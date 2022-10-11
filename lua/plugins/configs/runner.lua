@@ -41,7 +41,8 @@ local options = {
             name = "Django",
             description = "Project With Django",
             file_name = "manage.py",
-            command = "cd $dir && python3 manage.py runserver"
+            command = "cd $dir && python3 manage.py makemigrations --settings-Database.settings-dev && python manage.py migrate --settings=Database.settings-dev && python manage.py runserver --settings=Database.settings-dev"
+
         },
     },
 
