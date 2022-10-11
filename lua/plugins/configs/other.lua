@@ -51,7 +51,7 @@ end
 M.pangu = function()
 
     vim.g.pangu_rule_date = 1
-    vim.cmd [[ autocmd BufLeave *.md if &ft == 'vimwiki.markdown' | PanguAll]]
+    -- vim.cmd [[ autocmd BufLeave *.md if &ft == 'vimwiki.markdown' | PanguAll]]
 
 end
 

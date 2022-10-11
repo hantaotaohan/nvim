@@ -552,7 +552,7 @@ local plugins = {
 
     {
         'karb94/neoscroll.nvim',
-        disable = false,
+        disable = true,
         event = "BufReadPost",
         config = function()
             require "plugins.configs.other".neoscroll()

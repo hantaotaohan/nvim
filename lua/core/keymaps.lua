@@ -53,8 +53,16 @@ keymap("v", "q", "<Nop>", opts)
 keymap("n", "Q", "<Nop>", opts)
 keymap("v", "Q", "<Nop>", opts)
 
-keymap("n", "<C-f>", "<nop>", opts)
-keymap("n", "<C-b>", "<nop>", opts)
+--   ╭──────────────────────────────────────────────────────────────────────╮
+--   │                           Display Sceener                            │
+--   ╰──────────────────────────────────────────────────────────────────────╯
+
+keymap("n", "<C-f>", "<C-f>zz", opts)
+keymap("n", "<C-b>", "<C-b>zz", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "{", "{zz", opts)
+keymap("n", "}", "}zz", opts)
 
 --   ╭──────────────────────────────────────────────────────────────────────╮
 --   │                          Mapping for paste                           │
