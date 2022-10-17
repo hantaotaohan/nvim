@@ -9,12 +9,12 @@ function M.setup()
             path = "~/vimwiki/",                                      -- wiki 启动目录
             path_html = "~/vimwiki/html/",                            -- 生成 html 的目录
             name = 'VimWiki',                                         -- wiki 名称
-            index = 'index',                                          -- wiki 入口文件名
+            index = 'pages/index',                                          -- wiki 入口文件名
             syntax = "markdown",                                      -- 渲染语法
             links_space_char = "_",                                   -- 创建链接是替代空格的字符串
             ext = ".md",                                              -- 生成文件的后缀名
-            diary_rel_path = 'diary/',                                 -- 日记目录
-            diary_index = 'diary',                                    -- 日记入口文件名
+            diary_rel_path = 'journals/',                                 -- 日记目录
+            diary_index = 'journals',                                    -- 日记入口文件名
 
             template_path = '$HOME/vimwiki/templates/',               -- wiki 生成 html 模板路径
             template_default = 'default',                             -- wiki 生成 html 模板文件

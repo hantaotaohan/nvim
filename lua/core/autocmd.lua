@@ -207,7 +207,7 @@ augroup("Vimwiki", { clear = true })
 
 autocmd({"BufRead"},{
 	group = "Vimwiki",
-	pattern = {"*/vimwiki/index.md", "*/vimwiki/diary/**.md"},
+	pattern = {"*/vimwiki/pages/index.md", "*/vimwiki/journals/**.md"},
 	command = "AsyncRun -post=checktime -silent -cwd=<root> git reset --hard ; git pull"
 })
 
